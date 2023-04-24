@@ -1,0 +1,48 @@
+.footer {
+  padding: 50px 0 20px;
+  //background-color: #F6F7FB;
+  //border-top: 1px solid #ddd;
+  //box-shadow: 0 0 30px -10px rgb(0 0 0 / 15%);
+
+  &_pricing {
+    margin-top: 0;
+  }
+
+  &-brand {
+    margin-bottom: 20px;
+
+    img {
+      height: 30px;
+      pointer-events: none;
+    }
+  }
+
+  &-socials {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+
+    a {
+      color: #2F2B43;
+    }
+  }
+
+  &-title {
+    font-size: 17px;
+    opacity: .8;
+    margin-bottom: 20px;
+  }
+
+  &-list {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 10px;
+
+      a {
+        color: #2F2B43;
+      }
+    }
+  }
+}

@@ -1,0 +1,190 @@
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
+.btn {
+  font: 500 16px/24px 'Poppins', 'Inter', sans-serif;
+  box-shadow: rgba(27, 36, 44, 0.12) 0 1px 2px;
+  padding: 8px 15px;
+  border-radius: 6px;
+  transition: .15s ease;
+  transition-property: color, background-color, border-color, box-shadow;
+
+  &:not(.btn-primary):not(.btn-danger):not(.btn-success):not(.btn-info):not(.btn-danger):not(.btn-hero) {
+    --bs-btn-bg: #fff;
+    --bs-btn-color: #000;
+    --bs-btn-border-color: rgba(22, 48, 75, 0.2);
+
+    --bs-btn-hover-bg: #fefefe;
+    --bs-btn-hover-color: #3a424a;
+    --bs-btn-hover-border-color: rgb(158, 168, 179);
+
+    --bs-btn-active-bg: #F6F6F8;
+    --bs-btn-active-color: #272e35;
+    --bs-btn-active-border-color: rgb(126, 139, 153);
+  }
+
+  &-primary {
+    --bs-btn-bg: #3062d4;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: transparent;
+
+    --bs-btn-hover-bg: #1e50c0;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: transparent;
+
+    --bs-btn-active-bg: #113997;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: transparent;
+  }
+
+  &-light {
+    border-color: transparent;
+    --bs-light: #eae9f1;
+  }
+
+  &-outline-light {
+    border-color: #ddd;
+    color: #fff;
+  }
+
+  &-github {
+    background: #25292D !important;
+    color: #fff !important;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+
+    .bi {
+      font-size: 22px;
+    }
+
+    &:focus {
+      box-shadow: rgb(255, 255, 255) 0 0 0 1px, rgb(38 41 45) 0 0 0 3px !important;
+    }
+  }
+
+  &-hero {
+    border-radius: 12px;
+
+    --bs-btn-bg: #2F2B43;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: transparent;
+
+    --bs-btn-hover-bg: #3F395A;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-border-color: transparent;
+
+    --bs-btn-active-bg: #2F2B43;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-border-color: transparent;
+
+    box-shadow: 0 1px 3px rgba(47, 43, 67, 0.1), inset 0px -1px 0px rgba(47, 43, 67, 0.1);
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(132, 66, 211, 0.48) !important;
+    }
+  }
+
+  &:focus {
+    box-shadow: rgb(255, 255, 255) 0 0 0 1px, rgb(103, 146, 244) 0 0 0 3px;
+    outline: none;
+  }
+}
+
+.btn-tab-group {
+  width: 250px;
+  border-radius: 12px;
+  background-color: rgb(243, 243, 247);
+  padding: 4px;
+  display: flex;
+  position: relative;
+  margin: 0 auto;
+
+  &:before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    background: #fff;
+    width: calc(50% - 8px);
+    height: calc(100% - 8px);
+    border-radius: 10px;
+    box-shadow: rgba(6, 5, 50, 0.19) 0 6px 20px;
+    transform: translateX(0);
+    transition: transform .1s ease;
+    will-change: transform;
+  }
+
+  &.active {
+    &:before {
+      transform: translateX(calc(100% + 8px));
+    }
+  }
+
+  &[data-group="5"] {
+    width: auto;
+    padding: 0;
+
+    &:before {
+      width: calc(20% - 8px);
+    }
+
+    @for $i from 1 through 5 {
+      &[data-group-item="#{$i}"] {
+        &:before {
+          transform: translateX($i * 105.5%);
+        }
+      }
+    }
+  }
+
+  &__btn {
+    font: 600 15px/1 "Poppins", sans-serif;
+    border-radius: 15px;
+    width: 50%;
+    padding: 13px 10px;
+    background: transparent;
+    z-index: 1;
+  }
+
+  &_sm {
+    .btn-tab-group__btn {
+      padding: 8px 10px;
+    }
+  }
+
+  .nav-item {
+    width: 20%;
+    color: #000;
+    margin-bottom: 0;
+
+    .btn-tab-group__btn {
+      width: 100%;
+      position: relative;
+      padding: 20px 10px;
+    }
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.accordion.accordion-icon .accordion-header .accordion-button,
+.accordion-item {
+  border-radius: 20px !important;
+}
+
+.accordion-shadow .accordion-item {
+  box-shadow: 0px 4px 8px 5px rgba(0, 0, 0, 0.06);
+}

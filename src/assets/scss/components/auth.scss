@@ -1,0 +1,16 @@
+.auth {
+  &-logo {
+    text-align: center;
+    margin: 10px 0 40px;
+
+    img {
+      height: 40px;
+      pointer-events: none;
+    }
+  }
+
+  .form-control {
+    box-shadow: 0 1px 3px rgba(47, 43, 67, 0.1), inset 0px -1px 0px rgba(47, 43, 67, 0.1);
+    border-radius: 12px;
+  }
+}

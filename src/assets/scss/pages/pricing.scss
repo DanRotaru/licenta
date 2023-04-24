@@ -1,0 +1,66 @@
+.pricing {
+  padding: 150px 0 100px;
+  text-align: center;
+  background-image: url(../bg2.svg);
+  background-position: 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &-wrapper {
+    background: linear-gradient(108.44deg, rgba(233, 220, 255, 0.57) 4.38%, rgb(255, 255, 255) 57.09%, rgb(255, 238, 219) 85.67%, rgb(255, 255, 255) 94.06%)
+  }
+
+  &-card {
+    background: #fff;
+    align-self: stretch;
+    border: 1px solid rgba(0,0,0,.25);
+    padding: 20px 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 15px 5px rgba(12,24,53,.09), 0 0 4px 2px rgba(12,24,53,.05);
+
+    &__pre-title {
+      color: grey;
+      font-weight: 400;
+      margin-bottom: 0;
+      line-height: 22px;
+      font-size: 20px;
+    }
+
+    &__title {
+      display: flex;
+      font-size: 50px;
+      text-align: center;
+      position: relative;
+      margin: 50px 0 7px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+
+      &:after {
+        content: ' /mo';
+        margin-left: 4px;
+        font-size: 20px;
+        font-weight: 400;
+        align-self: flex-start;
+        color: #9b9b9b;
+      }
+    }
+
+    &__subtitle {
+      margin-bottom: 50px;
+    }
+
+    &__btn {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  &-list {
+    margin: 60px 0;
+    text-align: left;
+
+    @include below($md-max) {
+      row-gap: 30px;
+    }
+  }
+}

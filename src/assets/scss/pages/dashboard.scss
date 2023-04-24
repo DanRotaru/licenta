@@ -1,0 +1,163 @@
+$asideWidth: 270px;
+
+body:has(.dashboard) {
+  background-color: #FBFCFD;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+
+  aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    border-right: 1px solid #E9ECEF;
+    width: $asideWidth;
+    height: 100%;
+    font: 500 16px "Poppins", "Inter", sans-serif;
+    box-shadow: 0 2px 2px -1px rgba(27, 36, 44, 0.04), 0px 2px 8px -1px rgba(27, 36, 44, 0.08);
+
+    .nav {
+      display: block;
+      height: 100%;
+
+      &-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 71px;
+        padding: 20px 15px 20px 24px;
+        border-bottom: 1px solid #E9ECEF;
+
+        &__logo {
+          height: 30px;
+        }
+
+        &__close {
+          cursor: pointer;
+          opacity: .7;
+          transition: .2s ease opacity;
+          will-change: opacity;
+
+          &:hover {
+            opacity: 1;
+          }
+
+          svg {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+
+      &-menu {
+        display: flex;
+        flex-direction: column;
+        height: calc(100% - 71px);
+        padding: 10px;
+
+        &__item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 4px;
+          padding: 10px 15px;
+          border-radius: 10px;
+          color: #4A545E;
+          transition: .2s ease background-color;
+
+          &:hover {
+            background-color: #E9ECEF;
+          }
+
+          &.router-link-active {
+            background-color: #E6EEFF;
+            color: #1E50C0;
+
+            svg {
+              stroke-width: 2;
+            }
+          }
+
+          svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            stroke-width: 1.5;
+            transition: .2s ease stroke-width;
+          }
+        }
+      }
+
+      .btn-tab-group {
+        margin-top: 8px;
+      }
+
+      .user {
+        position: relative;
+        margin: 20px 5px 10px;
+
+        &:hover {
+          svg {
+            opacity: 1;
+          }
+        }
+
+        &__email {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          width: 185px;
+          opacity: .7;
+          font-size: 12px;
+          margin: 0;
+          font-weight: 400;
+          user-select: none;
+        }
+
+        .avatar {
+          flex-shrink: 0;
+        }
+
+        svg {
+          position: absolute;
+          right: 0;
+          top: 3px;
+          opacity: .5;
+          width: 20px;
+          height: 20px;
+          pointer-events: none;
+          transition: .2s ease opacity;
+        }
+      }
+    }
+  }
+
+  main {
+    width: calc(100% - $asideWidth);
+    margin-left: $asideWidth;
+    margin-top: 71px;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #E9ECEF;
+    width: 100%;
+    height: 71px;
+    font: 500 16px "Poppins", "Inter", sans-serif;
+    box-shadow: 0 2px 2px 0 rgba(27, 36, 44, 0.04);
+
+    .header-wrapper {
+      padding: 0 20px;
+    }
+  }
+
+  .wrapper {
+    padding: 20px;
+  }
+}

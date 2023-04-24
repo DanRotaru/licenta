@@ -1,0 +1,41 @@
+.card-project {
+  border: 1px solid #ddd;
+  transition: .2s ease box-shadow;
+  //box-shadow: rgba(35, 68, 101, 0.1) 0px 4px 4px, rgba(35, 68, 101, 0.1) 0px 4px 16px !important;
+  //box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.3) !important;
+
+
+  &:hover {
+    box-shadow: 0 0 40px 15px rgba(29, 58, 83, 0.15) !important;
+  }
+}
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.user-avatar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2e2b41;
+  font-weight: 500;
+
+  &:hover {
+    color: #3f3b5e;
+  }
+
+  img {
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    object-fit: cover;
+  }
+
+  &__price {
+    margin-left: auto;
+    font-size: 24px;
+    font-weight: 500;
+  }
+}

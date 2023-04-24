@@ -1,0 +1,9 @@
+.project {
+  &-create {
+    padding: 150px 0;
+  }
+}
+
+body:has(.project-create) {
+  background-color: #F8FAFB;
+}

@@ -1,0 +1,59 @@
+/*============================================
+Bootstrap Configuration
+==============================================*/
+
+//@import "../node_modules/bootstrap/scss/_functions.scss";
+//@import "../node_modules/bootstrap/scss/_variables.scss";
+//@import "../node_modules/bootstrap/scss/_maps.scss";
+//@import "../node_modules/bootstrap/scss/_utilities.scss";
+//@import "../node_modules/bootstrap/scss/_mixins.scss";
+//@import "../node_modules/bootstrap/scss/utilities/_api.scss";
+//
+//// Grid
+//@import "../node_modules/bootstrap/scss/_containers.scss";
+//@import "../node_modules/bootstrap/scss/_grid.scss";
+//
+//// Dropdown
+//@import "../node_modules/bootstrap/scss/_dropdown.scss";
+//
+//// Nav
+//@import "../node_modules/bootstrap/scss/_nav.scss";
+//@import "../node_modules/bootstrap/scss/_navbar.scss";
+//@import "../node_modules/bootstrap/scss/_offcanvas.scss";
+//@import "../node_modules/bootstrap/scss/_close.scss";
+//
+//// Modal
+//@import "../node_modules/bootstrap/scss/_modal.scss";
+//@import "../node_modules/bootstrap/scss/_transitions.scss";
+
+// Bootstrap Icons
+//@import "../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
+
+@import "bootstrap-icons";
+@import "font-awesome";
+
+@import "choices";
+
+@import "bootstrap";
+@import "bootstrap-customize";
+@import "stepper";
+
+.opacity-2 {
+  opacity: 0.2 !important;
+}
+.fill-danger {
+  fill: #d6293e !important;
+}
+
+.avatar-sm {
+  height: 2.5rem;
+  width: 2.5rem;
+}
+
+.gradient-1 {
+  background: radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%);
+}
+
+.gradient-2 {
+  background: radial-gradient(rgb(231, 219, 219) 0%, rgb(188, 176, 243) 0%, rgb(236, 236, 236) 100%);
+}

@@ -1,0 +1,95 @@
+.hero {
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'%3E%3Cpath d='M0 .5h31.5V32'/%3E%3C/svg%3E");
+  background-image: url('../src/assets/img/bg1.svg');
+  //background-position: bottom 1px center;
+  padding: 200px 10px 100px;
+  text-align: center;
+
+  &:before {
+    content: '';
+    background: radial-gradient(100% 99.99999999999997% at 50.000008168790735% -3.977765894447316e-7%,rgba(255,255,255,0) 5.590588226914406%,rgba(254,255,245,.5) 29.16666567325592%,rgba(254,230,255,1) 64.51528072357178%,rgba(255,255,255,1) 100%);
+
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    //opacity: .1;
+    z-index: -1;
+  }
+
+  &-beta {
+    font: 500 14px 'Space Grotesk', sans-serif;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: #fff;
+    border: 1.2px solid #cacaca;
+    width: fit-content;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 0 30px -10px rgba(0, 0, 0, 0.3);
+    padding: 5px;
+    
+    &__btn {
+      background-color: #f0f0f0;
+      padding: 4px 10px;
+      border-radius: 15px;
+      border: 1px solid #ddd;
+    }
+    
+    &__next {
+      display: flex;
+      align-items: center;
+
+      &:after {
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M13.704 4.284a1 1 0 1 0-1.403 1.424L17.67 11H4a1 1 0 1 0 0 2h13.665L12.3 18.285a1 1 0 0 0 1.403 1.424l6.925-6.822a1.25 1.25 0 0 0 0-1.78l-6.925-6.823Z' fill='currentColor' fill-opacity='1'%3E%3C/path%3E%3C/svg%3E");
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        margin: 0 5px;
+      }
+    }
+    
+    a {
+      color: #0f2137;
+    }
+  }
+
+  &__subtitle {
+    padding: 6px 15px;
+    border-radius: 30px;
+    width: fit-content;
+    margin: 0 auto;
+    color: #548a72;
+    background: #D2F8E7;
+    font-size: 17px;
+  }
+
+  &__title {
+    color: #0f2137;
+    max-width: 880px;
+    margin: 20px auto 40px;
+    text-align: center;
+  }
+  
+  &__text {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #404d5c;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  &-get-started {
+    margin: 50px 0;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    .btn {
+      padding: 12px 23px;
+    }
+  }
+}

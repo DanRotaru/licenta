@@ -1,0 +1,108 @@
+.modal {
+  --bs-modal-width: 620px;
+  --bs-modal-border-radius: 15px;
+  background: rgba(52, 54, 66, 0.8);
+
+  &.fade & {
+    &-dialog {
+      top: 20px;
+      transform: translate(0, 20px) scale(0.9);
+    }
+  }
+
+  &.show .modal-dialog {
+    transform: translateY(0px) !important;
+  }
+
+  &-dialog {
+    //margin: 60px auto 0;
+    transform-origin: center;
+    will-change: transform, top;
+  }
+
+  &-title {
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+
+  &-subtitle {
+    margin-bottom: 20px;
+    font-size: 14px;
+    opacity: .6;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  &-heading {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .btn-close {
+    box-shadow: none;
+    position: absolute;
+    right: -30px;
+    top: 0;
+    background: unset;
+    opacity: .9;
+    color: #fff;
+
+    &:before {
+      content: "\f659";
+      display: inline-block;
+      font-family: "bootstrap-icons", sans-serif;
+      font-style: normal;
+      font-weight: normal !important;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      vertical-align: -0.125em;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 20px;
+    }
+  }
+
+  &_auth {
+    --bs-modal-width: 900px;
+
+    .modal-body {
+      padding: 10px;
+      display: flex;
+      gap: 20px;
+
+      &__first {
+        padding: 20px;
+        width: 50%;
+      }
+
+      &__second {
+        width: 50%;
+
+        img {
+          border-radius: 10px;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .content {
+        margin-top: 20px;
+
+        .btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.modal-open {
+  .header {
+    left: calc(50% - 8.5px)
+  }
+}
+
+.modal:has(.modal-content-register) {
+  --bs-modal-width: 800px;
+}

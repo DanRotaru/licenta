@@ -1,0 +1,30 @@
+h1, h2, h3, h4, h5 {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.f-inter {
+  font-family: 'Inter', sans-serif;
+}
+
+p {
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 70px;
+  font-weight: 700;
+}
+
+.block {
+  &-subtitle {
+    color: #2c6fee;
+    font-size: 20px;
+  }
+
+  &-title {
+    margin-bottom: 30px;
+    color: #0f2137;
+  }
+}
