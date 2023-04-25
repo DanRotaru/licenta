@@ -15,14 +15,14 @@
           <router-link to="/faq" class="navbar-nav__link">FAQ</router-link>
         </div>
 
-        <div class="navbar-nav navbar-nav_last" v-if="!isAuthenticated">
+        <div class="navbar-nav navbar-nav_last" v-if="!store.getters.isAuthenticated">
           <a @click="modalContent = 'login'" class="navbar-nav__link" data-bs-toggle="modal"
              data-bs-target="#authenticationModal">Log in</a>
           <a @click="modalContent = 'register'" class="btn btn-hero" data-bs-toggle="modal"
              data-bs-target="#authenticationModal">Start for free</a>
         </div>
 
-        <div class="d-flex align-items-center gap-3 ms-1 ms-lg-0" v-if="isAuthenticated && userInfo.avatar">
+        <div class="d-flex align-items-center gap-3 ms-1 ms-lg-0" v-if="store.getters.isAuthenticated && store.getters.userInfo.avatar">
 
           <div>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
@@ -32,7 +32,7 @@
 
           <div class="dropdown">
             <a class="avatar avatar-sm p-0" href="#" id="profileDropdown" role="button" data-bs-auto-close="outside" data-bs-display="static" data-bs-toggle="dropdown" aria-expanded="false">
-              <img class="avatar-img rounded-circle" :src="userInfo.avatar" alt="avatar">
+              <img class="avatar-img rounded-circle" :src="store.getters.userInfo.avatar" alt="avatar">
             </a>
             <ul class="dropdown-menu dropdown-animation dropdown-menu-end shadow pt-3" aria-labelledby="profileDropdown">
               <!-- Profile info -->
@@ -40,11 +40,11 @@
                 <div class="d-flex align-items-center">
                   <!-- Avatar -->
                   <div class="avatar me-3">
-                    <img class="avatar-img rounded-circle shadow" :src="userInfo.avatar" alt="avatar">
+                    <img class="avatar-img rounded-circle shadow" :src="store.getters.userInfo.avatar" alt="avatar">
                   </div>
                   <div>
-                    <a class="h6">{{ userInfo.name }}</a>
-                    <p class="small m-0">{{ userInfo.email }}</p>
+                    <a class="h6">{{ store.getters.userInfo.name }}</a>
+                    <p class="small m-0">{{ store.getters.userInfo.email }}</p>
                   </div>
                 </div>
               </li>
@@ -95,14 +95,7 @@ import {onMounted, ref, watch} from "vue";
 import store from '@/store'
 import Auth from "@/components/Auth.vue";
 
-const isAuthenticated = ref(store.getters.isAuthenticated);
 const modalContent = ref('login');
-
-const userInfo = ref({});
-
-watch(() => store.getters.isAuthenticated, () => isAuthenticated.value = store.getters.isAuthenticated);
-watch(() => store.getters.userInfo, () => userInfo.value = store.getters.userInfo);
-
 const headerFixed = ref(false);
 
 function logout() {

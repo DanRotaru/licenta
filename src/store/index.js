@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import axios from "axios";
+import router from "@/router";
 
 const store = createStore({
   state: {
@@ -31,6 +32,37 @@ const store = createStore({
     },
     setUserInfo(state, data) {
       state.userInfo = data;
+    },
+
+    login(state) {
+      const existCookies = document.cookie.indexOf("Codeazone=") > -1;
+
+      if (!existCookies) {
+        store.commit('authenticate', false);
+        return;
+      }
+
+      const api = axios.create({
+        baseURL: "http://localhost:3000/api",
+        withCredentials: true
+      });
+
+      api.get('/user/check/')
+        .then(response => {
+          if (response.data.success === 1) {
+            state.isAuthenticated = true;
+            state.userInfo = response.data.info;
+            return true;
+          }
+        })
+        .catch(error => {
+          state.isAuthenticated = false;
+          if (error.response.data.error === "Unauthorized") {
+            router.push('/');
+          }
+
+          return false;
+        });
     }
     // Your mutations
   },

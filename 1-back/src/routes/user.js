@@ -12,13 +12,13 @@ const securePasswords = false;
 
 router.get('/check', async (req, res) => {
   if (!req.session.auth) {
-    return res.json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   const user = await User.findById({ _id: req.session.auth }).limit(1);
 
   if (!user) {
-    return res.json({ error: 'Unauthorized' });
+    return res.status(401).json({ error: 'Unauthorized' });
   }
 
   return res.json({
@@ -125,22 +125,28 @@ router.get('/auth/github/callback', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-  if (!req.body.email || !req.body.password) {
-    return res.json({error: 'Email and password are required!'});
+  const { first_name, last_name, email, role, password } = req.body;
+
+  const noRequiredData = (!first_name || !last_name || !email || !role || !password);
+
+  if (noRequiredData) {
+    return res.status(400).json({error: 'All fields are required!'});
     // return res.status(400).json({ error: 'email and password are required' });
   }
 
-  const userExistenceCheck = await User.findOne({email: req.body.email}, {userId: 1});
+  const userExistenceCheck = await User.findOne({email: email}, {userId: 1});
   if (userExistenceCheck) {
     return res.json({error: 'Email already taken!'});
   }
 
-  const hashedPassword = !securePasswords ? req.body.password : await passwordHash(req.body.password, 10);
+  // const hashedPassword = !securePasswords ? password : await passwordHash(password, 10);
 
   const user = await User.create({
-    email: req.body.email,
-    password: hashedPassword,
-    regType: 0,
+    email,
+    password,
+    first_name,
+    last_name,
+    regType: role,
   });
 
   req.session.auth = user._id.toString();

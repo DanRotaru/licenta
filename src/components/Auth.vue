@@ -58,7 +58,7 @@
                   <div class="invalid-feedback" v-if="validations.auth.password">{{ validations.auth.password }}</div>
                 </div>
 
-                <button class="btn btn-primary">Sign in</button>
+                <button class="btn btn-hero">Sign in</button>
               </form>
             </div>
 
@@ -153,7 +153,7 @@
                   </div>
                 </div>
 
-                <button class="btn btn-primary">Sign up</button>
+                <button class="btn btn-hero">Sign up</button>
               </form>
             </div>
 
@@ -176,6 +176,7 @@
 import {onMounted, ref, toRefs, watch} from "vue";
 import store from '@/store'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 import {useRouter} from 'vue-router';
 
 const router = useRouter();
@@ -229,9 +230,14 @@ const api = axios.create({
   withCredentials: true
 });
 
-
-
 function authenticate(endpoint) {
+
+  Swal.fire(
+    'The Internet?',
+    'That thing is still around?',
+    'question'
+  );
+
   let data = {},
     url = '';
 

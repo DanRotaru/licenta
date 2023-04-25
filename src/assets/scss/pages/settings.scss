@@ -1,5 +1,26 @@
 .settings {
-  padding-top: 120px;
+  .aside,
+  header {
+    box-shadow: none !important;
+  }
 
+  .wrapper {
+    padding: 0 !important;
+  }
 
+  &-aside {
+    width: 200px;
+
+    .nav-menu {
+      &__item {
+        color: #000 !important;
+        font-weight: 500;
+      }
+    }
+  }
+
+}
+
+body:has(.dashboard.settings) {
+  background-color: #fff;
 }

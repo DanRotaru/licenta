@@ -1,5 +1,5 @@
 <template>
-  <aside>
+  <aside class="aside">
     <nav class="nav">
       <div class="nav-head">
         <router-link to="/">
@@ -85,6 +85,9 @@
 </template>
 
 <script setup>
+import store from '@/store'
+import {watch} from "vue";
+
 const menu = [
   {link: '/dashboard', icon: 'dashboard', text: 'Dashboard'},
   {link: '/dashboard/projects', icon: 'projects', text: 'Projects'},
