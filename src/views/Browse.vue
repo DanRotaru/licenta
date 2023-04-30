@@ -70,7 +70,7 @@
               project-url="project/1"
               profile-url="user/DanRotaru"
               :title="`Webify - professional-looking websites without any coding skills`"
-              image="../img/webify.png"
+              image="/img/webify.png"
               price="10"
               author="DanRotaru"
               author-image="https://avatars.githubusercontent.com/u/7759507"

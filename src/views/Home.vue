@@ -290,7 +290,7 @@
                 </svg>
               </figure>
 
-              <div class="p-3 bg-primary d-inline-block rounded-4 shadow-lg text-center" style="background:url(../img/pattern.png) no-repeat center center; background-size:cover;">
+              <div class="p-3 bg-primary d-inline-block rounded-4 shadow-lg text-center" style="background:url(/img/pattern.png) no-repeat center center; background-size:cover;">
                 <!-- Info -->
                 <h5 class="text-white mb-0">4.5/5.0</h5>
                 <!-- Rating -->

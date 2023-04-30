@@ -199,7 +199,7 @@
                   <div class="col-12">
                     <div class="text-center justify-content-center align-items-center p-4 p-sm-5 border border-2 border-dashed position-relative rounded-3">
                       <!-- Image -->
-                      <img src="assets/images/element/gallery.svg" class="h-50px" alt="">
+                      <img src="" class="h-50px" alt="">
                       <div>
                         <h6 class="my-2">Upload course image here, or<a href="#!" class="text-primary"> Browse</a></h6>
                         <label style="cursor:pointer;">
@@ -251,7 +251,7 @@
                     <h5 class="mt-4">Video preview</h5>
                     <div class="position-relative">
                       <!-- Image -->
-                      <img src="assets/images/about/04.jpg" class="rounded-4" alt="">
+                      <img src="" class="rounded-4" alt="">
                       <div class="position-absolute top-50 start-50 translate-middle">
                         <!-- Video link -->
                         <a href="https://www.youtube.com/embed/tXHviS-4ygo" class="btn btn-lg text-danger btn-round btn-white-shadow mb-0" data-glightbox="" data-gallery="video-tour">
