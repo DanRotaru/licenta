@@ -3,7 +3,7 @@
     <Navigation/>
 
     <main>
-      <Header/>
+      <Header page="Projects"/>
 
       <div class="wrapper">
         <section class="section-browse" style="
@@ -26,7 +26,7 @@
         <section class="py-5">
           <div class="row">
             <!-- Main content START -->
-            <div class="col-lg-8 col-xl-9">
+            <div class="col-lg-8">
 
               <!-- Search option START -->
               <div class="row mb-4 align-items-center">
@@ -74,10 +74,11 @@
               <div class="row g-4">
                 <Card
                     v-for="n in 9"
+                    :col6="true"
                     project-url="project/1"
                     profile-url="user/DanRotaru"
                     :title="`Webify - professional-looking websites without any coding skills`"
-                    image="../src/assets/img/webify.png"
+                    image="../img/webify.png"
                     price="10"
                     author="DanRotaru"
                     author-image="https://avatars.githubusercontent.com/u/7759507"
@@ -96,7 +97,7 @@
             <!-- Main content END -->
 
             <!-- Right sidebar START -->
-            <div class="col-lg-4 col-xl-3">
+            <div class="col-lg-4">
               <!-- Responsive offcanvas body START -->
               <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="offcanvasSidebar">
                 <div class="offcanvas-header bg-light">

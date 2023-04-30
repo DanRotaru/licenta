@@ -3,7 +3,7 @@
     <nav class="nav">
       <div class="nav-head">
         <router-link to="/">
-          <img class="nav-head__logo" src="/src/assets/img/logo.svg" alt="logo">
+          <img class="nav-head__logo" src="/img/logo.svg" alt="logo">
         </router-link>
 
         <div class="nav-head__close">
@@ -58,7 +58,7 @@
               <div class="d-flex align-items-center">
                 <!-- Avatar -->
                 <div class="avatar me-3">
-                  <img class="avatar-img rounded-circle shadow" src="/src/assets/img/me.webp" alt="avatar">
+                  <img class="avatar-img rounded-circle shadow" src="/img/me.webp" alt="avatar">
                 </div>
                 <div>
                   <a class="h6">Dan Rotaru</a>
@@ -91,6 +91,7 @@ import {watch} from "vue";
 const menu = [
   {link: '/dashboard', icon: 'dashboard', text: 'Dashboard'},
   {link: '/dashboard/projects', icon: 'projects', text: 'Projects'},
+  {link: '/dashboard/users', icon: 'users', text: 'Users'},
   {link: '/dashboard/favorites', icon: 'heart', text: 'Favorites'},
   {link: '/dashboard/analytics', icon: 'analytics', text: 'Analytics'},
   {link: '/dashboard/archive', icon: 'folder', text: 'Archive'},

@@ -3,7 +3,7 @@
     <Navigation/>
 
     <main>
-      <Header/>
+      <Header page="Archive"/>
 
       <div class="wrapper">
         <div>archive</div>

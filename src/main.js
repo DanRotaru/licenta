@@ -4,7 +4,8 @@ import router from '@/router'
 import store from '@/store'
 
 // bootstrap js
-import "bootstrap"
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
 
 // styles
 import './assets/scss/main.scss'

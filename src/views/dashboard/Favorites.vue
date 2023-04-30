@@ -3,7 +3,7 @@
     <Navigation/>
 
     <main>
-      <Header/>
+      <Header page="Favorites"/>
 
       <div class="wrapper">
         <div>favorites</div>

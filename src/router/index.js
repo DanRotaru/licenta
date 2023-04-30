@@ -16,6 +16,7 @@ import Dashboard from '@/views/dashboard/Dashboard.vue';
 import DashboardAnalytics from "@/views/dashboard/Analytics.vue";
 import DashboardChat from "@/views/dashboard/Chat.vue";
 import DashboardSettings from "@/views/dashboard/Settings.vue";
+import DashboardUsers from "@/views/dashboard/Users.vue";
 import DashboardProjects from "@/views/dashboard/Projects.vue";
 import DashboardFavorites from "@/views/dashboard/Favorites.vue";
 import DashboardHelp from "@/views/dashboard/Help.vue";
@@ -95,6 +96,11 @@ const router = createRouter({
       path: '/dashboard/settings',
       name: 'dashboard-settings',
       component: DashboardSettings,
+    },
+    {
+      path: '/dashboard/users',
+      name: 'dashboard-users',
+      component: DashboardUsers,
     },
     {
       path: '/dashboard/projects',

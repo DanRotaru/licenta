@@ -75,8 +75,10 @@ body:has(.dashboard) {
         }
 
         &.router-link-active {
-          background-color: #E6EEFF;
-          color: #1E50C0;
+          //background-color: #E6EEFF;
+          //color: #1E50C0;
+
+          background-color: #E9ECEF;
 
           svg {
             stroke-width: 2;
@@ -160,5 +162,17 @@ body:has(.dashboard) {
 
   .wrapper {
     padding: 20px;
+  }
+
+  .breadcrumb {
+    &-item {
+      a {
+        svg {
+          width: 20px;
+          height: 20px;
+          vertical-align: bottom;
+        }
+      }
+    }
   }
 }

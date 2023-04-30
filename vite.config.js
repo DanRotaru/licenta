@@ -18,6 +18,8 @@ export default defineConfig({
   },
   // plugins: [vue(), mkcert()],
   plugins: [vue()],
+  root: './src',
+  publicDir: resolve(__dirname, './public'),
   css: {devSourcemap: true},
   resolve: {
     alias: {

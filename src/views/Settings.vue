@@ -6,7 +6,7 @@
         <div class="col-lg-3">
           <div class="card shadow p-2 mb-4 text-center">
             <div class="rounded-3">
-              <img src="/src/assets/img/me.webp" class="card-img" alt="user">
+              <img src="/img/me.webp" class="card-img" alt="user">
             </div>
 
             <h4 class="mt-2">
@@ -28,7 +28,7 @@
           <div class="row">
             <div class="col-md-6 col-lg-12"><!-- Instructor image START -->
               <div class="card shadow p-2 mb-4 text-center">
-                <div class="rounded-3"><!-- Image --><img src="/src/assets/img/me.webp" class="card-img" alt="user">
+                <div class="rounded-3"><!-- Image --><img src="/img/me.webp" class="card-img" alt="user">
                 </div><!-- Card body -->
                 <div class="card-body px-3">
                   <div class="rating mb-3">
@@ -164,7 +164,7 @@
           <div class="row g-4 mt-4"><!-- Title --><h2>Project list</h2>
             <div class="col-sm-6 cardTypeClass">
               <div class="card shadow h-100 card-project"><!-- Image --><a href="/project/1" class=""><img
-                  src="../src/assets/img/webify.png" class="card-img-top" alt="project image"></a><!-- Card body -->
+                  src="../img/webify.png" class="card-img-top" alt="project image"></a><!-- Card body -->
                 <div class="card-body pb-0"><!-- Badge and favorite -->
                   <div class="d-flex justify-content-between mb-2">
                     <div class="d-flex gap-1"><a href="#" class="badge bg-purple bg-opacity-10 text-purple">All
@@ -180,7 +180,7 @@
                     Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p></div>
                 <div class="card-footer py-3"><a href="/user/DanRotaru" class="user-avatar"><img
-                    src="../src/assets/img/me.webp" alt="avatar">
+                    src="../img/me.webp" alt="avatar">
                   <div><span>DanRotaru</span>
                     <div class="rating">
                       <ul class="list-inline mb-0">
@@ -199,7 +199,7 @@
             </div>
             <div class="col-sm-6 cardTypeClass">
               <div class="card shadow h-100 card-project"><!-- Image --><a href="/project/1" class=""><img
-                  src="../src/assets/img/webify.png" class="card-img-top" alt="project image"></a><!-- Card body -->
+                  src="../img/webify.png" class="card-img-top" alt="project image"></a><!-- Card body -->
                 <div class="card-body pb-0"><!-- Badge and favorite -->
                   <div class="d-flex justify-content-between mb-2">
                     <div class="d-flex gap-1"><a href="#" class="badge bg-purple bg-opacity-10 text-purple">All
@@ -215,7 +215,7 @@
                     Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including
                     versions of Lorem Ipsum.</p></div>
                 <div class="card-footer py-3"><a href="/user/DanRotaru" class="user-avatar"><img
-                    src="../src/assets/img/me.webp" alt="avatar">
+                    src="../img/me.webp" alt="avatar">
                   <div><span>DanRotaru</span>
                     <div class="rating">
                       <ul class="list-inline mb-0">

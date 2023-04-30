@@ -3,7 +3,7 @@
     <Navigation/>
 
     <main>
-      <Header/>
+      <Header page="Support"/>
 
       <div class="wrapper">
         <div>support</div>

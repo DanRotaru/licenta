@@ -1,4 +1,11 @@
 .settings {
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
   .aside,
   header {
     box-shadow: none !important;
@@ -6,21 +13,57 @@
 
   .wrapper {
     padding: 0 !important;
+    display: flex;
+  }
+
+  &-row {
+    margin: 20px 10px;
   }
 
   &-aside {
-    width: 200px;
+    top: 90px;
 
     .nav-menu {
       &__item {
+        background-color: transparent;
         color: #000 !important;
         font-weight: 500;
+
+        &.active {
+          background-color: #E9ECEF;
+        }
       }
+    }
+  }
+
+  .card {
+    box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+    background: #fff;
+    border-radius: 12px;
+  }
+
+  &-btn-sm {
+    margin-top: 10px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 6px;
+  }
+
+  & &-main {
+    width: 100%;
+    margin: 20px 20px 20px 0;
+
+    &__wrapper {
+      box-shadow: 0 0 2rem 0 rgba(136, 152, 170, 0.15);
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
     }
   }
 
 }
 
 body:has(.dashboard.settings) {
-  background-color: #fff;
+  background-color: #F8F9FA;
 }

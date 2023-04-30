@@ -98,7 +98,7 @@ router.get('/auth/github/callback', async (req, res) => {
       req.session.auth = user._id.toString();
 
       console.log(githubRes);
-      return res.redirect('http://localhost:5000/');
+      return res.redirect('http://localhost:5000/dashboard');
       // return res.json({ success: 1 });
     } else {
       const userExistenceCheck = await User.findOne({email: primaryVerifiedEmail}, {userId: 1});

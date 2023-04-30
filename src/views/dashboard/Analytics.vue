@@ -3,7 +3,7 @@
     <Navigation/>
 
     <main>
-      <Header/>
+      <Header page="Analytics"/>
 
       <div class="wrapper">
         <div>analytics</div>

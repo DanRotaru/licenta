@@ -1,6 +1,5 @@
 <template>
-  <div class="col-sm-6"
-    :class="cardTypeClass">
+  <div :class="col6 ? 'col-6' : 'col-sm-6'">
     <div class="card shadow h-100 card-project">
       <!-- Image -->
       <router-link :to="'/' + projectUrl">
@@ -44,7 +43,7 @@
 import {ref} from "vue";
 import Rating from "@/components/Rating.vue";
 
-const props = defineProps(['title', 'description', 'image', 'price', 'author', 'authorImage', 'projectUrl', 'profileUrl', 'cardType']);
+const props = defineProps(['col6', 'title', 'description', 'image', 'price', 'author', 'authorImage', 'projectUrl', 'profileUrl', 'cardType']);
 
 const cardTypeClass = ref('');
 
