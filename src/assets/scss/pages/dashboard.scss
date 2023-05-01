@@ -157,6 +157,7 @@ body:has(.dashboard) {
 
     .header-wrapper {
       padding: 0 20px;
+      width: calc(100% - 270px);
     }
   }
 
@@ -173,6 +174,18 @@ body:has(.dashboard) {
           vertical-align: bottom;
         }
       }
+    }
+  }
+
+  .form-check {
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    &-input {
+      width: 18px;
+      height: 18px;
     }
   }
 }
