@@ -100,22 +100,14 @@
   }
 
   &-message-input {
+    position: absolute;
+    right: 0;
+    top: 0;
     display: flex;
 
-    .form-control {
-      height: 100%;
-    }
-
-    .btn {
-      height: 100%;
-      margin-left: 10px;
-    }
-
-    &__emoji {
-      position: absolute;
-      right: 0;
-      top: 0;
-      opacity: 0.5;
+    &__btn {
+      color: #2E2B41;
+      opacity: 0.7;
       padding: 10px;
       cursor: pointer;
       transition: .2s ease opacity;
@@ -124,7 +116,8 @@
         opacity: 1;
       }
 
-      svg {
+      svg,
+      i {
         width: 24px;
         height: 24px;
       }

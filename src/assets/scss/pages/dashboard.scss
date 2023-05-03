@@ -8,6 +8,29 @@ body:has(.dashboard) {
   display: flex;
   height: 100vh;
 
+  &-hero {
+    background: rgb(245, 247, 249);
+    padding: 100px 0;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid rgb(221, 221, 221);
+    margin-bottom: 20px;
+
+    &_create {
+      position: relative;
+      padding-top: 70px;
+      padding-bottom: 120px;
+    }
+
+    h5 {
+      max-width: 600px;
+      margin: 10px auto;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
   .aside {
     position: fixed;
     left: 0;
@@ -183,9 +206,11 @@ body:has(.dashboard) {
     align-items: center;
     gap: 7px;
 
-    &-input {
-      width: 18px;
-      height: 18px;
+    &:not(.form-switch) {
+      .form-check-input {
+        width: 16px;
+        height: 16px;
+      }
     }
   }
 }

@@ -6,24 +6,12 @@
       <Header page="Projects"/>
 
       <div class="wrapper">
-        <section class="section-browse" style="
-    background: #F5F7F9;
-    padding: 100px 0;
-    text-align: center;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-">
+        <section class="dashboard-hero">
           <h1>Browse projects</h1>
-          <h5 style="
-    max-width: 600px;
-    margin: 10px auto;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
-">Browse our diverse range of innovative projects and discover the perfect solution for your needs.</h5>
+          <h5>Browse our diverse range of innovative projects and discover the perfect solution for your needs.</h5>
         </section>
 
-        <section class="py-5">
+        <div class="pb-5">
           <div class="row">
             <!-- Main content START -->
             <div class="col-lg-8">
@@ -75,7 +63,7 @@
                 <Card
                     v-for="n in 9"
                     :col6="true"
-                    project-url="project/1"
+                    project-url="dashboard/projects/1"
                     profile-url="user/DanRotaru"
                     :title="`Webify - professional-looking websites without any coding skills`"
                     image="/img/webify.png"
@@ -227,7 +215,7 @@
             </div>
             <!-- Right sidebar END -->
           </div><!-- Row END -->
-        </section>
+        </div>
       </div>
 
     </main>

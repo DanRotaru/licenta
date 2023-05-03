@@ -17,7 +17,10 @@ import DashboardAnalytics from "@/views/dashboard/Analytics.vue";
 import DashboardChat from "@/views/dashboard/Chat.vue";
 import DashboardSettings from "@/views/dashboard/Settings.vue";
 import DashboardUsers from "@/views/dashboard/Users.vue";
+import DashboardUsersSingle from "@/views/dashboard/UsersSingle.vue";
 import DashboardProjects from "@/views/dashboard/Projects.vue";
+import DashboardProjectsCreate from "@/views/dashboard/ProjectsCreate.vue";
+import DashboardProjectsSingle from "@/views/dashboard/ProjectsSingle.vue";
 import DashboardFavorites from "@/views/dashboard/Favorites.vue";
 import DashboardHelp from "@/views/dashboard/Help.vue";
 import DashboardArchive from "@/views/dashboard/Archive.vue";
@@ -103,9 +106,24 @@ const router = createRouter({
       component: DashboardUsers,
     },
     {
+      path: '/dashboard/users/:id',
+      name: 'dashboard-users-single',
+      component: DashboardUsersSingle,
+    },
+    {
       path: '/dashboard/projects',
       name: 'dashboard-projects',
       component: DashboardProjects,
+    },
+    {
+      path: '/dashboard/projects/create',
+      name: 'dashboard-projects-create',
+      component: DashboardProjectsCreate,
+    },
+    {
+      path: '/dashboard/projects/:id',
+      name: 'dashboard-projects-single',
+      component: DashboardProjectsSingle,
     },
     {
       path: '/dashboard/favorites',

@@ -3,9 +3,15 @@
     <Navigation/>
 
     <main>
-      <Header page="Users"/>
+      <Header :pages="[['Users', '/users']]"/>
 
       <div class="wrapper">
+        <section class="dashboard-hero">
+          <h1>Users</h1>
+          <h5>Browse the best of the best</h5>
+        </section>
+
+
         <div class="row mb-4 align-items-center"><!-- Search bar -->
           <div class="col-xl-6">
             <div class="bg-body border shadow rounded-4 p-2">

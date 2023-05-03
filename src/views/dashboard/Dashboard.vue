@@ -6,7 +6,7 @@
       <Header/>
 
       <div class="wrapper">
-        asdasddxs
+        dashboard home
       </div>
 
     </main>

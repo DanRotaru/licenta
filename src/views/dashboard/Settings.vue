@@ -46,7 +46,7 @@
                       <div class="form-floating">
                           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
                                     style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Comments</label>
+                        <label for="floatingTextarea2">Profile description</label>
                       </div>
 
                     </div>
@@ -397,7 +397,7 @@
                       <div class="card h-100 border-start-lg border-start-primary">
                         <div class="card-body">
                           <div class="small opacity-6 mb-2">Current monthly bill</div>
-                          <div class="h3">$20.00</div>
+                          <div class="h3">$0.00</div>
                           <a class="text-arrow-icon small" href="#!"> Switch to yearly billing
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -427,7 +427,7 @@
                       <div class="card h-100 border-start-lg border-start-success">
                         <div class="card-body">
                           <div class="small opacity-6 mb-2">Current plan</div>
-                          <div class="h3 d-flex align-items-center">Freelancer</div>
+                          <div class="h3 d-flex align-items-center">Free</div>
                           <a class="text-arrow-icon small text-success" href="#!"> Upgrade plan
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -645,6 +645,8 @@ import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
 
 import {onMounted} from "vue";
+import Choices from "choices.js";
+// import Choices from "choices.js";
 
 const menu = [
   {to: '#nav-settings-home', icon: 'user-profile', text: 'My details'},
@@ -663,9 +665,9 @@ onMounted(() => {
   }
 
   createScrollSpy();
-
-
   setTimeout(createScrollSpy, 1000);
+
+  const choices = new Choices('[data-choice]');
 
   // dataSpyList.forEach(dataSpyEl => {
   //   console.log(bootstrap.ScrollSpy.getInstance(dataSpyEl));

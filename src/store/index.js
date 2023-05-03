@@ -56,10 +56,8 @@ const store = createStore({
           }
         })
         .catch(error => {
-          state.isAuthenticated = false;
-          if (error.response.data.error === "Unauthorized") {
-            router.push('/');
-          }
+          state.isAuthenticated = true;
+          // router.push('/');
 
           return false;
         });
