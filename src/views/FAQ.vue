@@ -3,20 +3,19 @@
 
   <section class="section-faq">
     <div class="container">
-      <div class="row">
-        <h3 class="block-subtitle mb-3">FAQ</h3>
-        <h1 class="block-title">Frequently Asked Questions</h1>
-      </div>
+      <h3 class="block-subtitle mb-3">FAQ</h3>
+      <h1 class="block-title">Frequently Asked Questions</h1>
+      <p class="block-text">A lot of people don't appreciate the moment until it’s passed. I'm not trying my hardest, and I'm not trying to do</p>
 
       <div class="row">
         <div class="col-lg-10 col-xl-8 mx-auto text-center position-relative">
 
           <!-- FAQ START -->
-          <div class="accordion accordion-icon accordion-shadow mt-4 text-start position-relative" id="faqAccordion">
+          <div class="accordion accordion-icon mt-4 text-start position-relative" id="faqAccordion">
             <!-- Item -->
             <div class="accordion-item mb-3" v-for="(item, i) in faq">
               <h6 class="accordion-header font-base" :id="'heading-' + i">
-                <button class="accordion-button fw-bold rounded pe-5"
+                <button class="accordion-button pe-5"
                         :class="{collapsed: i !== 0 }"
                         type="button"
                         data-bs-toggle="collapse"
@@ -29,7 +28,7 @@
               <!-- Body -->
               <div :id="'collapse-' + i"
                    class="accordion-collapse collapse"
-                   :class="'collapse show' ? i === 0 : 'collapse'"
+                   :class="{show: i === 0}"
                    :aria-labelledby="'heading-' + i"
                    data-bs-parent="#faqAccordion">
                 <div class="accordion-body mt-3">

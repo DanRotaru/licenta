@@ -1,13 +1,52 @@
 .section-faq {
   //background: url(https://demo.ticksify.com/img/background-header.jpg);
   //background: url("/img/bg2.svg") center;
-  background-color: #F8FAFB;
+  background-color: #F8F9FA;
   background-size: cover;
-  padding: 150px 0;
+  padding: 170px 0;
   text-align: center;
 
   h3 {
     font-size: 20px;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
+  }
+
+  .block-title {
+    display: block;
+    font: 36px "Inter", sans-serif;
+    font-weight: 700;
+    max-width: 634px;
+    margin: 0 auto;
+  }
+
+  .block-text {
+    font: 16px "Inter", sans-serif;
+    max-width: 634px;
+    margin: 8px auto 50px;
+  }
+
+  .accordion {
+    &-item {
+      background-color: transparent !important;
+      border: none;
+      border-radius: 0 !important;
+    }
+
+    &-button {
+      font-size: 20px;
+      border-radius: 0 !important;
+      color: #67748e;
+
+      &.collapsing {
+        border-bottom: 1px solid #dee2e6!important;
+      }
+
+      &:not(.collapsed) {
+        color: #344767;
+        background-color: transparent !important;
+        border-radius: 0 !important;
+        border-bottom: 1px solid #dee2e6!important;
+      }
+    }
   }
 }
