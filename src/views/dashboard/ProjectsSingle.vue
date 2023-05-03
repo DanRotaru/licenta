@@ -12,9 +12,9 @@
           <div class="container">
             <div class="row py-5">
               <div class="col-lg-8">
-                <!-- Badge -->
+                
                 <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">Web Dev</h6>
-                <!-- Title -->
+                
                 <h1>Webify - professional-looking websites without any coding skills</h1>
                 <p class="py-3">Webify is a website builder platform that allows anyone to create professional-looking
                   websites without any
@@ -23,7 +23,7 @@
                   as built-in SEO optimization, e-commerce functionality, and responsive design to ensure that the websites
                   created are optimized for search engines and display correctly on all devices.
                 </p>
-                <!-- Content -->
+                
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0</li>
                   <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="bi bi-people-fill text-orange me-1"></i> 173
@@ -47,10 +47,10 @@
         Page content START -->
         <section class="pb-0 py-lg-2">
           <div class="row">
-            <!-- Main content START -->
+            
             <div class="col-lg-8">
               <div class="card shadow rounded-2 p-0">
-                <!-- Tabs START -->
+                
                 <div class="card-header border-bottom px-4 py-3">
                   <ul class="nav nav-pills nav-tabs-line btn-tab-group" data-group="5" :data-group-item="pillsId">
                     <li class="nav-item" role="presentation" v-for="(item, index) in buttons">
@@ -69,15 +69,15 @@
                   </ul>
 
                 </div>
-                <!-- Tabs END -->
+                
 
-                <!-- Tab contents START -->
+                
                 <div class="card-body p-4">
                   <div class="tab-content pt-2" id="course-pills-tabContent">
-                    <!-- Content START -->
+                    
                     <div class="tab-pane fade active show" id="course-pills-1" role="tabpanel"
                          aria-labelledby="course-pills-tab-1">
-                      <!-- Course detail START -->
+                      
                       <h5 class="mb-3">Project Description</h5>
                       <p class="mb-3">
                         Project Description: Webify is a website builder platform that allows anyone to create
@@ -164,28 +164,23 @@
                         industry experts to promote the platform and offer discounts or referral incentives to existing
                         customers who bring in new users.
                       </p>
-
-                      <!-- Course detail END -->
-
                     </div>
-                    <!-- Content END -->
-
-                    <!-- Content START -->
+                    
                     <div class="tab-pane fade" id="course-pills-2" role="tabpanel" aria-labelledby="course-pills-tab-2">
-                      <!-- Card START -->
+                      
                       <div class="card mb-0 mb-md-4">
                         <div class="row g-0 align-items-center">
                           <div class="col-md-5">
-                            <!-- Image -->
+                            
                             <img src="../assets/img/me.webp" class="img-fluid rounded-3" alt="user">
                           </div>
                           <div class="col-md-7">
-                            <!-- Card body -->
+                            
                             <div class="card-body">
-                              <!-- Title -->
+                              
                               <h3 class="card-title mb-0">Dan Rotaru</h3>
                               <p class="mb-2">FullStack Web Developer</p>
-                              <!-- Social button -->
+                              
                               <ul class="list-inline mb-3">
                                 <li class="list-inline-item me-3">
                                   <a href="#" class="fs-5 text-twitter"><i class="fab fa-twitter-square"></i></a>
@@ -204,7 +199,6 @@
                                 </li>
                               </ul>
 
-                              <!-- Info -->
                               <ul class="list-inline">
                                 <li class="list-inline-item">
                                   <div class="d-flex align-items-center me-3 mb-2">
@@ -234,9 +228,9 @@
                           </div>
                         </div>
                       </div>
-                      <!-- Card END -->
+                      
 
-                      <!-- Instructor info -->
+                      
                       <h5 class="mb-3">About Author</h5>
                       <p class="mb-3">Fulfilled direction use continual set him propriety continued. Saw met applauded
                         favorite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther
@@ -246,7 +240,7 @@
                       <p class="mb-3">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct
                         viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask
                         own. Praise effect wishes change way and any wanted.</p>
-                      <!-- Email address -->
+                      
                       <div class="col-12">
                         <ul class="list-group list-group-borderless mb-0">
                           <li class="list-group-item pb-0">Mail ID:<a href="#" class="ms-2">hello@email.com</a></li>
@@ -254,20 +248,20 @@
                         </ul>
                       </div>
                     </div>
-                    <!-- Content END -->
+                    
 
-                    <!-- Content START -->
+                    
                     <div class="tab-pane fade" id="course-pills-3" role="tabpanel" aria-labelledby="course-pills-tab-3">
-                      <!-- Review START -->
+                      
                       <div class="row mb-4">
                         <h5 class="mb-4">Our Student Reviews</h5>
 
-                        <!-- Rating info -->
+                        
                         <div class="col-md-4 mb-3 mb-md-0">
                           <div class="text-center">
-                            <!-- Info -->
+                            
                             <h2 class="mb-0">4.5</h2>
-                            <!-- Star -->
+                            
                             <ul class="list-inline mb-0">
                               <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
                               <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -279,12 +273,12 @@
                           </div>
                         </div>
 
-                        <!-- Progress-bar and star -->
+                        
                         <div class="col-md-8">
                           <div class="row align-items-center">
-                            <!-- Progress bar and Rating -->
+                            
                             <div class="col-6 col-sm-8">
-                              <!-- Progress item -->
+                              
                               <div class="progress progress-sm bg-warning bg-opacity-15">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 100%"
                                      aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
@@ -292,7 +286,7 @@
                             </div>
 
                             <div class="col-6 col-sm-4">
-                              <!-- Star item -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -302,9 +296,9 @@
                               </ul>
                             </div>
 
-                            <!-- Progress bar and Rating -->
+                            
                             <div class="col-6 col-sm-8">
-                              <!-- Progress item -->
+                              
                               <div class="progress progress-sm bg-warning bg-opacity-15">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 80%"
                                      aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
@@ -312,7 +306,7 @@
                             </div>
 
                             <div class="col-6 col-sm-4">
-                              <!-- Star item -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -322,9 +316,9 @@
                               </ul>
                             </div>
 
-                            <!-- Progress bar and Rating -->
+                            
                             <div class="col-6 col-sm-8">
-                              <!-- Progress item -->
+                              
                               <div class="progress progress-sm bg-warning bg-opacity-15">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
                                      aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
@@ -332,7 +326,7 @@
                             </div>
 
                             <div class="col-6 col-sm-4">
-                              <!-- Star item -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -342,9 +336,9 @@
                               </ul>
                             </div>
 
-                            <!-- Progress bar and Rating -->
+                            
                             <div class="col-6 col-sm-8">
-                              <!-- Progress item -->
+                              
                               <div class="progress progress-sm bg-warning bg-opacity-15">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 40%"
                                      aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
@@ -352,7 +346,7 @@
                             </div>
 
                             <div class="col-6 col-sm-4">
-                              <!-- Star item -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -362,9 +356,9 @@
                               </ul>
                             </div>
 
-                            <!-- Progress bar and Rating -->
+                            
                             <div class="col-6 col-sm-8">
-                              <!-- Progress item -->
+                              
                               <div class="progress progress-sm bg-warning bg-opacity-15">
                                 <div class="progress-bar bg-warning" role="progressbar" style="width: 20%"
                                      aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
@@ -372,7 +366,7 @@
                             </div>
 
                             <div class="col-6 col-sm-4">
-                              <!-- Star item -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
@@ -384,21 +378,21 @@
                           </div>
                         </div>
                       </div>
-                      <!-- Review END -->
+                      
 
-                      <!-- Student review START -->
+                      
                       <div class="row">
-                        <!-- Review item START -->
+                        
                         <div class="d-md-flex my-4">
-                          <!-- Avatar -->
+                          
                           <div class="avatar avatar-xl me-4 flex-shrink-0">
                             <img class="avatar-img rounded-circle" src="../assets/img/avatar/09.jpg" alt="avatar">
                           </div>
-                          <!-- Text -->
+                          
                           <div>
                             <div class="d-sm-flex mt-1 mt-md-0 align-items-center">
                               <h5 class="me-3 mb-0">Jacqueline Miller</h5>
-                              <!-- Review star -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -407,19 +401,19 @@
                                 <li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
                               </ul>
                             </div>
-                            <!-- Info -->
+                            
                             <p class="small mb-2">2 days ago</p>
                             <p class="mb-2">Perceived end knowledge certainly day sweetness why cordially. Ask a quick six
                               seven offer see among. Handsome met debating sir dwelling age material. As style lived he
                               worse dried. Offered related so visitors we private removed. Moderate do subjects to
                               distance. </p>
-                            <!-- Like and dislike button -->
+                            
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <!-- Like button -->
+                              
                               <input type="radio" class="btn-check" name="btnradio" id="btnradio1">
                               <label class="btn btn-sm mb-0" for="btnradio1"><i
                                   class="far fa-thumbs-up me-1"></i>25</label>
-                              <!-- Dislike button -->
+                              
                               <input type="radio" class="btn-check" name="btnradio" id="btnradio2">
                               <label class="btn btn-sm mb-0" for="btnradio2"> <i
                                   class="far fa-thumbs-down me-1"></i>2</label>
@@ -427,18 +421,18 @@
                           </div>
                         </div>
 
-                        <!-- Comment children level 1 -->
+                        
                         <div class="d-md-flex mb-4 ps-4 ps-md-5">
-                          <!-- Avatar -->
+                          
                           <div class="avatar avatar-lg me-4 flex-shrink-0">
                             <img class="avatar-img rounded-circle" src="../assets/img/avatar/02.jpg" alt="avatar">
                           </div>
-                          <!-- Text -->
+                          
                           <div>
                             <div class="d-sm-flex mt-1 mt-md-0 align-items-center">
                               <h5 class="me-3 mb-0">Louis Ferguson</h5>
                             </div>
-                            <!-- Info -->
+                            
                             <p class="small mb-2">1 days ago</p>
                             <p class="mb-2">Water timed folly right aware if oh truth. Imprudence attachment him for
                               sympathize. Large above be to means. Dashwood does provide stronger is. But discretion
@@ -446,21 +440,21 @@
                           </div>
                         </div>
 
-                        <!-- Divider -->
+                        
                         <hr>
-                        <!-- Review item END -->
+                        
 
-                        <!-- Review item START -->
+                        
                         <div class="d-md-flex my-4">
-                          <!-- Avatar -->
+                          
                           <div class="avatar avatar-xl me-4 flex-shrink-0">
                             <img class="avatar-img rounded-circle" src="../assets/img/avatar/08.jpg" alt="avatar">
                           </div>
-                          <!-- Text -->
+                          
                           <div>
                             <div class="d-sm-flex mt-1 mt-md-0 align-items-center">
                               <h5 class="me-3 mb-0">Dennis Barrett</h5>
-                              <!-- Review star -->
+                              
                               <ul class="list-inline mb-0">
                                 <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
                                 <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -469,43 +463,43 @@
                                 <li class="list-inline-item me-0"><i class="far fa-star text-warning"></i></li>
                               </ul>
                             </div>
-                            <!-- Info -->
+                            
                             <p class="small mb-2">2 days ago</p>
                             <p class="mb-2">Handsome met debating sir dwelling age material. As style lived he worse dried.
                               Offered related so visitors we private removed. Moderate do subjects to distance. </p>
-                            <!-- Like and dislike button -->
+                            
                             <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-                              <!-- Like button -->
+                              
                               <input type="radio" class="btn-check" name="btnradio" id="btnradio3">
                               <label class="btn btn-sm mb-0" for="btnradio3"><i
                                   class="far fa-thumbs-up me-1"></i>25</label>
-                              <!-- Dislike button -->
+                              
                               <input type="radio" class="btn-check" name="btnradio" id="btnradio4">
                               <label class="btn btn-sm mb-0" for="btnradio4"> <i
                                   class="far fa-thumbs-down me-1"></i>2</label>
                             </div>
                           </div>
                         </div>
-                        <!-- Review item END -->
-                        <!-- Divider -->
+                        
+                        
                         <hr>
                       </div>
-                      <!-- Student review END -->
+                      
 
-                      <!-- Leave Review START -->
+                      
                       <div class="mt-2">
                         <h5 class="mb-4">Leave a Review</h5>
                         <form class="row g-3">
-                          <!-- Name -->
+                          
                           <div class="col-md-6 bg-light-input">
                             <input type="text" class="form-control" id="inputtext" placeholder="Name"
                                    aria-label="First name">
                           </div>
-                          <!-- Email -->
+                          
                           <div class="col-md-6 bg-light-input">
                             <input type="email" class="form-control" placeholder="Email" id="inputEmail4">
                           </div>
-                          <!-- Rating -->
+                          
                           <div class="col-12 bg-light-input">
                             <div class="choices" data-type="select-one" tabindex="0" role="combobox"
                                  aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
@@ -562,29 +556,29 @@
                               </div>
                             </div>
                           </div>
-                          <!-- Message -->
+                          
                           <div class="col-12 bg-light-input">
                         <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Your review"
                                   rows="3"></textarea>
                           </div>
-                          <!-- Button -->
+                          
                           <div class="col-12">
                             <button type="submit" class="btn btn-primary mb-0">Post Review</button>
                           </div>
                         </form>
                       </div>
-                      <!-- Leave Review END -->
+                      
 
                     </div>
-                    <!-- Content END -->
+                    
 
-                    <!-- Content START -->
+                    
                     <div class="tab-pane fade" id="course-pills-4" role="tabpanel" aria-labelledby="course-pills-tab-4">
-                      <!-- Title -->
+                      
                       <h5 class="mb-3">Frequently Asked Questions</h5>
-                      <!-- Accordion START -->
+                      
                       <div class="accordion accordion-icon accordion-bg-light mt-4 text-start position-relative" id="faqAccordion">
-                        <!-- Item -->
+                        
                         <div class="accordion-item mb-3" v-for="(item, i) in faq">
                           <h6 class="accordion-header font-base" :id="'heading-' + i">
                             <button class="accordion-button fw-bold rounded pe-5"
@@ -597,7 +591,7 @@
                               {{ item.question }}
                             </button>
                           </h6>
-                          <!-- Body -->
+                          
                           <div :id="'collapse-' + i"
                                class="accordion-collapse collapse"
                                :class="'collapse show' ? i === 0 : 'collapse'"
@@ -609,20 +603,20 @@
                           </div>
                         </div>
                       </div>
-                      <!-- Accordion END -->
+                      
                     </div>
-                    <!-- Content END -->
+                    
 
-                    <!-- Content START -->
+                    
                     <div class="tab-pane fade" id="course-pills-5" role="tabpanel" aria-labelledby="course-pills-tab-5">
-                      <!-- Review START -->
+                      
                       <div class="row">
                         <div class="col-12">
                           <h5 class="mb-4">Ask Your Question</h5>
 
-                          <!-- Comment box -->
+                          
                           <div class="d-flex mb-4">
-                            <!-- Avatar -->
+                            
                             <div class="avatar avatar-sm flex-shrink-0 me-2">
                               <a href="#"> <img class="avatar-img rounded-circle" src="../assets/img/avatar/09.jpg" alt="">
                               </a>
@@ -635,18 +629,18 @@
                             </form>
                           </div>
 
-                          <!-- Comment item START -->
+                          
                           <div class="border p-2 p-sm-4 rounded-3 mb-4">
                             <ul class="list-unstyled mb-0">
                               <li class="comment-item">
                                 <div class="d-flex mb-3">
-                                  <!-- Avatar -->
+                                  
                                   <div class="avatar avatar-sm flex-shrink-0">
                                     <a href="#"><img class="avatar-img rounded-circle" src="../assets/img/avatar/05.jpg"
                                                      alt=""></a>
                                   </div>
                                   <div class="ms-2">
-                                    <!-- Comment by -->
+                                    
                                     <div class="bg-light p-3 rounded">
                                       <div class="d-flex justify-content-center">
                                         <div class="me-2">
@@ -657,7 +651,7 @@
                                         <small>5hr</small>
                                       </div>
                                     </div>
-                                    <!-- Comment react -->
+                                    
                                     <ul class="nav nav-divider py-2 small">
                                       <li class="nav-item"><a class="text-primary-hover" href="#"> Like (3)</a></li>
                                       <li class="nav-item"><a class="text-primary-hover" href="#"> Reply</a></li>
@@ -666,17 +660,17 @@
                                   </div>
                                 </div>
 
-                                <!-- Comment item nested START -->
+                                
                                 <ul class="list-unstyled ms-4">
-                                  <!-- Comment item START -->
+                                  
                                   <li class="comment-item">
                                     <div class="d-flex">
-                                      <!-- Avatar -->
+                                      
                                       <div class="avatar avatar-xs flex-shrink-0">
                                         <a href="#"><img class="avatar-img rounded-circle" src="../assets/img/avatar/06.jpg"
                                                          alt=""></a>
                                       </div>
-                                      <!-- Comment by -->
+                                      
                                       <div class="ms-2">
                                         <div class="bg-light p-3 rounded">
                                           <div class="d-flex justify-content-center">
@@ -689,7 +683,7 @@
                                             <small>2hr</small>
                                           </div>
                                         </div>
-                                        <!-- Comment react -->
+                                        
                                         <ul class="nav nav-divider py-2 small">
                                           <li class="nav-item"><a class="text-primary-hover" href="#!"> Like (5)</a></li>
                                           <li class="nav-item"><a class="text-primary-hover" href="#!"> Reply</a></li>
@@ -697,26 +691,26 @@
                                       </div>
                                     </div>
                                   </li>
-                                  <!-- Comment item END -->
+                                  
                                 </ul>
-                                <!-- Comment item nested END -->
+                                
                               </li>
                             </ul>
                           </div>
-                          <!-- Comment item END -->
+                          
 
-                          <!-- Comment item START -->
+                          
                           <div class="border p-2 p-sm-4 rounded-3">
                             <ul class="list-unstyled mb-0">
                               <li class="comment-item">
                                 <div class="d-flex">
-                                  <!-- Avatar -->
+                                  
                                   <div class="avatar avatar-sm flex-shrink-0">
                                     <a href="#"><img class="avatar-img rounded-circle" src="../assets/img/avatar/02.jpg"
                                                      alt=""></a>
                                   </div>
                                   <div class="ms-2">
-                                    <!-- Comment by -->
+                                    
                                     <div class="bg-light p-3 rounded">
                                       <div class="d-flex justify-content-center">
                                         <div class="me-2">
@@ -727,7 +721,7 @@
                                         <small>5hr</small>
                                       </div>
                                     </div>
-                                    <!-- Comment react -->
+                                    
                                     <ul class="nav nav-divider py-2 small">
                                       <li class="nav-item"><a class="text-primary-hover" href="#"> Like</a></li>
                                       <li class="nav-item"><a class="text-primary-hover" href="#"> Reply</a></li>
@@ -737,33 +731,33 @@
                               </li>
                             </ul>
                           </div>
-                          <!-- Comment item END -->
+                          
 
                         </div>
 
                       </div>
                     </div>
-                    <!-- Content END -->
+                    
 
                   </div>
                 </div>
-                <!-- Tab contents END -->
+                
               </div>
             </div>
-            <!-- Main content END -->
+            
 
-            <!-- Right sidebar START -->
+            
             <div class="col-lg-4 pt-5 pt-lg-0">
               <div class="row mb-5 mb-lg-0">
                 <div class="col-md-6 col-lg-12">
-                  <!-- Video START -->
+                  
                   <div class="card shadow p-2 mb-4 z-index-9">
                     <div class="overflow-hidden rounded-3">
                       <img src="../assets/img/webify.png" class="card-img" alt="course image">
-                      <!-- Overlay -->
+                      
                       <div class="bg-overlay bg-dark opacity-6"></div>
                       <div class="card-img-overlay d-flex align-items-start flex-column p-3">
-                        <!-- Video button and link -->
+                        
                         <div class="m-auto">
                           <a href="#"
                              class="btn btn-lg text-danger btn-round btn-white-shadow mb-0 p-0" data-glightbox=""
@@ -774,11 +768,11 @@
                       </div>
                     </div>
 
-                    <!-- Card body -->
+                    
                     <div class="card-body px-3">
-                      <!-- Info -->
+                      
                       <div class="d-flex justify-content-between align-items-center">
-                        <!-- Price and time -->
+                        
                         <div>
                           <div class="d-flex align-items-center">
                             <h3 class="fw-bold mb-0 me-2 f-inter">$150</h3>
@@ -788,14 +782,14 @@
                           <p class="mb-0 text-danger"><i class="fas fa-stopwatch me-2"></i>5 days left at this price</p>
                         </div>
 
-                        <!-- Share button with dropdown -->
+                        
                         <div class="dropdown">
-                          <!-- Share button -->
+                          
                           <a href="#" class="btn btn-sm btn-light rounded small" role="button" id="dropdownShare"
                              data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-fw fa-share-alt"></i>
                           </a>
-                          <!-- dropdown button -->
+                          
                           <ul class="dropdown-menu dropdown-w-sm dropdown-menu-end min-w-auto shadow rounded"
                               aria-labelledby="dropdownShare">
                             <li><a class="dropdown-item" href="#"><i class="fab fa-twitter-square me-2"></i>Twitter</a></li>
@@ -807,18 +801,18 @@
                         </div>
                       </div>
 
-                      <!-- Buttons -->
+                      
                       <div class="mt-3 d-sm-flex justify-content-sm-between">
                         <a href="#" class="btn btn-outline-primary mb-0">Contact seller</a>
                         <a href="#" class="btn btn-success mb-0">Buy project</a>
                       </div>
                     </div>
                   </div>
-                  <!-- Video END -->
+                  
 
-                  <!-- Course info START -->
+                  
                   <div class="card card-body shadow p-4 mb-4">
-                    <!-- Title -->
+                    
                     <h4 class="mb-3">This project includes</h4>
                     <ul class="list-group list-group-borderless">
                       <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -843,21 +837,21 @@
                       </li>
                     </ul>
                   </div>
-                  <!-- Course info END -->
+                  
                 </div>
 
                 <div class="col-md-6 col-lg-12">
-                  <!-- Recently Viewed START -->
+                  
                   <div class="card card-body shadow p-4 mb-4">
-                    <!-- Title -->
+                    
                     <h4 class="mb-3">Recently Viewed</h4>
-                    <!-- Course item START -->
+                    
                     <div class="row gx-3 mb-3">
-                      <!-- Image -->
+                      
                       <div class="col-4">
                         <img class="rounded" src="../assets/img/webify.png" alt="webify">
                       </div>
-                      <!-- Info -->
+                      
                       <div class="col-8">
                         <h6 class="mb-0 text-truncate-3"><a href="#">Webify - professional-looking websites without any coding skills</a></h6>
                         <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
@@ -868,15 +862,15 @@
                         </ul>
                       </div>
                     </div>
-                    <!-- Course item END -->
+                    
 
-                    <!-- Course item START -->
+                    
                     <div class="row gx-3 mb-3">
-                      <!-- Image -->
+                      
                       <div class="col-4">
                         <img class="rounded" src="../assets/img/webify.png" alt="webify">
                       </div>
-                      <!-- Info -->
+                      
                       <div class="col-8">
                         <h6 class="mb-0 text-truncate-3"><a href="#">Webify - professional-looking websites without any coding skills</a></h6>
                         <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
@@ -887,11 +881,11 @@
                         </ul>
                       </div>
                     </div>
-                    <!-- Course item END -->
+                    
                   </div>
-                  <!-- Recently Viewed END -->
+                  
 
-                  <!-- Tags START -->
+                  
                   <div class="card card-body shadow p-4">
                     <h4 class="mb-3">Popular Tags</h4>
                     <ul class="list-inline mb-0">
@@ -906,11 +900,11 @@
                       </li>
                     </ul>
                   </div>
-                  <!-- Tags END -->
+                  
                 </div>
-              </div><!-- Row End -->
+              </div>
             </div>
-            <!-- Right sidebar END -->
+            
 
           </div>
         </section>
