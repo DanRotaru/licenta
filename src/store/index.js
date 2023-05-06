@@ -29,6 +29,7 @@ const store = createStore({
       document.cookie = 'Codeazone.sig=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       state.isAuthenticated = false;
       state.userInfo = null;
+      router.push('/');
     },
     setUserInfo(state, data) {
       state.userInfo = data;

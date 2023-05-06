@@ -72,9 +72,11 @@
             </div>
 
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <!-- Links -->
+              <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
+              <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+              <li><a class="dropdown-item bg-danger-soft-hover" @click="logout()"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
             </ul>
           </div>
         </div>
@@ -103,4 +105,8 @@ const menuBottom = [
   {link: '/dashboard/help', icon: 'help', text: 'Help'},
   {link: '/dashboard/support', icon: 'inbox', text: 'Support'}
 ];
+
+const logout = () => {
+  store.commit('logout')
+}
 </script>

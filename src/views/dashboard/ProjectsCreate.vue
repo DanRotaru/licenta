@@ -58,11 +58,11 @@
                   <label class="form-label">Language</label>
                   <select class="form-select js-choice border-0 z-index-9 bg-transparent" multiple="multiple"
                           aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true">
-                    <option value="">Select language</option>
-                    <option>English</option>
-                    <option>German</option>
-                    <option>French</option>
-                    <option>Hindi</option>
+                      <option value="" disabled>Select project language</option>
+                    <option
+                            v-for="lang in languages"
+                            :key="lang"
+                            :value="lang">{{ lang }}</option>
                   </select>
                 </div>
 
@@ -92,7 +92,7 @@
                          data-bs-title="Specify project level">Project level</label>
                   <select class="form-select js-choice border-0 z-index-9 bg-transparent" data-search-enabled="false"
                           data-remove-item-button="true">
-                    <option value="">Select course level</option>
+                    <option value="">Select project level</option>
                     <option>All level</option>
                     <option>Beginner</option>
                     <option>Intermediate</option>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="tab-pane" id="project-create-step-4" role="tabpanel">
-              <h5>Additional Info</h5>
+              <h5 @click="ck()">Additional Info</h5>
             </div>
           </div>
         </div>
@@ -158,10 +158,11 @@
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
 import {onMounted, ref} from "vue";
-import Choices from "choices.js";
 
 const stepsMenu = ["Project Details", "Project Media", "Project FaQs", "Additional Info"];
 const pillsId = ref(0);
+
+const languages = [  "English", "Romanian", "German", "French", "Italian", "Spanish", "Russian", "Turkish", "Polish", "Ukrainian", "Swedish", "Portuguese", "Greek", "Czech", "Hungarian", "Serbian", "Danish", "Norwegian", "Finnish", "Slovak", "Bulgarian", "Croatian"];
 
 const changePill = (id) => {
   pillsId.value = id;

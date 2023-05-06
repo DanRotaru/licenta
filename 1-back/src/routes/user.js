@@ -32,7 +32,7 @@ router.post('/auth', async (req, res) => {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.json({ error: 'Email and Password are required' });
+    return res.json({ error: 'Email and Password are required!' });
   }
 
   const user = await User.findOne(
@@ -41,7 +41,7 @@ router.post('/auth', async (req, res) => {
   );
 
   if (!user || (securePasswords && !(await passwordCompare(password, user.password))) || (!securePasswords && user.password !== password)) {
-    return res.json({ error: 'Invalid email or password' });
+    return res.json({ error: 'Invalid email or password!' });
   }
 
   req.session.auth = user._id.toString();

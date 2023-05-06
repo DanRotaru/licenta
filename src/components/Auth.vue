@@ -176,7 +176,6 @@
 import {onMounted, ref, toRefs, watch} from "vue";
 import store from '@/store'
 import axios from 'axios'
-import Swal from 'sweetalert2'
 import {useRouter} from 'vue-router';
 
 const router = useRouter();
@@ -232,12 +231,6 @@ const api = axios.create({
 
 function authenticate(endpoint) {
 
-  Swal.fire(
-    'The Internet?',
-    'That thing is still around?',
-    'question'
-  );
-
   let data = {},
     url = '';
 
@@ -270,31 +263,34 @@ function authenticate(endpoint) {
       // message.value = JSON.stringify(response.data);
       console.log(response.data);
 
-      if (endpoint === 'login') {
-        if (response.data.error === 'Invalid email or password') {
-          validations.value.auth.email = validations.value.auth.password = response.data.error;
-        } else if (response.data.success) {
-          validations.value.auth.email = validations.value.auth.password = '';
-        }
-
-      } else if (endpoint === 'register') {
-        if (response.data.error === 'Email already taken!') {
-          validations.value.reg.email = response.data.error;
-        }
-      } else {
+      if (!response.data) {
+        Swal.fire('Error!', 'Error while sending request!', 'error');
         return false;
       }
 
-      if (response.data?.success) {
-        console.log('done')
-        // setTimeout(() => {
-        //   router.push('/app');
-        //
-        //   store.commit('authenticate');
-        // }, 1000);
-      }
+      if (response.data.success) {
+        if (endpoint === 'login') {
+          validations.value.auth.email = validations.value.auth.password = '';
 
-      // handle success
+          Swal.fire('Success!', 'Successfully auth, redirecting...', 'success');
+
+          setTimeout(() => {
+            router.push('/dashboard');
+            store.commit('authenticate');
+          }, 3000);
+
+        } else if (endpoint === 'register') {
+          if (response.data.error === 'Email already taken!') {
+            validations.value.reg.email = response.data.error;
+          }
+        }
+      } else {
+        Swal.fire('Error!', response.data.error, 'error');
+
+        if (response.data.error === 'Invalid email or password') {
+          validations.value.auth.email = validations.value.auth.password = response.data.error;
+        }
+      }
     })
     .catch(error => {
       console.log(error.response.data);
