@@ -32,7 +32,7 @@
             </div>
 
             <div class="content modal-content-login" v-if="modalContent === 'login'">
-              <form @submit.prevent="authenticate('login')">
+              <form @submit.prevent="authenticate()">
                 <div class="mb-3">
                   <label for="email" class="form-label">Email address</label>
                   <input
@@ -63,7 +63,7 @@
             </div>
 
             <div class="content modal-content-register" v-if="modalContent === 'register'">
-              <form @submit.prevent="authenticate('register')">
+              <form @submit.prevent="register()">
 
                 <div class="row">
                   <div class="col-md-6 pr-5">
@@ -99,15 +99,17 @@
                           type="email"
                           class="form-control"
                           required
+                          :class="{ 'is-invalid': validations.reg.email }"
                           id="email"
                           placeholder="name@example.com">
+                      <div class="invalid-feedback" v-if="validations.reg.email">{{ validations.reg.email }}</div>
                     </div>
                   </div>
                   <div class="col-md-6 pl-5">
                     <div class="mb-3">
                       <label for="role" class="form-label">Your role</label>
-                      <select class="form-select" aria-label="Default select example" required>
-                        <option selected>Select your role</option>
+                      <select v-model="reg.role" class="form-select" aria-label="Default select example" required>
+                        <option selected value="">Select your role</option>
                         <option value="1">Merchant</option>
                         <option value="2">Customer</option>
                         <option value="3">Not sure (decide later)</option>
@@ -125,9 +127,11 @@
                           v-model="reg.password"
                           type="password"
                           class="form-control"
+                          :class="{ 'is-invalid': validations.reg.password }"
                           required
                           id="password"
                           placeholder="Your password">
+                      <div class="invalid-feedback" v-if="validations.reg.password">{{ validations.reg.password }}</div>
                     </div>
                   </div>
                   <div class="col-md-6 pl-5">
@@ -137,9 +141,11 @@
                           v-model="reg.password2"
                           type="password"
                           class="form-control"
+                          :class="{ 'is-invalid': validations.reg.password2 }"
                           required
                           id="password2"
                           placeholder="Repeat your password">
+                      <div class="invalid-feedback" v-if="validations.reg.password2">{{ validations.reg.password2 }}</div>
                     </div>
                   </div>
 
@@ -199,12 +205,13 @@ const validations = ref({
   },
 
   reg: {
+    first_name: '',
+    last_name: '',
     email: '',
     password: '',
     password2: ''
   }
 })
-
 
 // Authentication
 const message = ref('Log in to your account');
@@ -218,6 +225,7 @@ const reg = ref({
   first_name: '',
   last_name: '',
   email: '',
+  role: '',
   password: '',
   password2: ''
 });
@@ -229,34 +237,17 @@ const api = axios.create({
   withCredentials: true
 });
 
-function authenticate(endpoint) {
+const closeModal = () => {
+  Swal.close();
+  document.querySelector('.modal-backdrop').remove();
+}
 
-  let data = {},
-    url = '';
-
-  if (endpoint === 'login') {
+function authenticate() {
+  const url = '/user/auth/',
     data = {
-      email: auth.value.email,
-      password: auth.value.password
-    };
-
-    url = '/user/auth/';
-
-  } else if (endpoint === 'register') {
-    data = {
-      email: reg.value.email,
-      password: reg.value.password,
-      password2: reg.value.password2
-    };
-
-    url = '/user/create/';
-
-
-  } else if (endpoint === 'reset') {
-    return false;
-  } else {
-    return false;
-  }
+    email: auth.value.email,
+    password: auth.value.password
+  };
 
   api.post(baseURL + url, data)
     .then(response => {
@@ -269,25 +260,21 @@ function authenticate(endpoint) {
       }
 
       if (response.data.success) {
-        if (endpoint === 'login') {
-          validations.value.auth.email = validations.value.auth.password = '';
+        validations.value.auth.email = validations.value.auth.password = '';
 
-          Swal.fire('Success!', 'Successfully auth, redirecting...', 'success');
+        Swal.fire('Success!', 'Successfully auth, redirecting...', 'success');
+        store.commit('auth', response.data.userInfo);
 
-          setTimeout(() => {
-            router.push('/dashboard');
-            store.commit('authenticate');
-          }, 3000);
+        setTimeout(() => {
+          router.push('/dashboard');
 
-        } else if (endpoint === 'register') {
-          if (response.data.error === 'Email already taken!') {
-            validations.value.reg.email = response.data.error;
-          }
-        }
+          closeModal();
+        }, 3000);
+
       } else {
         Swal.fire('Error!', response.data.error, 'error');
 
-        if (response.data.error === 'Invalid email or password') {
+        if (response.data.error === 'Invalid email or password!') {
           validations.value.auth.email = validations.value.auth.password = response.data.error;
         }
       }
@@ -296,5 +283,63 @@ function authenticate(endpoint) {
       console.log(error.response.data);
       // handle error
     });
+}
+
+function register() {
+  validations.value.reg.first_name = '';
+  validations.value.reg.last_name = '';
+  validations.value.reg.email = '';
+  validations.value.reg.password = '';
+  validations.value.reg.password2 = '';
+
+  if (reg.value.password !== reg.value.password2) {
+    Swal.fire('Error!', `The password confirmation does not match!`, 'error');
+
+    validations.value.reg.password = validations.value.reg.password2 = 'The password confirmation does not match!';
+
+    return false;
+  }
+
+  const url = '/user/create/',
+    data = {
+      email: reg.value.email,
+      first_name: reg.value.first_name,
+      role: reg.value.role,
+      last_name: reg.value.last_name,
+      password: reg.value.password
+    };
+
+  api.post(baseURL + url, data)
+    .then(response => {
+      // message.value = JSON.stringify(response.data);
+      console.log(response.data);
+
+      if (!response.data) {
+        Swal.fire('Error!', 'Error while sending request!', 'error');
+        return false;
+      }
+
+      if (response.data.success) {
+        Swal.fire('Success!', 'Successfully registered, redirecting...', 'success');
+        store.commit('auth', response.data.userInfo);
+
+        setTimeout(() => {
+          router.push('/dashboard');
+
+          closeModal();
+        }, 3000);
+      } else {
+        Swal.fire('Error!', response.data.error, 'error');
+
+        if (response.data.error === 'Email already taken!') {
+          validations.value.reg.email = response.data.error;
+        }
+      }
+    })
+    .catch(error => {
+      console.log(error.response.data);
+      // handle error
+    });
+
 }
 </script>

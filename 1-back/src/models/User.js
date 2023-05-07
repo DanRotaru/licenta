@@ -47,12 +47,11 @@ const schema = new Schema({
   },
   login: {
     type: String,
-    trim: true,
-    required: true
+    trim: true
   },
   avatar: {
     type: String,
-    default: 'https://placehold.co/512x512/EEE/999'
+    default: 'https://placehold.co/512x512/2D2B3F/FFFFFF/?text=U'
   },
   password: {
     type: String,

@@ -7,7 +7,7 @@ const store = createStore({
     // Your state properties
     count: 0,
     isAuthenticated: false,
-    userInfo: null,
+    userInfo: localStorage.getItem('userInfo') || null,
   },
   getters: {
     isAuthenticated(state) {
@@ -29,6 +29,7 @@ const store = createStore({
       document.cookie = 'Codeazone.sig=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       state.isAuthenticated = false;
       state.userInfo = null;
+      localStorage.removeItem('userInfo');
       router.push('/');
     },
     setUserInfo(state, data) {
@@ -53,15 +54,21 @@ const store = createStore({
           if (response.data.success === 1) {
             state.isAuthenticated = true;
             state.userInfo = response.data.info;
+            localStorage.setItem('userInfo', JSON.stringify(response.data.info));
             return true;
           }
         })
         .catch(error => {
-          state.isAuthenticated = true;
+          state.isAuthenticated = false;
           // router.push('/');
 
           return false;
         });
+    },
+    auth(state, userInfo) {
+      state.isAuthenticated = true;
+      state.userInfo = userInfo;
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
     }
     // Your mutations
   },

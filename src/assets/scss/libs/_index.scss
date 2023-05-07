@@ -39,6 +39,16 @@ Bootstrap Configuration
 @import "stepper";
 @import "sweetalert2/dist/sweetalert2.min.css";
 
+.swal2-styled.swal2-confirm {
+  background-color: #2F2B43;
+  border-radius: 6px;
+  padding: 10px 50px;
+}
+
+.swal2-container.swal2-center>.swal2-popup {
+  border-radius: 12px;
+}
+
 .opacity-2 {
   opacity: 0.2 !important;
 }

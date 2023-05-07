@@ -36,16 +36,17 @@ router.post('/auth', async (req, res) => {
   }
 
   const user = await User.findOne(
-    { email, regType: 0 },
-    { userId: 1, password: 1 }
+    { email, password },
   );
 
-  if (!user || (securePasswords && !(await passwordCompare(password, user.password))) || (!securePasswords && user.password !== password)) {
+  if (!user) {
     return res.json({ error: 'Invalid email or password!' });
   }
 
+  // (securePasswords && !(await passwordCompare(password, user.password))) || (!securePasswords && user.password !== password)
+
   req.session.auth = user._id.toString();
-  return res.json({ success: 1 });
+  return res.json({ success: 1 , userInfo: user});
 });
 
 router.get('/auth/github', (_req, res) => {
@@ -80,8 +81,6 @@ router.get('/auth/github/callback', async (req, res) => {
       },
     });
 
-    console.log(githubRes)
-
     const emailRes = await axios({
       method: 'get',
       url: 'https://api.github.com/user/emails',
@@ -97,7 +96,6 @@ router.get('/auth/github/callback', async (req, res) => {
     if (user) {
       req.session.auth = user._id.toString();
 
-      console.log(githubRes);
       return res.redirect('http://localhost:5000/dashboard');
       // return res.json({ success: 1 });
     } else {
@@ -106,15 +104,19 @@ router.get('/auth/github/callback', async (req, res) => {
         return res.json({error: 'email already taken'});
       }
 
+      const fullName = githubRes.data.name.split(" ");
+
       const newUser = await User.create({
         email: primaryVerifiedEmail,
-        name: githubRes.data.name,
+        first_name: fullName[0],
+        last_name: fullName[1],
         avatar: githubRes.data.avatar_url,
         password: null,
         githubId: githubRes.data.id,
         regType: 1,
       });
       req.session.auth = newUser._id.toString();
+      localStorage.setItem('userInfo', JSON.stringify(newUser));
       // return res.json({ success: 1 });
       return res.redirect('http://localhost:5000/');
     }
@@ -130,7 +132,7 @@ router.post('/create', async (req, res) => {
   const noRequiredData = (!first_name || !last_name || !email || !role || !password);
 
   if (noRequiredData) {
-    return res.status(400).json({error: 'All fields are required!'});
+    return res.json({error: 'All fields are required!'});
     // return res.status(400).json({ error: 'email and password are required' });
   }
 
@@ -141,12 +143,15 @@ router.post('/create', async (req, res) => {
 
   // const hashedPassword = !securePasswords ? password : await passwordHash(password, 10);
 
+  const avatar = `https://placehold.co/512x512/2D2B3F/FFFFFF/?text=${first_name[0]}${last_name[0]}`
+
   const user = await User.create({
     email,
     password,
     first_name,
+    avatar,
     last_name,
-    regType: role,
+    userType: role,
   });
 
   req.session.auth = user._id.toString();

@@ -26,66 +26,105 @@ const dashboardRoutes = [
     path: '/dashboard',
     name: 'dashboard',
     component: Dashboard,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/analytics',
     name: 'dashboard-analytics',
     component: DashboardAnalytics,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/chat',
     name: 'dashboard-chat',
     component: DashboardChat,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/settings',
     name: 'dashboard-settings',
     component: DashboardSettings,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/users',
     name: 'dashboard-users',
     component: DashboardUsers,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/users/:id',
     name: 'dashboard-users-single',
     component: DashboardUsersSingle,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/projects',
     name: 'dashboard-projects',
     component: DashboardProjects,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/projects/create',
     name: 'dashboard-projects-create',
     component: DashboardProjectsCreate,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/projects/:id',
     name: 'dashboard-projects-single',
     component: DashboardProjectsSingle,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/favorites',
     name: 'dashboard-favorites',
     component: DashboardFavorites,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/archive',
     name: 'dashboard-archive',
     component: DashboardArchive,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/help',
     name: 'dashboard-help',
     component: DashboardHelp,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/dashboard/support',
     name: 'dashboard-support',
     component: DashboardSupport,
+    meta: {
+      requiresAuth: true
+    }
   },
 ];
 
@@ -136,5 +175,23 @@ const router = createRouter({
     return { top: 0 }
   },
 });
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+
+    const existCookies = document.cookie.indexOf("Codeazone=") > -1
+
+    if (!existCookies) {
+      next({
+        path: "/"
+      });
+    } else {
+      next();
+    }
+  } else {
+    next();
+  }
+});
+
 
 export default router;

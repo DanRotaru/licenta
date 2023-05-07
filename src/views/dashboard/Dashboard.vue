@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard" v-if="store.getters.isAuthenticated">
+  <div class="dashboard">
     <Navigation/>
 
     <main>
@@ -18,5 +18,7 @@ import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
 import {watch} from "vue";
 import store from "@/store";
+
+console.log(store.getters.userInfo);
 
 </script>

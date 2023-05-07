@@ -58,11 +58,13 @@
               <div class="d-flex align-items-center">
                 <!-- Avatar -->
                 <div class="avatar me-3">
-                  <img class="avatar-img rounded-circle shadow" src="/img/me.webp" alt="avatar">
+                  <img class="avatar-img rounded-circle shadow" :src="userInfo.avatar"/>
                 </div>
                 <div>
-                  <a class="h6">Dan Rotaru</a>
-                  <p class="user__email">dan.rotaru2000@gmail.com</p>
+                  <a class="h6">
+                    {{ userInfo.first_name }} {{ userInfo.last_name }}
+                  </a>
+                  <p class="user__email">{{ userInfo.email }}</p>
 
                   <svg>
                     <use xlink:href="#sprite-chevron-up"></use>
@@ -88,7 +90,7 @@
 
 <script setup>
 import store from '@/store'
-import {watch} from "vue";
+import {ref, watch} from "vue";
 
 const menu = [
   {link: '/dashboard', icon: 'dashboard', text: 'Dashboard'},
@@ -105,6 +107,21 @@ const menuBottom = [
   {link: '/dashboard/help', icon: 'help', text: 'Help'},
   {link: '/dashboard/support', icon: 'inbox', text: 'Support'}
 ];
+
+const userInfo = ref({
+  first_name: store.getters.userInfo?.first_name || '',
+  last_name: store.getters.userInfo?.last_name || '',
+  email: store.getters.userInfo?.email || '',
+  avatar: store.getters.userInfo?.avatar || ''
+});
+
+watch(() => store.getters.userInfo, (res) => {
+  userInfo.value.first_name = res.first_name;
+  userInfo.value.last_name = res.last_name;
+  userInfo.value.email = res.email;
+  userInfo.value.avatar = res.avatar;
+  // console.log(newValue, oldValue)
+})
 
 const logout = () => {
   store.commit('logout')
