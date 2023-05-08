@@ -139,7 +139,7 @@
           </div>
         </div>
         <div class="col-md-5 offset-1">
-          <img src="../assets/img/focus.png" alt="focus">
+          <img src="/img/focus.png" alt="focus">
         </div>
       </div>
     </div>
@@ -162,7 +162,7 @@
               <div class="bg-body shadow text-center p-4 rounded-3 position-relative mb-5 mb-md-0">
                 <!-- Avatar -->
                 <div class="avatar avatar-xl mb-3">
-                  <img class="avatar-img rounded-circle" src="../assets/img/avatar/01.jpg" alt="avatar">
+                  <img class="avatar-img rounded-circle" src="/img/avatar/01.jpg" alt="avatar">
                 </div>
                 <!-- Content -->
                 <blockquote>
@@ -198,7 +198,7 @@
                 <div class="d-flex align-items-center mb-3">
                   <!-- Avatar -->
                   <div class="avatar avatar-sm">
-                    <img class="avatar-img rounded-1" src="../assets/img/avatar/09.jpg" alt="avatar">
+                    <img class="avatar-img rounded-1" src="/img/avatar/09.jpg" alt="avatar">
                   </div>
                   <!-- Info -->
                   <div class="ms-2">
@@ -211,7 +211,7 @@
                 <div class="d-flex align-items-center mb-3">
                   <!-- Avatar -->
                   <div class="avatar avatar-sm">
-                    <img class="avatar-img rounded-1" src="../assets/img/avatar/04.jpg" alt="avatar">
+                    <img class="avatar-img rounded-1" src="/img/avatar/04.jpg" alt="avatar">
                   </div>
                   <!-- Info -->
                   <div class="ms-2">
@@ -224,7 +224,7 @@
                 <div class="d-flex align-items-center">
                   <!-- Avatar -->
                   <div class="avatar avatar-sm">
-                    <img class="avatar-img rounded-1" src="../assets/img/avatar/02.jpg" alt="avatar">
+                    <img class="avatar-img rounded-1" src="/img/avatar/02.jpg" alt="avatar">
                   </div>
                   <!-- Info -->
                   <div class="ms-2">
@@ -310,7 +310,7 @@
               <div class="bg-body shadow text-center p-4 rounded-3">
                 <!-- Avatar -->
                 <div class="avatar avatar-xl mb-3">
-                  <img class="avatar-img rounded-circle" src="../assets/img/avatar/03.jpg" alt="avatar">
+                  <img class="avatar-img rounded-circle" src="/img/avatar/03.jpg" alt="avatar">
                 </div>
                 <!-- Content -->
                 <blockquote>
@@ -348,7 +348,7 @@
     <div class="container">
       <div class="review">
         <div class="review-user">
-          <img class="review-user__avatar" src="../assets/img/me.jpg" alt="image">
+          <img class="review-user__avatar" src="/img/me.jpg" alt="image">
           <img class="review-user__review"
                src="https://static.vecteezy.com/system/resources/previews/011/032/012/large_2x/3d-realistic-thumbs-up-illustration-vector.jpg"
                alt="review">

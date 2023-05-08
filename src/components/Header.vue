@@ -4,7 +4,7 @@
       <nav class="navbar">
         <router-link to="/">
           <div class="navbar-brand">
-            <img src="../assets/img/logo.svg" alt="logo">
+            <img src="/img/logo.svg" alt="logo">
           </div>
         </router-link>
 

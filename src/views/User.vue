@@ -14,7 +14,7 @@
               <div class="card shadow p-2 mb-4 text-center">
                 <div class="rounded-3">
                   <!-- Image -->
-                  <img src="../assets/img/me.webp" class="card-img" alt="user">
+                  <img src="/img/me.webp" class="card-img" alt="user">
                 </div>
 
                 <!-- Card body -->

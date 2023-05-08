@@ -172,7 +172,7 @@
                         <div class="row g-0 align-items-center">
                           <div class="col-md-5">
                             
-                            <img src="../assets/img/me.webp" class="img-fluid rounded-3" alt="user">
+                            <img src="/img/me.webp" class="img-fluid rounded-3" alt="user">
                           </div>
                           <div class="col-md-7">
                             
@@ -386,7 +386,7 @@
                         <div class="d-md-flex my-4">
                           
                           <div class="avatar avatar-xl me-4 flex-shrink-0">
-                            <img class="avatar-img rounded-circle" src="../assets/img/avatar/09.jpg" alt="avatar">
+                            <img class="avatar-img rounded-circle" src="/img/avatar/09.jpg" alt="avatar">
                           </div>
                           
                           <div>
@@ -425,7 +425,7 @@
                         <div class="d-md-flex mb-4 ps-4 ps-md-5">
                           
                           <div class="avatar avatar-lg me-4 flex-shrink-0">
-                            <img class="avatar-img rounded-circle" src="../assets/img/avatar/02.jpg" alt="avatar">
+                            <img class="avatar-img rounded-circle" src="/img/avatar/02.jpg" alt="avatar">
                           </div>
                           
                           <div>
@@ -448,7 +448,7 @@
                         <div class="d-md-flex my-4">
                           
                           <div class="avatar avatar-xl me-4 flex-shrink-0">
-                            <img class="avatar-img rounded-circle" src="../assets/img/avatar/08.jpg" alt="avatar">
+                            <img class="avatar-img rounded-circle" src="/img/avatar/08.jpg" alt="avatar">
                           </div>
                           
                           <div>
@@ -618,7 +618,7 @@
                           <div class="d-flex mb-4">
                             
                             <div class="avatar avatar-sm flex-shrink-0 me-2">
-                              <a href="#"> <img class="avatar-img rounded-circle" src="../assets/img/avatar/09.jpg" alt="">
+                              <a href="#"> <img class="avatar-img rounded-circle" src="/img/avatar/09.jpg" alt="">
                               </a>
                             </div>
 
@@ -636,7 +636,7 @@
                                 <div class="d-flex mb-3">
                                   
                                   <div class="avatar avatar-sm flex-shrink-0">
-                                    <a href="#"><img class="avatar-img rounded-circle" src="../assets/img/avatar/05.jpg"
+                                    <a href="#"><img class="avatar-img rounded-circle" src="/img/avatar/05.jpg"
                                                      alt=""></a>
                                   </div>
                                   <div class="ms-2">
@@ -667,7 +667,7 @@
                                     <div class="d-flex">
                                       
                                       <div class="avatar avatar-xs flex-shrink-0">
-                                        <a href="#"><img class="avatar-img rounded-circle" src="../assets/img/avatar/06.jpg"
+                                        <a href="#"><img class="avatar-img rounded-circle" src="/img/avatar/06.jpg"
                                                          alt=""></a>
                                       </div>
                                       
@@ -706,7 +706,7 @@
                                 <div class="d-flex">
                                   
                                   <div class="avatar avatar-sm flex-shrink-0">
-                                    <a href="#"><img class="avatar-img rounded-circle" src="../assets/img/avatar/02.jpg"
+                                    <a href="#"><img class="avatar-img rounded-circle" src="/img/avatar/02.jpg"
                                                      alt=""></a>
                                   </div>
                                   <div class="ms-2">
@@ -753,7 +753,7 @@
                   
                   <div class="card shadow p-2 mb-4 z-index-9">
                     <div class="overflow-hidden rounded-3">
-                      <img src="../assets/img/webify.png" class="card-img" alt="course image">
+                      <img src="/img/webify.png" class="card-img" alt="course image">
                       
                       <div class="bg-overlay bg-dark opacity-6"></div>
                       <div class="card-img-overlay d-flex align-items-start flex-column p-3">
@@ -849,7 +849,7 @@
                     <div class="row gx-3 mb-3">
                       
                       <div class="col-4">
-                        <img class="rounded" src="../assets/img/webify.png" alt="webify">
+                        <img class="rounded" src="/img/webify.png" alt="webify">
                       </div>
                       
                       <div class="col-8">
@@ -868,7 +868,7 @@
                     <div class="row gx-3 mb-3">
                       
                       <div class="col-4">
-                        <img class="rounded" src="../assets/img/webify.png" alt="webify">
+                        <img class="rounded" src="/img/webify.png" alt="webify">
                       </div>
                       
                       <div class="col-8">

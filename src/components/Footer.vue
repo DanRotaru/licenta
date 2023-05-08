@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="footer-brand">
-            <img src="../assets/img/logo.svg" alt="logo">
+            <img src="/img/logo.svg" alt="logo">
           </div>
           <p class="copyright">
             Copyright © Codeazone, Inc. 2023. <br/> All rights reserved.

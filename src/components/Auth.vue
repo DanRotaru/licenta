@@ -6,7 +6,7 @@
         <div class="modal-body">
           <div class="modal-body__first" :class="{'w-100': modalContent === 'register'}">
             <div class="auth-logo">
-              <img src="../assets/img/logo.svg" alt="logo">
+              <img src="/img/logo.svg" alt="logo">
             </div>
 
             <div class="modal-heading" v-if="modalContent === 'login'">
@@ -170,7 +170,7 @@
             </a>
           </div>
           <div class="modal-body__second" v-if="modalContent === 'login'">
-            <img src="../assets/img/login.webp" alt="img">
+            <img src="/img/login.webp" alt="img">
           </div>
         </div>
       </div>
