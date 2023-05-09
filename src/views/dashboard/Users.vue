@@ -57,7 +57,7 @@
                     <div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
                       <div>
                         <h5 class="card-title mb-0">
-                          <router-link to="/dashboard/users/id21123">DanRotaru</router-link>
+                          <router-link to="/dashboard/users/id1">DanRotaru</router-link>
                         </h5>
                         <p class="small mb-2 mb-sm-0">Fullstack web developer</p>
                       </div>

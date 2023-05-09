@@ -3,7 +3,7 @@
     <Navigation/>
 
     <main>
-      <Header :pages="[['Users', '/dashboard/users'], [id]]"/>
+      <Header :pages="[['Users', '/dashboard/users'], [userInfo.first_name + ' ' + userInfo.last_name]]"/>
 
       <div class="wrapper">
         <div v-if="userInfo.founded" class="row g-0 g-lg-5">
