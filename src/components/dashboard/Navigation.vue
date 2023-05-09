@@ -108,20 +108,14 @@ const menuBottom = [
   {link: '/dashboard/support', icon: 'inbox', text: 'Support'}
 ];
 
-const userInfo = ref({
-  first_name: store.getters.userInfo?.first_name || '',
-  last_name: store.getters.userInfo?.last_name || '',
-  email: store.getters.userInfo?.email || '',
-  avatar: store.getters.userInfo?.avatar || ''
-});
+const userInfo = typeof store.getters.userInfo === 'string' ? ref(JSON.parse(store.getters.userInfo)) : ref(store.getters.userInfo);
 
 watch(() => store.getters.userInfo, (res) => {
   userInfo.value.first_name = res.first_name;
   userInfo.value.last_name = res.last_name;
   userInfo.value.email = res.email;
   userInfo.value.avatar = res.avatar;
-  // console.log(newValue, oldValue)
-})
+});
 
 const logout = () => {
   store.commit('logout')

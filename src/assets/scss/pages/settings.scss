@@ -18,6 +18,7 @@
 
   &-row {
     margin: 20px 10px;
+    width: 100%;
   }
 
   &-aside {
@@ -62,6 +63,10 @@
     }
   }
 
+  .ql-editor {
+    overflow: auto;
+    max-height: 130px;
+  }
 }
 
 body:has(.dashboard.settings) {

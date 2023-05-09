@@ -9,6 +9,7 @@
     "back": "nodemon index --quiet"
   },
   "dependencies": {
+    "@vueup/vue-quill": "^1.1.1",
     "axios": "^1.3.4",
     "bcrypt": "^5.1.0",
     "bootstrap": "^5.2.3",
@@ -19,10 +20,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
     "https": "^1.0.0",
-    "sass": "^1.59.3",
     "mongoose": "^6.2.2",
     "mongoose-sequence": "^5.3.1",
+    "sass": "^1.59.3",
     "sweetalert2": "^11.7.3",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6",

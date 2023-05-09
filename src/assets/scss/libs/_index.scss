@@ -68,3 +68,17 @@ Bootstrap Configuration
 .gradient-2 {
   background: radial-gradient(rgb(231, 219, 219) 0%, rgb(188, 176, 243) 0%, rgb(236, 236, 236) 100%);
 }
+
+.ql {
+  &-toolbar {
+    border-radius: 6px 6px 0 0;
+  }
+
+  &-container {
+    border-radius: 0 0 6px 6px;
+  }
+
+  &-editor {
+    min-height: 110px;
+  }
+}

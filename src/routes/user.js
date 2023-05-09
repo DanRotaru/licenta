@@ -19,13 +19,13 @@ const securePasswords = false;
 
 router.get('/check', async (req, res) => {
   if (!req.session.auth) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({error: 'Unauthorized'});
   }
 
-  const user = await User.findById({ _id: req.session.auth }).limit(1);
+  const user = await User.findById({_id: req.session.auth}).limit(1);
 
   if (!user) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({error: 'Unauthorized'});
   }
 
   return res.json({
@@ -36,24 +36,24 @@ router.get('/check', async (req, res) => {
 });
 
 router.post('/auth', async (req, res) => {
-  const { email, password } = req.body;
+  const {email, password} = req.body;
 
   if (!email || !password) {
-    return res.json({ error: 'Email and Password are required!' });
+    return res.json({error: 'Email and Password are required!'});
   }
 
   const user = await User.findOne(
-    { email, password },
+    {email, password},
   );
 
   if (!user) {
-    return res.json({ error: 'Invalid email or password!' });
+    return res.json({error: 'Invalid email or password!'});
   }
 
   // (securePasswords && !(await passwordCompare(password, user.password))) || (!securePasswords && user.password !== password)
 
   req.session.auth = user._id.toString();
-  return res.json({ success: 1 , userInfo: user});
+  return res.json({success: 1, userInfo: user});
 });
 
 router.get('/auth/github', (_req, res) => {
@@ -134,7 +134,7 @@ router.get('/auth/github/callback', async (req, res) => {
 });
 
 router.post('/create', async (req, res) => {
-  const { first_name, last_name, email, role, password } = req.body;
+  const {first_name, last_name, email, role, password} = req.body;
 
   const noRequiredData = (!first_name || !last_name || !email || !role || !password);
 
@@ -151,8 +151,6 @@ router.post('/create', async (req, res) => {
   // const hashedPassword = !securePasswords ? password : await passwordHash(password, 10);
 
   const avatar = `https://placehold.co/512x512/2D2B3F/FFFFFF/?text=${first_name[0]}${last_name[0]}`
-
-  console.log(avatar);
 
   const user = await User.create({
     first_name,
@@ -175,22 +173,34 @@ router.get('/logout', async (req, res) => {
   return res.json({success: 1});
 });
 
-router.post('/update', async (req, res) => {
+router.post('/update1', async (req, res) => {
   if (typeof req.session.auth === 'undefined') {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({error: 'Unauthorized'});
   }
 
-  const { name, description, avatar, experience, phone, website, position, location, education, skills, socials } = req.body;
+  const {
+    name,
+    description,
+    avatar,
+    experience,
+    phone,
+    website,
+    position,
+    location,
+    education,
+    skills,
+    socials
+  } = req.body;
 
   const noRequiredData = (!title || !description || !shortDescription || !image || !language || !price || !discount || !video || !faqs || !includes || !tags);
 
   if (noRequiredData) {
-    return res.json({ error: 'All fields are required!' });
+    return res.json({error: 'All fields are required!'});
   }
 
   const user = await User.findById(req.session.auth);
   if (!user) {
-    return res.status(401).json({ error: 'Unauthorized' });
+    return res.status(401).json({error: 'Unauthorized'});
   }
 
   const newPost = await Post.create({
@@ -208,7 +218,115 @@ router.post('/update', async (req, res) => {
     tags
   });
 
-  return res.json({ success: 1, postId: newPost.postId });
+  return res.json({success: 1, postId: newPost.postId});
+});
+
+router.post('/update/:action', async (req, res) => {
+  if (typeof req.session.auth === 'undefined') {
+    return res.status(401).json({error: 'Unauthorized'});
+  }
+
+  const action = req.params.action;
+  if (!action) {
+    return res.json({error: 'Not specified update action!'});
+  }
+
+  const user = await User.findById({_id: req.session.auth}).limit(1);
+  if (!user) {
+    return res.status(401).json({error: 'User unauthorized'});
+  }
+
+  if (action === 'description') {
+    const {position, description} = req.body;
+
+    if (req.files) {
+
+      const avatar = req.files.avatar;
+
+      if (avatar) {
+        const uploadPath = __dirname + '../../../public/uploads/' + avatar.name;
+
+        console.log(uploadPath);
+
+        if (!avatar.mimetype.startsWith('image/')) {
+          return res.json({error: 'Avatar must be image!'});
+        }
+
+        await avatar.mv(uploadPath, function (err) {
+          if (err)
+            return res.status(500).send(err);
+        });
+
+        user.avatar = '/uploads/' + avatar.name;
+      }
+    }
+
+    user.position = position;
+    user.description = description;
+    await user.save();
+
+    return res.json({success: 1, userInfo: user});
+
+  } else if (action === 'password') {
+    const {old_password, new_password} = req.body;
+
+    if (!old_password.length || !new_password.length) {
+      return res.json({error: 'Empty old password or new password!'});
+    }
+
+    if (old_password !== user.password) {
+      return res.json({error: 'Incorrect current password!'});
+    }
+
+    if (new_password === user.password) {
+      return res.json({error: 'New password cannot be the same as current password!'});
+    }
+
+    user.password = new_password;
+    await user.save();
+
+    return res.json({success: 1});
+  } else {
+    return res.json({error: 'Not specified update action!'});
+  }
+
+
+});
+
+router.get('/info/:id', async (req, res) => {
+  if (typeof req.session.auth === 'undefined') {
+    return res.status(401).json({error: 'Unauthorized'});
+  }
+
+  const id = req.params.id;
+  if (!id) {
+    return res.json({error: 'Not specified user id!'});
+  }
+
+  let user;
+
+  if (id.startsWith('id')) {
+    const numericId = Number(id.replace(/\D/g, ''));
+    user = await User.findOne({userId: numericId});
+  } else {
+    user = await User.findById({_id: id}).limit(1);
+  }
+
+  if (!user) {
+    return res.json({error: 'User not found!'});
+  }
+
+  const result = {
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    description: user.description,
+    position: user.position,
+    avatar: user.avatar
+  }
+
+  return res.json({success: 1, userInfo: result});
+
 });
 
 module.exports = router;

@@ -35,19 +35,32 @@
 
               <div class="card card-body" id="nav-settings-home">
                 <div class="row align-items-center">
-                  <div class="col-5">
-                    <img src="/img/me.webp" alt="bruce" class="rounded-3">
-                    <button class="btn settings-btn-sm">Upload new avatar</button>
+                  <div class="col-md-5 d-flex flex-column">
+                    <img :src="userData.avatar" alt="user avatar" class="rounded-3">
+                    <label for="avatar-file" class="btn settings-btn-sm">Upload new avatar</label>
+                    <input class="d-none" accept="image/*" type="file" id="avatar-file" @change="avatarUpload($event)"/>
                   </div>
-                  <div class="col-7">
-                    <div class="h-100"><h5 class="mb-1 font-weight-bolder"> Dan Rotaru </h5>
-                      <p class="mb-0 font-weight-bold small"> CEO / Co-Founder </p>
+                  <div class="col-md-7">
+                    <div class="h-100">
+                      <h2>
+                        {{ userData.first_name }} {{ userData.last_name }}
+                      </h2>
 
-                      <div class="form-floating">
-                          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
-                                    style="height: 100px"></textarea>
-                        <label for="floatingTextarea2">Profile description</label>
+                      <div class="mb-3 mt-3">
+                        <label class="form-label" for="settings-position">Position</label>
+                        <input id="settings-position"
+                               class="form-control"
+                               type="text"
+                               placeholder="Current position"
+                               v-model="userData.position"/>
+                        <div class="form-text">Your current position (e.g. FullStack Web Developer)</div>
                       </div>
+
+
+                      <label class="form-label">Profile description</label>
+                      <QuillEditor :content="userData.description" theme="snow" contentType="html" @update:content="userData.description = $event"/>
+
+                      <button class="btn btn-sm float-end mt-3 mb-0" @click="updateDescription()">Update data</button>
 
                     </div>
                   </div>
@@ -61,290 +74,136 @@
                 <div class="card-body pt-0">
                   <div class="row">
                     <div class="col-6">
-                      <label class="form-label">First Name</label>
+                      <label class="form-label" for="settings-first_name">First Name</label>
                       <div class="input-group">
-                        <input id="firstName" name="firstName" class="form-control" type="text" placeholder="Alec"
-                               required="required" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input id="settings-first_name"
+                               class="form-control"
+                               type="text"
+                               placeholder="Your First Name"
+                               v-model="userData.first_name"
+                               required/>
                       </div>
                     </div>
                     <div class="col-6">
-                      <label class="form-label">Last Name</label>
+                      <label class="form-label" for="settings-last_name">Last Name</label>
                       <div class="input-group">
-                        <input id="lastName" name="lastName" class="form-control" type="text" placeholder="Thompson"
-                               required="required" onfocus="focused(this)" onfocusout="defocused(this)">
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-sm-4 col-6">
-                      <label class="form-label mt-4">I'm</label>
-                      <div class="choices" data-type="select-one" tabindex="0" role="combobox"
-                           aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                        <div class="choices__inner"><select class="form-control choices__input" name="choices-gender"
-                                                            id="choices-gender" hidden="" tabindex="-1"
-                                                            data-choice="active">
-                          <option value="Male">Male</option>
-                        </select>
-                          <div class="choices__list choices__list--single">
-                            <div class="choices__item choices__item--selectable" data-item="" data-id="1"
-                                 data-value="Male" data-custom-properties="null" aria-selected="true">Male
-                            </div>
-                          </div>
-                        </div>
-                        <div class="choices__list choices__list--dropdown" aria-expanded="false">
-                          <input type="text"
-                                 class="choices__input choices__input--cloned"
-                                 autocomplete="off"
-                                 autocapitalize="off"
-                                 spellcheck="false"
-                                 role="textbox"
-                                 aria-autocomplete="list"
-                                 aria-label="false"
-                                 placeholder=""
-                                 aria-activedescendant="choices--choices-gender-item-choice-1">
-                          <div class="choices__list" role="listbox">
-                            <div id="choices--choices-gender-item-choice-1"
-                                 class="choices__item choices__item--choice choices__item--selectable is-highlighted"
-                                 role="option" data-choice="" data-id="1" data-value="Female"
-                                 data-select-text="Press to select" data-choice-selectable="" aria-selected="true">
-                              Female
-                            </div>
-                            <div id="choices--choices-gender-item-choice-2"
-                                 class="choices__item choices__item--choice is-selected choices__item--selectable"
-                                 role="option" data-choice="" data-id="2" data-value="Male"
-                                 data-select-text="Press to select" data-choice-selectable="" aria-selected="false">
-                              Male
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-sm-8">
-                      <div class="row">
-                        <div class="col-sm-5 col-5">
-                          <label class="form-label mt-4">Birth Date</label>
-                          <div class="choices" data-type="select-one" tabindex="0" role="combobox"
-                               aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                            <div class="choices__inner"><select class="form-control choices__input"
-                                                                name="choices-month" id="choices-month" hidden=""
-                                                                tabindex="-1" data-choice="active">
-                              <option value="2">February</option>
-                            </select>
-                              <div class="choices__list choices__list--single">
-                                <div class="choices__item choices__item--selectable" data-item="" data-id="1"
-                                     data-value="2" data-custom-properties="null" aria-selected="true">February
-                                </div>
-                              </div>
-                            </div>
-                            <div class="choices__list choices__list--dropdown" aria-expanded="false"><input
-                                type="text" class="choices__input choices__input--cloned" autocomplete="off"
-                                autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list"
-                                aria-label="false" placeholder="">
-                              <div class="choices__list" role="listbox">
-                                <div id="choices--choices-month-item-choice-1"
-                                     class="choices__item choices__item--choice choices__item--selectable is-highlighted"
-                                     role="option" data-choice="" data-id="1" data-value="4"
-                                     data-select-text="Press to select" data-choice-selectable=""
-                                     aria-selected="true">April
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-3">
-                          <label class="form-label mt-4">&nbsp;</label>
-                          <div class="choices" data-type="select-one" tabindex="0" role="combobox"
-                               aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                            <div class="choices__inner"><select class="form-control choices__input" name="choices-day"
-                                                                id="choices-day" hidden="" tabindex="-1"
-                                                                data-choice="active">
-                              <option value="1">1</option>
-                            </select>
-                              <div class="choices__list choices__list--single">
-                                <div class="choices__item choices__item--selectable" data-item="" data-id="1"
-                                     data-value="1" data-custom-properties="null" aria-selected="true">1
-                                </div>
-                              </div>
-                            </div>
-                            <div class="choices__list choices__list--dropdown" aria-expanded="false"><input
-                                type="text" class="choices__input choices__input--cloned" autocomplete="off"
-                                autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list"
-                                aria-label="false" placeholder="">
-                              <div class="choices__list" role="listbox">
-                                <div id="choices--choices-day-item-choice-1"
-                                     class="choices__item choices__item--choice is-selected choices__item--selectable is-highlighted"
-                                     role="option" data-choice="" data-id="1" data-value="1"
-                                     data-select-text="Press to select" data-choice-selectable=""
-                                     aria-selected="true">1
-                                </div>
-                                <div id="choices--choices-day-item-choice-2"
-                                     class="choices__item choices__item--choice choices__item--selectable"
-                                     role="option" data-choice="" data-id="2" data-value="2"
-                                     data-select-text="Press to select" data-choice-selectable="">2
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-sm-3 col-4">
-                          <label class="form-label mt-4">&nbsp;</label>
-                          <div class="choices" data-type="select-one" tabindex="0" role="combobox"
-                               aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                            <div class="choices__inner"><select class="form-control choices__input"
-                                                                name="choices-year" id="choices-year" hidden=""
-                                                                tabindex="-1" data-choice="active">
-                              <option value="2020">2020</option>
-                            </select>
-                              <div class="choices__list choices__list--single">
-                                <div class="choices__item choices__item--selectable" data-item="" data-id="1"
-                                     data-value="2020" data-custom-properties="null" aria-selected="true">2020
-                                </div>
-                              </div>
-                            </div>
-                            <div class="choices__list choices__list--dropdown" aria-expanded="false"><input
-                                type="text" class="choices__input choices__input--cloned" autocomplete="off"
-                                autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list"
-                                aria-label="false" placeholder="">
-                              <div class="choices__list" role="listbox">
-                                <div id="choices--choices-year-item-choice-1"
-                                     class="choices__item choices__item--choice choices__item--selectable is-highlighted"
-                                     role="option" data-choice="" data-id="1" data-value="1900"
-                                     data-select-text="Press to select" data-choice-selectable=""
-                                     aria-selected="true">1900
-                                </div>
-                                <div id="choices--choices-year-item-choice-2"
-                                     class="choices__item choices__item--choice choices__item--selectable"
-                                     role="option" data-choice="" data-id="2" data-value="1901"
-                                     data-select-text="Press to select" data-choice-selectable="">1901
-                                </div>
-                                <div id="choices--choices-year-item-choice-3"
-                                     class="choices__item choices__item--choice choices__item--selectable"
-                                     role="option" data-choice="" data-id="3" data-value="1902"
-                                     data-select-text="Press to select" data-choice-selectable="">1902
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                        <input id="settings-last_name"
+                               class="form-control"
+                               type="text"
+                               placeholder="Your Last Name"
+                               v-model="userData.last_name"
+                               required/>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-6">
-                      <label class="form-label mt-4">Email</label>
+                      <label class="form-label mt-4" for="settings-email">Email</label>
                       <div class="input-group">
-                        <input id="email" name="email" class="form-control" type="email"
-                               placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input id="settings-email"
+                               class="form-control"
+                               type="email"
+                               placeholder="example@email.com"
+                               v-model="userData.email" required/>
                       </div>
                     </div>
                     <div class="col-6">
-                      <label class="form-label mt-4">Confirmation Email</label>
+                      <label class="form-label mt-4" for="settings-phone">Phone Number</label>
                       <div class="input-group">
-                        <input id="confirmation" name="confirmation" class="form-control" type="email"
-                               placeholder="example@email.com" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input id="settings-phone"
+                               class="form-control"
+                               type="number"
+                               placeholder="+XXX XXX XXX XX"
+                               v-model="userData.phone"/>
                       </div>
                     </div>
                   </div>
                   <div class="row">
+                    <div class="col-6">
+                      <label class="form-label mt-4" for="settings-website">Website</label>
+                      <div class="input-group">
+                        <input id="settings-website"
+                               class="form-control"
+                               type="text"
+                               v-model="userData.website"
+                               placeholder="https://example.com/"/>
+                      </div>
+                    </div>
                     <div class="col-6">
                       <label class="form-label mt-4">Your location</label>
                       <div class="input-group">
-                        <input id="location" name="location" class="form-control" type="text" placeholder="Sydney, A"
-                               onfocus="focused(this)" onfocusout="defocused(this)">
-                      </div>
-                    </div>
-                    <div class="col-6">
-                      <label class="form-label mt-4">Phone Number</label>
-                      <div class="input-group">
-                        <input id="phone" name="phone" class="form-control" type="number"
-                               placeholder="+40 735 631 620" onfocus="focused(this)" onfocusout="defocused(this)">
+                        <input id="location" name="location" class="form-control" type="text" placeholder="Sydney, A">
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-md-6 align-self-center">
-                      <label class="form-label mt-4">Language</label>
-                      <div class="choices" data-type="select-one" tabindex="0" role="combobox"
-                           aria-autocomplete="list" aria-haspopup="true" aria-expanded="false">
-                        <div class="choices__inner"><select class="form-control choices__input"
-                                                            name="choices-language" id="choices-language" hidden=""
-                                                            tabindex="-1" data-choice="active">
-                          <option value="English">English</option>
-                        </select>
-                          <div class="choices__list choices__list--single">
-                            <div class="choices__item choices__item--selectable" data-item="" data-id="1"
-                                 data-value="English" data-custom-properties="null" aria-selected="true">English
-                            </div>
-                          </div>
-                        </div>
-                        <div class="choices__list choices__list--dropdown" aria-expanded="false"><input type="text"
-                                                                                                        class="choices__input choices__input--cloned"
-                                                                                                        autocomplete="off"
-                                                                                                        autocapitalize="off"
-                                                                                                        spellcheck="false"
-                                                                                                        role="textbox"
-                                                                                                        aria-autocomplete="list"
-                                                                                                        aria-label="false"
-                                                                                                        placeholder="">
-                          <div class="choices__list" role="listbox">
-                            <div id="choices--choices-language-item-choice-1"
-                                 class="choices__item choices__item--choice is-selected choices__item--selectable is-highlighted"
-                                 role="option" data-choice="" data-id="1" data-value="English"
-                                 data-select-text="Press to select" data-choice-selectable="" aria-selected="true">
-                              English
-                            </div>
-                            <div id="choices--choices-language-item-choice-2"
-                                 class="choices__item choices__item--choice choices__item--selectable" role="option"
-                                 data-choice="" data-id="2" data-value="French" data-select-text="Press to select"
-                                 data-choice-selectable="">French
-                            </div>
-                            <div id="choices--choices-language-item-choice-3"
-                                 class="choices__item choices__item--choice choices__item--selectable" role="option"
-                                 data-choice="" data-id="3" data-value="Spanish" data-select-text="Press to select"
-                                 data-choice-selectable="">Spanish
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                      <label class="form-label mt-4">Languages</label>
+                      <select class="form-select js-choice border-0 bg-transparent" multiple="multiple"
+                              aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true" data-search-enabled="true">
+                        <option value="" disabled>Select language</option>
+                        <option
+                            v-for="lang in data.languages"
+                            :key="lang"
+                            :value="lang">{{ lang }}
+                        </option>
+                      </select>
                     </div>
                     <div class="col-md-6">
                       <label class="form-label mt-4">Skills</label>
-                      <div class="choices" data-type="text" aria-haspopup="true" aria-expanded="false">
-                        <div class="choices__inner"><input class="form-control choices__input" id="choices-skills"
-                                                           type="text" value="vuejs,angular,react"
-                                                           placeholder="Enter something" hidden="" tabindex="-1"
-                                                           data-choice="active" onfocus="focused(this)"
-                                                           onfocusout="defocused(this)">
-                          <div class="choices__list choices__list--multiple">
-                            <div class="choices__item choices__item--selectable" data-item="" data-id="1"
-                                 data-value="vuejs" data-custom-properties="null" aria-selected="true"
-                                 data-deletable="">vuejs
-                              <button type="button" class="choices__button" aria-label="Remove item: 'vuejs'"
-                                      data-button="">Remove item
-                              </button>
-                            </div>
-                            <div class="choices__item choices__item--selectable" data-item="" data-id="2"
-                                 data-value="angular" data-custom-properties="null" aria-selected="true"
-                                 data-deletable="">angular
-                              <button type="button" class="choices__button" aria-label="Remove item: 'angular'"
-                                      data-button="">Remove item
-                              </button>
-                            </div>
-                            <div class="choices__item choices__item--selectable" data-item="" data-id="3"
-                                 data-value="react" data-custom-properties="null" aria-selected="true"
-                                 data-deletable="">react
-                              <button type="button" class="choices__button" aria-label="Remove item: 'react'"
-                                      data-button="">Remove item
-                              </button>
-                            </div>
-                          </div>
-                          <input type="text" class="choices__input choices__input--cloned" autocomplete="off"
-                                 autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list"
-                                 aria-label="false"></div>
-                        <div class="choices__list choices__list--dropdown" aria-expanded="false"></div>
+                      <select class="form-select js-choice border-0 bg-transparent" multiple="multiple"
+                              aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true">
+                        <option value="" disabled>Select skill</option>
+                        <option
+                            v-for="lang in data.languages"
+                            :key="lang"
+                            :value="lang">{{ lang }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <h5 class="mt-4">Socials</h5>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-facebook">
+                          <i class="fab fa-fw fa-facebook-f"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Facebook link"/>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-instagram-gradient">
+                          <i class="fab fa-fw fa-instagram"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Instagram link"/>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-twitter">
+                          <i class="fab fa-fw fa-twitter"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Twitter link"/>
+                      </div>
+                    </div>
+
+                    <div class="col-6">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text bg-linkedin">
+                          <i class="fab fa-fw fa-linkedin-in"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Linkedin link"/>
                       </div>
                     </div>
                   </div>
+
+                  <button class="btn btn-sm float-end mt-3 mb-0">Update data</button>
+
                 </div>
               </div>
 
@@ -353,37 +212,39 @@
                   <h5>Security</h5>
                 </div>
                 <div class="card-body pt-0">
-                  <label class="form-label" for="current-password">Current password</label>
-                  <div class="form-group mb-3">
-                    <input id="current-password" class="form-control" type="password" placeholder="Current password">
-                  </div>
-                  <label class="form-label" for="new-password">New password</label>
-                  <div class="form-group mb-3">
-                    <input id="new-password" class="form-control" type="password" placeholder="New password">
-                  </div>
-                  <label class="form-label" for="new-password2">Confirm new password</label>
-                  <div class="form-group mb-3">
-                    <input id="new-password2" class="form-control" type="password" placeholder="Confirm password">
-                  </div>
-                  <h5 class="mt-4">Password requirements</h5>
-                  <p class="mb-2">
-                    Please follow this guide for a strong password:
-                  </p>
-                  <ul class="ps-4 mb-0 float-start">
-                    <li>
-                      <span class="small">One special characters</span>
-                    </li>
-                    <li>
-                      <span class="small">Min 6 characters</span>
-                    </li>
-                    <li>
-                      <span class="small">One number (2 are recommended)</span>
-                    </li>
-                    <li>
-                      <span class="small">Change it often</span>
-                    </li>
-                  </ul>
-                  <button class="btn btn-sm float-end mt-6 mb-0">Update password</button>
+                  <form @submit.prevent="updatePassword()">
+                    <label class="form-label" for="current-password">Current password</label>
+                    <div class="form-group mb-3">
+                      <input id="current-password" class="form-control" type="password" placeholder="Current password" required v-model="userData.current_password">
+                    </div>
+                    <label class="form-label" for="new-password">New password</label>
+                    <div class="form-group mb-3">
+                      <input id="new-password" class="form-control" type="password" minlength="6" placeholder="New password" required v-model="userData.new_password">
+                    </div>
+                    <label class="form-label" for="new-password2">Confirm new password</label>
+                    <div class="form-group mb-3">
+                      <input id="new-password2" class="form-control" type="password" minlength="6" placeholder="Confirm password" required v-model="userData.new_password_repeat">
+                    </div>
+                    <h5 class="mt-4">Password requirements</h5>
+                    <p class="mb-2">
+                      Please follow this guide for a strong password:
+                    </p>
+                    <ul class="ps-4 mb-0 float-start">
+                      <li>
+                        <span class="small">One special characters</span>
+                      </li>
+                      <li>
+                        <span class="small">Min 6 characters</span>
+                      </li>
+                      <li>
+                        <span class="small">One number (2 are recommended)</span>
+                      </li>
+                      <li>
+                        <span class="small">Change it often</span>
+                      </li>
+                    </ul>
+                    <button class="btn btn-sm float-end mt-6 mb-0">Update password</button>
+                  </form>
                 </div>
               </div>
 
@@ -474,7 +335,8 @@
                         <td class="ps-1" colspan="4">
                           <div class="my-auto">
                             <span class="text-dark d-block text-sm">Mentions</span>
-                            <span class="text-xs font-weight-normal">Notify when another user mentions you in a comment</span>
+                            <span
+                                class="text-xs font-weight-normal">Notify when another user mentions you in a comment</span>
                           </div>
                         </td>
                         <td>
@@ -644,9 +506,18 @@
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
 
-import {onMounted} from "vue";
+import {onMounted, ref} from "vue";
 import Choices from "choices.js";
-// import Choices from "choices.js";
+import store from "@/store";
+import * as data from '@/store/data'
+import axios from "axios";
+
+const baseURL = 'http://localhost:3000/api';
+
+const api = axios.create({
+  baseURL,
+  withCredentials: true
+});
 
 const menu = [
   {to: '#nav-settings-home', icon: 'user-profile', text: 'My details'},
@@ -658,6 +529,86 @@ const menu = [
   {to: '#nav-settings-danger', icon: 'alert', text: 'Danger Zone'},
 ];
 
+const userInfo = typeof store.getters.userInfo === 'string' ? JSON.parse(store.getters.userInfo) : store.getters.userInfo;
+
+const userData = ref({
+  first_name: userInfo.first_name,
+  last_name: userInfo.last_name,
+  email: userInfo.email,
+  login: userInfo.login,
+  avatar: userInfo.avatar,
+  avatarRaw: userInfo.avatar,
+  userType: userInfo.userType,
+  experience: userInfo.experience,
+  phone: userInfo.phone,
+  website: userInfo.website,
+  description: userInfo.description,
+  position: userInfo.position,
+
+  current_password: '',
+  new_password: '',
+  new_password_repeat: ''
+});
+
+function avatarUpload(e) {
+  let files = e.target.files;
+  userData.value.avatarRaw = e.target.files[0];
+
+  if (files.length) {
+    const fReader = new FileReader();
+    fReader.readAsDataURL(files[0]);
+
+    fReader.onloadend = function () {
+      userData.value.avatar = fReader.result;
+    }
+  }
+}
+
+async function updateDescription() {
+  const formData = new FormData()
+  formData.append('avatar', userData.value.avatarRaw);
+  formData.append('position', userData.value.position);
+  formData.append('description', userData.value.description);
+
+  const res = await api.post(baseURL + "/user/update/description", formData);
+  if (!res.data) {
+    await Swal.fire('Error!', 'Error while sending request!', 'error');
+    return false;
+  }
+
+  if (res.data.success) {
+    await Swal.fire('Success!', 'Data successfully saved!', 'success');
+    store.commit('setUserInfo', res.data.userInfo);
+
+  } else {
+    await Swal.fire('Error!', res.data.error, 'error');
+  }
+}
+
+async function updatePassword() {
+  if (userData.value.new_password !== userData.value.new_password_repeat) {
+    await Swal.fire('Error!', `The password confirmation does not match!`, 'error');
+    return false;
+  }
+
+  const res = await api.post(baseURL + "/user/update/password", {
+    old_password: userData.value.current_password,
+    new_password: userData.value.new_password
+  });
+
+  if (!res.data) {
+    await Swal.fire('Error!', 'Error while sending request!', 'error');
+    return false;
+  }
+
+  if (res.data.success) {
+    await Swal.fire('Success!', 'Password successfully changed!', 'success');
+    userData.value.new_password = userData.value.current_password = userData.value.new_password_repeat = '';
+  } else {
+    await Swal.fire('Error!', res.data.error, 'error');
+  }
+}
+
 onMounted(() => {
 
   const createScrollSpy = () => {
@@ -667,7 +618,26 @@ onMounted(() => {
   createScrollSpy();
   setTimeout(createScrollSpy, 1000);
 
-  const choices = new Choices('[data-choice]');
+  // const choices = new Choices('[data-choice]', {allowHTML: true});
+
+  const choices = document.querySelectorAll('.js-choice');
+
+  choices.forEach(function (item) {
+    const removeItemBtn = item.getAttribute('data-remove-item-button') === 'true';
+    const placeHolder = item.getAttribute('data-placeholder') !== 'false';
+    const placeHolderVal = item.getAttribute('data-placeholder-val') ? item.getAttribute('data-placeholder-val') : 'Type and hit enter';
+    const maxItemCount = item.getAttribute('data-max-item-count') ? item.getAttribute('data-max-item-count') : 3;
+    const searchEnabled = item.getAttribute('data-search-enabled') !== 'false';
+
+    new Choices(item, {
+      removeItemButton: removeItemBtn,
+      placeholder: placeHolder,
+      placeholderValue: placeHolderVal,
+      maxItemCount: maxItemCount,
+      searchEnabled: searchEnabled,
+      allowHTML: true
+    });
+  });
 
   // dataSpyList.forEach(dataSpyEl => {
   //   console.log(bootstrap.ScrollSpy.getInstance(dataSpyEl));

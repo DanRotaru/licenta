@@ -3,11 +3,12 @@ const express = require('express');
 const cookieSession = require('cookie-session');
 const mongoose = require('mongoose');
 const app = express();
+const fileUpload = require('express-fileupload');
 const cors = require('cors');
 const fs = require('fs');
 
-const userRouter = require('./src/router/user');
-const postRouter = require('./src/router/post');
+const userRouter = require('./src/routes/user');
+const postRouter = require('./src/routes/post');
 
 require('dotenv').config();
 
@@ -39,6 +40,10 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.set('trust proxy', true);
+
+app.use(fileUpload({
+  limits: { fileSize: 50 * 1024 * 1024 }
+}));
 
 app.use((req, res, next) => {
   res.setHeader('Content-type', 'application/json; charset=UTF-8');
@@ -79,6 +84,7 @@ mongoose
   })
   .catch(err => {
     console.log('MongoDB Connection Error!');
+
     app.use((req, res) => {
       return res.json({error: 'MongoDB Connection Error'});
     });

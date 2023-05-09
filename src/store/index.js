@@ -32,8 +32,9 @@ const store = createStore({
       localStorage.removeItem('userInfo');
       router.push('/');
     },
-    setUserInfo(state, data) {
-      state.userInfo = data;
+    setUserInfo(state, userInfo) {
+      state.userInfo = userInfo;
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
     },
 
     login(state) {
@@ -53,8 +54,7 @@ const store = createStore({
         .then(response => {
           if (response.data.success === 1) {
             state.isAuthenticated = true;
-            state.userInfo = response.data.info;
-            localStorage.setItem('userInfo', JSON.stringify(response.data.info));
+            state.setUserInfo(response.data.info);
             return true;
           }
         })
@@ -67,8 +67,7 @@ const store = createStore({
     },
     auth(state, userInfo) {
       state.isAuthenticated = true;
-      state.userInfo = userInfo;
-      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      state.setUserInfo(userInfo);
     }
     // Your mutations
   },
