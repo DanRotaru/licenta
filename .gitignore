@@ -14,6 +14,9 @@ dist-ssr
 coverage
 *.local
 
+~$Teza.docx
+public/uploads/
+
 /cypress/videos/
 /cypress/screenshots/
 
@@ -26,4 +29,3 @@ coverage
 *.njsproj
 *.sln
 *.sw?
-~$Teza.docx
