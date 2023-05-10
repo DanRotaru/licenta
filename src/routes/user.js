@@ -103,7 +103,7 @@ router.get('/auth/github/callback', async (req, res) => {
     if (user) {
       req.session.auth = user._id.toString();
 
-      return res.redirect(FRONTEND_URL + '/dashboard');
+      return res.redirect(FRONTEND_URL);
       // return res.json({ success: 1 });
     } else {
       const userExistenceCheck = await User.findOne({email: primaryVerifiedEmail}, {userId: 1});
@@ -123,7 +123,7 @@ router.get('/auth/github/callback', async (req, res) => {
         regType: 1,
       });
       req.session.auth = newUser._id.toString();
-      localStorage.setItem('userInfo', JSON.stringify(newUser));
+      // localStorage.setItem('userInfo', JSON.stringify(newUser));
       // return res.json({ success: 1 });
       return res.redirect(FRONTEND_URL);
     }
@@ -326,6 +326,17 @@ router.get('/info/:id', async (req, res) => {
   }
 
   return res.json({success: 1, userInfo: result});
+
+});
+
+router.get('/all', async (req, res) => {
+  if (typeof req.session.auth === 'undefined') {
+    return res.status(401).json({error: 'Unauthorized'});
+  }
+
+  const users = await User.find({}, 'first_name last_name avatar description position userId');
+
+  return res.json({success: 1, users});
 
 });
 

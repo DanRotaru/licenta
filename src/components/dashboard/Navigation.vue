@@ -74,10 +74,16 @@
             </div>
 
             <ul class="dropdown-menu">
-              <!-- Links -->
-              <li><a class="dropdown-item" href="#"><i class="bi bi-person fa-fw me-2"></i>Edit Profile</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-gear fa-fw me-2"></i>Account Settings</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-info-circle fa-fw me-2"></i>Help</a></li>
+              <li>
+                <router-link to="/dashboard/settings" class="dropdown-item">
+                  <i class="bi bi-person fa-fw me-2"></i> Edit Profile
+                </router-link>
+              </li>
+              <li>
+                <router-link to="/dashboard/settings" class="dropdown-item">
+                  <i class="bi bi-gear fa-fw me-2"></i> Account Settings
+                </router-link>
+              </li>
               <li><a class="dropdown-item bg-danger-soft-hover" @click="logout()"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
             </ul>
           </div>
@@ -98,7 +104,6 @@ const menu = [
   {link: '/dashboard/users', icon: 'users', text: 'Users'},
   {link: '/dashboard/favorites', icon: 'heart', text: 'Favorites'},
   {link: '/dashboard/analytics', icon: 'analytics', text: 'Analytics'},
-  {link: '/dashboard/archive', icon: 'folder', text: 'Archive'},
   {link: '/dashboard/chat', icon: 'chat', text: 'Chat'},
   {link: '/dashboard/settings', icon: 'settings', text: 'Settings'},
 ];
@@ -111,10 +116,12 @@ const menuBottom = [
 const userInfo = typeof store.getters.userInfo === 'string' ? ref(JSON.parse(store.getters.userInfo)) : ref(store.getters.userInfo);
 
 watch(() => store.getters.userInfo, (res) => {
-  userInfo.value.first_name = res.first_name;
-  userInfo.value.last_name = res.last_name;
-  userInfo.value.email = res.email;
-  userInfo.value.avatar = res.avatar;
+  if (res) {
+    userInfo.value.first_name = res.first_name;
+    userInfo.value.last_name = res.last_name;
+    userInfo.value.email = res.email;
+    userInfo.value.avatar = res.avatar;
+  }
 });
 
 const logout = () => {

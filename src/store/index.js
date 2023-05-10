@@ -21,8 +21,16 @@ const store = createStore({
     increase(state) {
       state.count++;
     },
-    authenticate(state, value) {
-      state.isAuthenticated = value
+    setUserInfo(state, userInfo) {
+      console.log(2)
+      state.userInfo = userInfo;
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+    },
+    authenticate(state, userInfo) {
+      if (!userInfo) return;
+      state.isAuthenticated = true;
+      state.userInfo = userInfo;
+      localStorage.setItem('userInfo', JSON.stringify(userInfo));
     },
     logout(state) {
       document.cookie = 'Codeazone=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
@@ -31,10 +39,6 @@ const store = createStore({
       state.userInfo = null;
       localStorage.removeItem('userInfo');
       router.push('/');
-    },
-    setUserInfo(state, userInfo) {
-      state.userInfo = userInfo;
-      localStorage.setItem('userInfo', JSON.stringify(userInfo));
     },
 
     login(state) {
@@ -52,23 +56,24 @@ const store = createStore({
 
       api.get('/user/check/')
         .then(response => {
-          if (response.data.success === 1) {
+          if (response.data.success) {
+            state.userInfo = response.data.info;
             state.isAuthenticated = true;
-            state.setUserInfo(response.data.info);
+            localStorage.setItem('userInfo', JSON.stringify(response.data.info));
             return true;
           }
         })
         .catch(error => {
+          console.log('err')
           state.isAuthenticated = false;
+          document.cookie = 'Codeazone=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          document.cookie = 'Codeazone.sig=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          state.isAuthenticated = false;
+          state.userInfo = null;
+          localStorage.removeItem('userInfo');
           // router.push('/');
-
-          return false;
         });
     },
-    auth(state, userInfo) {
-      state.isAuthenticated = true;
-      state.setUserInfo(userInfo);
-    }
     // Your mutations
   },
   actions: {

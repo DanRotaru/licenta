@@ -82,3 +82,16 @@ Bootstrap Configuration
     min-height: 110px;
   }
 }
+
+.choices .choices__list--multiple .choices__item {
+  background: #fff;
+  border: 1px solid #D0D5DD;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 6px;
+}
+
+.choices__list--multiple .choices__item {
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding: 0 10px;
+}

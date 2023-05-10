@@ -18,7 +18,6 @@ import DashboardProjectsCreate from "@/views/dashboard/ProjectsCreate.vue";
 import DashboardProjectsSingle from "@/views/dashboard/ProjectsSingle.vue";
 import DashboardFavorites from "@/views/dashboard/Favorites.vue";
 import DashboardHelp from "@/views/dashboard/Help.vue";
-import DashboardArchive from "@/views/dashboard/Archive.vue";
 import DashboardSupport from "@/views/dashboard/Support.vue";
 
 const dashboardRoutes = [
@@ -98,14 +97,6 @@ const dashboardRoutes = [
     path: '/dashboard/favorites',
     name: 'dashboard-favorites',
     component: DashboardFavorites,
-    meta: {
-      requiresAuth: true
-    }
-  },
-  {
-    path: '/dashboard/archive',
-    name: 'dashboard-archive',
-    component: DashboardArchive,
     meta: {
       requiresAuth: true
     }

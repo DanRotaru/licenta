@@ -39,62 +39,58 @@
             result</p></div>
         </div>
 
-        <div class="row g-4 justify-content-center">
+        <div class="row g-4">
 
           <!-- Card item START -->
-          <div class="col-lg-10 col-xl-6" v-for="n in 10">
-            <div class="card shadow p-2">
-              <div class="row g-0">
-                <!-- Image -->
-                <div class="col-md-4">
-                  <img src="/img/me.webp" class="rounded-3" alt="img">
-                </div>
+          <div class="col-lg-10 col-xl-6" v-for="user in users">
+            <router-link :to="'/dashboard/users/id' + user.userId">
+              <div class="card shadow p-2 text-black">
+                <div class="row g-0">
+                  <!-- Image -->
+                  <div class="col-md-4">
+                    <img :src="user.avatar" class="rounded-3" alt="img">
+                  </div>
 
-                <!-- Card body -->
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <!-- Title -->
-                    <div class="d-sm-flex justify-content-sm-between mb-2 mb-sm-3">
-                      <div>
-                        <h5 class="card-title mb-0">
-                          <router-link to="/dashboard/users/id1">DanRotaru</router-link>
-                        </h5>
-                        <p class="small mb-2 mb-sm-0">Fullstack web developer</p>
-                      </div>
-                      <span class="h6 fw-light">4.3<i class="fas fa-star text-warning ms-1"></i></span>
-                    </div>
-                    <!-- Content -->
-                    <p class="text-truncate-4 mb-3">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consequuntur cumque ex, in
-                      maxime officia pariatur perferendis perspiciatis possimus rem rerum totam. Culpa doloremque eius
-                      est et repellat unde vero.
-                    </p>
-                    <!-- Info -->
-                    <div class="d-sm-flex justify-content-sm-between align-items-center">
+                  <!-- Card body -->
+                  <div class="col-md-8">
+                    <div class="card-body p-0 ps-3 pt-2 pe-2">
                       <!-- Title -->
-                      <h6 class="text-orange mb-0">Web Development</h6>
+                      <div class="d-sm-flex justify-content-sm-between mb-2">
+                        <div>
+                          <h5 class="card-title mb-0">{{ user.first_name }} {{ user.last_name }}</h5>
+                          <p class="small mb-2 mb-sm-0">{{ user.position }}</p>
+                        </div>
+                        <span class="h6 fw-light">4.3<i class="fas fa-star text-warning ms-1"></i></span>
+                      </div>
+                      <!-- Content -->
+                      <div class="text-truncate-3 mb-3" v-html="user.description"></div>
+                      <!-- Info -->
+                      <div class="d-sm-flex justify-content-sm-between align-items-center">
+                        <!-- Title -->
+                        <h6 class="text-orange mb-0">Web Development</h6>
 
-                      <!-- Social button -->
-                      <ul class="list-inline mb-0 mt-3 mt-sm-0">
-                        <li class="list-inline-item">
-                          <a class="mb-0 me-1 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="mb-0 me-1 text-instagram-gradient" href="#"><i
+                        <!-- Social button -->
+                        <ul class="list-inline mb-0 mt-3 mt-sm-0">
+                          <li class="list-inline-item">
+                            <a class="mb-0 me-1 text-facebook" href="#"><i class="fab fa-fw fa-facebook-f"></i></a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a class="mb-0 me-1 text-instagram-gradient" href="#"><i
                               class="fab fa-fw fa-instagram"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="mb-0 me-1 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a>
-                        </li>
-                        <li class="list-inline-item">
-                          <a class="mb-0 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a>
-                        </li>
-                      </ul>
+                          </li>
+                          <li class="list-inline-item">
+                            <a class="mb-0 me-1 text-twitter" href="#"><i class="fab fa-fw fa-twitter"></i></a>
+                          </li>
+                          <li class="list-inline-item">
+                            <a class="mb-0 text-linkedin" href="#"><i class="fab fa-fw fa-linkedin-in"></i></a>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </router-link>
           </div>
           <!-- Card item END -->
         </div>
@@ -107,4 +103,36 @@
 <script setup>
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
+import {ref} from "vue";
+import axios from "axios";
+
+const users = ref([]);
+
+const baseURL = 'http://localhost:3000/api';
+
+const api = axios.create({
+  baseURL,
+  withCredentials: true
+});
+
+async function getUsers() {
+  const res = await api.get(baseURL + "/user/all");
+
+  if (!res.data) {
+    console.log('none');
+    // await Swal.fire('Error!', 'Error while sending request!', 'error');
+    // return false;
+  }
+
+  if (res.data.success) {
+    console.log(res.data);
+    users.value = res.data.users;
+  } else {
+    console.log('none...');
+    // await Swal.fire('Error!', res.data.error, 'error');
+  }
+
+}
+getUsers();
+
 </script>
