@@ -61,24 +61,24 @@
               <!-- Course Grid START -->
               <div class="row g-4">
                 <Card
-                    v-for="n in 9"
+                    v-for="project in projects"
                     :col6="true"
-                    project-url="dashboard/projects/1"
-                    profile-url="user/DanRotaru"
-                    :title="`Webify - professional-looking websites without any coding skills`"
-                    image="/img/webify.png"
-                    price="10"
-                    author="DanRotaru"
-                    author-image="https://avatars.githubusercontent.com/u/7759507"
-                    description="Webify is a website builder platform that allows anyone to create professional-looking websites without any coding skills. With a simple drag-and-drop interface, users can choose from a variety of pre-built templates and customize them to their liking with images, text, and other content. Webify also includes features such as built-in SEO optimization, e-commerce functionality, and responsive design to ensure that the websites created are optimized for search engines and display correctly on all devices."/>
+                    :project-url="'dashboard/projects/' + project.postId"
+                    :profile-url="'dashboard/users/id' + project.createdBy.userId"
+                    :title="project.title"
+                    :image="project.image"
+                    :price="project.price"
+                    :author="project.createdBy.first_name + ' ' + project.createdBy.last_name"
+                    :author-image="project.createdBy.avatar"
+                    :description="project.summary"/>
               </div>
               <!-- Course Grid END -->
 
               <!-- Pagination START -->
               <div class="col-12 text-center mt-5">
-                <button class="btn">
-                  <i class="bi bi-arrow-clockwise"></i>
-                  Load more</button>
+<!--                <button class="btn">-->
+<!--                  <i class="bi bi-arrow-clockwise"></i>-->
+<!--                  Load more</button>-->
               </div>
               <!-- Pagination END -->
             </div>
@@ -226,11 +226,41 @@
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
 import Card from '@/components/Card.vue'
+import {ref} from "vue";
+import axios from "axios";
 
 const categories = ['All', 'Web Dev', 'Mobile Dev', 'Desktop Apps', 'Game Dev', 'AI & ML', 'E-Commerce', 'Social Networking', 'Project Management', 'HR & Recruitment', 'Analytics & Data Viz', 'AR & VR', 'Cybersecurity', 'Education & Learning', 'IoT', 'CRM', 'Finance & Accounting', 'Healthcare Apps', 'Marketing & Advertising', 'Finance & Accounting', 'Productivity Tools', 'Content Management'];
 const categories2 = ['Robotics & Automation', 'GIS & Mapping', 'Scientific Apps'];
 const languages = [ 'JavaScript', 'Python', 'Java', 'TypeScript', 'PHP', 'HTML/CSS', 'C++', 'C#', 'Ruby', 'Swift', 'Kotlin', 'Go', 'Rust', 'SQL', 'MATLAB', 'Perl', 'Lua', 'R', 'Dart', 'Objective-C', 'Shell', 'Scala' ];
 const project_types = ['Web App', 'Mobile App', 'HTML/CSS/JS Components', 'Finished project (ready for startup)', 'Code snippets', 'Plugins', 'Modules', 'Desktop App', 'Other'];
 
+const projects = ref([]);
+
+const baseURL = 'http://localhost:3000/api';
+
+const api = axios.create({
+  baseURL,
+  withCredentials: true
+});
+
+async function getProjects() {
+  const res = await api.get(baseURL + "/post/all");
+
+  if (!res.data) {
+    console.log('none');
+    // await Swal.fire('Error!', 'Error while sending request!', 'error');
+    // return false;
+  }
+
+  if (res.data.success) {
+    console.log(res.data);
+    projects.value = res.data.projects;
+  } else {
+    console.log('none...');
+    // await Swal.fire('Error!', res.data.error, 'error');
+  }
+
+}
+getProjects();
 
 </script>

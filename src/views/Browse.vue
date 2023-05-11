@@ -80,9 +80,9 @@
 
           <!-- Pagination START -->
           <div class="col-12 text-center mt-5">
-            <button class="btn">
-              <i class="bi bi-arrow-clockwise"></i>
-              Load more</button>
+<!--            <button class="btn">-->
+<!--              <i class="bi bi-arrow-clockwise"></i>-->
+<!--              Load more</button>-->
           </div>
           <!-- Pagination END -->
         </div>

@@ -7,7 +7,11 @@
 
       <div class="wrapper">
         <div class="dashboard-hero dashboard-hero_create">
-          <h1>Add new project</h1>
+          <h1>Add new project</h1><button type="button" class="btn btn-success mb-3" @click="create()">
+          <i class="bi bi-plus-lg"></i>
+          Publish Project
+        </button>
+
 
           <div class="project-create-steps">
             <div class="project-create-steps-progress nav" :data-group-item="pillsId">
@@ -34,31 +38,27 @@
               <h5>Project Details</h5>
               <div class="row g-3">
                 <div class="col-12 mt-4">
-                  <label class="form-label" for="name">Project Name</label>
+                  <label class="form-label" for="title">Project Title</label>
                   <div class="input-group">
-                    <input id="name" class="form-control" type="text" placeholder="What's the name of project?"
-                           required=""/>
+                    <input id="title" class="form-control" type="text" placeholder="What's the name of project?"
+                           required v-model.trim="projectInfo.title"/>
                   </div>
                 </div>
 
                 <div class="col-md-6 mt-4">
                   <label class="form-label">Category</label>
                   <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm"
-                          data-search-enabled="true">
+                          data-search-enabled="true" v-model="projectInfo.category" required>
                     <option value="">Select category</option>
-                    <option>Engineer</option>
-                    <option>Medical</option>
-                    <option>Information technology</option>
-                    <option>Finance</option>
-                    <option>Marketing</option>
+                    <option v-for="category in data.categories" :key="category" :value="category">{{ category }}</option>
                   </select>
                 </div>
 
                 <div class="col-md-6 mt-4">
                   <label class="form-label">Language</label>
                   <select class="form-select js-choice border-0 z-index-9 bg-transparent" multiple="multiple"
-                          aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true">
-                    <option value="" disabled>Select project language</option>
+                          aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true" required>
+                    <option value="">Select project language</option>
                     <option
                         v-for="lang in data.languages"
                         :key="lang"
@@ -70,20 +70,14 @@
                 <div class="col-12 mt-4">
                   <label class="form-label" for="summary">Short description</label>
                   <QuillEditor :content="projectInfo.summary" theme="snow" contentType="html"
-                               @update:content="projectInfo.summary = $event"/>
+                               @update:content="projectInfo.summary = $event" :aria-required="true"/>
                   <p class="form-text">Short description that will be displayed on projects list and hero block</p>
                 </div>
 
                 <div class="col-md-6 mt-4">
                   <label class="form-label">Tags</label>
-                  <select class="form-select js-choice border-0 z-index-9 bg-transparent" multiple="multiple"
-                          aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true">
-                    <option value="">Select tags</option>
-                    <option>Tag1</option>
-                    <option>Tag2</option>
-                    <option>Tag3</option>
-                    <option>Tag4</option>
-                  </select>
+
+                  <input class="form-control js-choice" @change="projectInfo.tags = $event.target.value" required type="text" data-edit-items="true" data-remove-item-button="true" data-max-item-count="10"/>
                 </div>
 
                 <div class="col-md-6 mt-4">
@@ -92,42 +86,47 @@
                   <select class="form-select js-choice border-0 z-index-9 bg-transparent" data-search-enabled="false"
                           data-remove-item-button="true">
                     <option value="">Select project level</option>
-                    <option>All level</option>
-                    <option>Beginner</option>
-                    <option>Intermediate</option>
-                    <option>Advance</option>
+                    <option v-for="level in data.project_levels" :key="level">{{ level }}</option>
                   </select>
                 </div>
 
-                <div class="col-md-4 mt-4">
+                <div class="col-md-3 mt-4">
                   <label class="form-label" for="price">Price</label>
                   <div class="input-group">
                     <span class="input-group-text">$</span>
-                    <input id="price" type="number" min="0" class="form-control" placeholder="Enter project price">
+                    <input id="price" type="number" min="0" class="form-control" placeholder="Enter project price" v-model="projectInfo.price">
                   </div>
                 </div>
 
-                <div class="col-md-4 mt-4">
+                <div class="col-md-3 mt-4">
                   <label class="form-label">Discount price</label>
                   <div class="input-group">
                     <span class="input-group-text">%</span>
-                    <input type="number" class="form-control" placeholder="Enter discount" disabled/>
+                    <input type="number" class="form-control" placeholder="Enter discount" min="0" max="100" :disabled="!projectInfo.discount" v-model="projectInfo.discount_amount"/>
                   </div>
 
                   <div class="col-12 mt-1 mb-0">
                     <div class="form-check small mb-0">
-                      <input class="form-check-input" type="checkbox" id="checkBox1">
-                      <label class="form-check-label" for="checkBox1">
+                      <input class="form-check-input" type="checkbox" id="enableDiscount" @change="projectInfo.discount = $event.currentTarget.checked">
+                      <label class="form-check-label" for="enableDiscount">
                         Enable this Discount
                       </label>
                     </div>
                   </div>
                 </div>
 
-                <div class="col-md-4 mt-4">
+                <div class="col-md-3 mt-4">
+                  <label class="form-label">Price after discount</label>
+                  <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="number" class="form-control" placeholder="Price after discount" :value="projectInfo.discount_amount_value" readonly/>
+                  </div>
+                </div>
+
+                <div class="col-md-3 mt-4">
                   <label class="form-label" for="discount_end">End discount</label>
-                  <input id="discount_end" type="datetime-local" class="form-control" disabled
-                         placeholder="End discount">
+                  <input id="discount_end" type="datetime-local" class="form-control"  :disabled="!projectInfo.discount"
+                         placeholder="End discount" v-model="projectInfo.discount_end">
                 </div>
 
                 <div class="col-12 mt-4">
@@ -140,7 +139,6 @@
                 <div class="col-12 mt-4">
                   <label class="form-label" for="key_features">Key Features</label>
                   <p class="form-text">Will be displayed in project body content.</p>
-
 
                   <div class="d-sm-flex justify-content-between align-items-center gap-2 mb-2" v-for="(feature, index) in projectInfo.features" :key="feature">
                     <i class="fas fa-check-circle text-success me-2"></i>
@@ -182,17 +180,19 @@
                   <div
                       class="text-center justify-content-center align-items-center p-4 p-sm-5 border border-2 border-dashed position-relative rounded-3">
                     <!-- Image -->
-                    <i class="bi bi-image-alt" style="font-size: 150px; color: #333;"></i>
+                    <i v-if="!projectInfo.picture" class="bi bi-image-alt" style="font-size: 150px; color: #333;"></i>
+                    <img v-if="projectInfo.picture" :src="projectInfo.picture" alt="project picture">
+
                     <div>
                       <h6 class="mt-4 mb-2">Upload project image here, or <a href="#!" class="text-primary"> Browse</a>
                       </h6>
                       <label style="cursor:pointer;">
 													<span>
 														<input class="form-control stretched-link" type="file" name="my-image" id="image"
-                                   accept="image/gif, image/jpeg, image/png, image/jpg, image/webp">
+                                   accept="image/gif, image/jpeg, image/png, image/jpg, image/webp" @change="projectPicture($event)">
 													</span>
                       </label>
-                      <p class="small mb-0 mt-2"><b>Note:</b> Only JPG, JPEG, PNG and WEBP. Our suggested dimensions are
+                      <p class="small mb-0 mt-2">Only JPG, JPEG, PNG and WEBP. Our suggested dimensions are
                         600px * 450px. Larger image will be cropped to 4:3 to fit our thumbnails/previews.</p>
                     </div>
                   </div>
@@ -368,7 +368,9 @@
 
               <div class="d-sm-flex justify-content-between align-items-center mt-2">
                 <button class="btn btn-secondary prev-btn mb-0" @click="navigateToPage(true)"><i class="bi bi-arrow-left"></i> Previous</button>
-                <button type="button" class="btn btn-success mb-3"><i class="bi bi-plus-lg"></i> Publish Project
+                <button type="button" class="btn btn-success mb-3" @click="create()">
+                  <i class="bi bi-plus-lg"></i>
+                  Publish Project
                 </button>
               </div>
             </div>
@@ -383,28 +385,31 @@
 <script setup>
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
-import {onMounted, ref} from "vue";
+import {onMounted, ref, watch} from "vue";
 
 import * as data from '@/store/data'
+import axios from "axios";
 
 const stepsMenu = ["Project Details", "Project Media", "Project FaQs", "Additional Info"];
 const pillsId = ref(0);
 
 const projectInfo = ref({
-  name: '',
-  category: '',
-  language: '',
-  summary: '',
-  tags: '',
-  level: '',
-  price: '',
+  title: 'a',
+  category: 'b',
+  language: 'd',
+  summary: 'asdasd',
+  tags: 'aa|bb|cc',
+  level: 'aa',
+  price: 123,
   discount: false,
-  discount_amount: false,
+  discount_amount: '',
+  discount_amount_value: null,
   discount_end: '',
-  description: '',
+  description: 'sadsadasd',
   features: [''],
 
   picture: '',
+  pictureRaw: '',
   youtube: '',
   video: '',
 
@@ -416,6 +421,11 @@ const projectInfo = ref({
   notification_views_count: 1000,
 });
 
+watch(() => projectInfo.value.discount_amount, (percent) => {
+  const originalPrice = projectInfo.value.price;
+  percent = (percent / 100);
+  projectInfo.value.discount_amount_value = originalPrice - (originalPrice * percent);
+});
 
 const changePill = (id) => {
   pillsId.value = id;
@@ -455,6 +465,51 @@ const navigateToPage = (prev = false) => {
   window.scrollTo(0, 0);
 }
 
+function projectPicture(e) {
+  let files = e.target.files;
+  projectInfo.value.pictureRaw = e.target.files[0];
+
+  if (files.length) {
+    const fReader = new FileReader();
+    fReader.readAsDataURL(files[0]);
+
+    fReader.onloadend = function () {
+      projectInfo.value.picture = fReader.result;
+    }
+  }
+}
+
+async function create() {
+  const baseURL = 'http://localhost:3000/api';
+
+  const api = axios.create({
+    baseURL,
+    withCredentials: true
+  });
+
+  const formData = new FormData();
+  for (const field_name in projectInfo.value) {
+    if (field_name !== 'picture') {
+      formData.append(field_name, projectInfo.value[field_name]);
+    }
+  }
+
+  delete formData.picture;
+
+  const res = await api.post('/post/create', formData);
+
+  if (!res.data) {
+    await Swal.fire('Error!', 'Error while sending request!', 'error');
+    return false;
+  }
+
+  if (res.data.success) {
+    await Swal.fire('Success!', 'Project was successfully created!', 'success');
+  } else {
+    await Swal.fire('Error!', res.data.error, 'error');
+  }
+}
+
 onMounted(() => {
   document.querySelector('a[href="/dashboard/projects"]').classList.add("router-link-active");
 
@@ -469,6 +524,7 @@ onMounted(() => {
     const placeHolderVal = item.getAttribute('data-placeholder-val') ? item.getAttribute('data-placeholder-val') : 'Type and hit enter';
     const maxItemCount = item.getAttribute('data-max-item-count') ? item.getAttribute('data-max-item-count') : 3;
     const searchEnabled = item.getAttribute('data-search-enabled') !== 'false';
+    const editItems = item.getAttribute('data-edit-items') !== 'false';
 
     new Choices(item, {
       removeItemButton: removeItemBtn,
@@ -476,6 +532,9 @@ onMounted(() => {
       placeholderValue: placeHolderVal,
       maxItemCount: maxItemCount,
       searchEnabled: searchEnabled,
+      shouldSort: false,
+      editItems: editItems,
+      delimiter: '|',
       allowHTML: true
     });
   });

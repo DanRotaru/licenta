@@ -81,6 +81,10 @@ mongoose
     app.use('/api/user', userRouter);
     app.use('/api/post', postRouter);
 
+    app.use((req, res) => {
+      res.status(404).send("404")
+    })
+
   })
   .catch(err => {
     console.log('MongoDB Connection Error!');

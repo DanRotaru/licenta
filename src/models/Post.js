@@ -6,16 +6,6 @@ const faqSchema = new Schema({
   answer: {type: String, required: true},
 });
 
-const includesSchema = new Schema({
-  documentations: {type: Number, required: true, default: 0},
-  skills: {type: String, required: true, default: 'Beginner'},
-  videoTutorials: {type: String, required: true, default: ''},
-});
-
-const tagsSchema = new Schema({
-  tag: {type: String},
-});
-
 const schema = new Schema({
   postId: {
     type: Number,
@@ -27,7 +17,8 @@ const schema = new Schema({
   },
   title: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   createdAt: {
     type: Date,
@@ -39,7 +30,7 @@ const schema = new Schema({
   },
   reviews: {
     type: Number,
-    default: 5
+    default: 0
   },
   language: {
     type: String,
@@ -50,7 +41,7 @@ const schema = new Schema({
     type: String,
     required: true
   },
-  shortDescription: {
+  summary: {
     type: String,
     required: true
   },
@@ -67,13 +58,27 @@ const schema = new Schema({
     required: true,
     default: 0
   },
-  video: {
+  discount_end: {
+    type: String,
+  },
+  youtube: {
     type: String,
     required: false
   },
+  level: {
+    type: String,
+    default: 'All level'
+  },
+  tags: String,
   faqs: [faqSchema],
-  includes: [includesSchema],
-  tags: [tagsSchema]
+  documentations: {
+    type: Number,
+    default: 0
+  },
+  videoTutorials: {
+    type: String,
+    default: ''
+  },
 }, {versionKey: false, timestamps: true});
 
 schema.plugin(AutoIncrement, {inc_field: 'postId'});
