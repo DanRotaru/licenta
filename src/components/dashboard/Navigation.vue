@@ -38,6 +38,14 @@
             {{ item.text }}
           </router-link>
 
+          <a class="nav-menu__item" style="margin-top: 20px;" @click="logout">
+            <svg class="icon">
+              <use xlink:href="#sprite-logout"></use>
+            </svg>
+
+            Logout
+          </a>
+
           <div class="btn-tab-group btn-tab-group_sm">
             <button class="btn-tab-group__btn active">
               <svg>
@@ -53,40 +61,7 @@
             </button>
           </div>
 
-          <div class="dropdown">
-            <div class="user" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
-              <div class="d-flex align-items-center">
-                <!-- Avatar -->
-                <div class="avatar me-3">
-                  <img class="avatar-img rounded-circle shadow" :src="userInfo.avatar"/>
-                </div>
-                <div>
-                  <a class="h6">
-                    {{ userInfo.first_name }} {{ userInfo.last_name }}
-                  </a>
-                  <p class="user__email">{{ userInfo.email }}</p>
-
-                  <svg>
-                    <use xlink:href="#sprite-chevron-up"></use>
-                  </svg>
-                </div>
-              </div>
-            </div>
-
-            <ul class="dropdown-menu">
-              <li>
-                <router-link to="/dashboard/settings" class="dropdown-item">
-                  <i class="bi bi-person fa-fw me-2"></i> Edit Profile
-                </router-link>
-              </li>
-              <li>
-                <router-link to="/dashboard/settings" class="dropdown-item">
-                  <i class="bi bi-gear fa-fw me-2"></i> Account Settings
-                </router-link>
-              </li>
-              <li><a class="dropdown-item bg-danger-soft-hover" @click="logout()"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
-            </ul>
-          </div>
+          <div class="nav-about">© Codeazone · 2023</div>
         </div>
       </div>
 
@@ -95,8 +70,7 @@
 </template>
 
 <script setup>
-import store from '@/store'
-import {ref, watch} from "vue";
+import store from "@/store";
 
 const menu = [
   {link: '/dashboard', icon: 'dashboard', text: 'Dashboard'},
@@ -112,17 +86,6 @@ const menuBottom = [
   {link: '/dashboard/help', icon: 'help', text: 'Help'},
   {link: '/dashboard/support', icon: 'inbox', text: 'Support'}
 ];
-
-const userInfo = typeof store.getters.userInfo === 'string' ? ref(JSON.parse(store.getters.userInfo)) : ref(store.getters.userInfo);
-
-watch(() => store.getters.userInfo, (res) => {
-  if (res) {
-    userInfo.value.first_name = res.first_name;
-    userInfo.value.last_name = res.last_name;
-    userInfo.value.email = res.email;
-    userInfo.value.avatar = res.avatar;
-  }
-});
 
 const logout = () => {
   store.commit('logout')

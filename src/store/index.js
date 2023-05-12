@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import axios from "axios";
 import router from "@/router";
+import * as data from "@/store/data";
 
 const store = createStore({
   state: {
@@ -48,9 +49,10 @@ const store = createStore({
         store.commit('authenticate', false);
         return;
       }
+      const baseURL = data.BACKEND_API;
 
       const api = axios.create({
-        baseURL: "http://localhost:3000/api",
+        baseURL: baseURL,
         withCredentials: true
       });
 

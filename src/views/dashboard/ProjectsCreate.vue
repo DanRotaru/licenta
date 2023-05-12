@@ -480,7 +480,7 @@ function projectPicture(e) {
 }
 
 async function create() {
-  const baseURL = 'http://localhost:3000/api';
+  const baseURL = data.BACKEND_API;
 
   const api = axios.create({
     baseURL,

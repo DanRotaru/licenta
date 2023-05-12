@@ -103,6 +103,11 @@
           <div class="col-lg-8"><h5 class="mb-0">Hi, I am</h5>
             <h1 class="mb-0">
               {{ userInfo.first_name }} {{ userInfo.last_name }}
+
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.5 20.5" class="h-20px">
+                <path d="m20.5,10.25c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33,2.19c-1.4-.46-2.91-.2-3.92.81-1.01,1.01-1.26,2.52-.8,3.91-1.31.67-2.2,1.91-2.2,3.34s.89,2.67,2.2,3.34c-.46,1.39-.21,2.9.8,3.91,1.01,1.01,2.52,1.26,3.91.81.67,1.31,1.91,2.19,3.34,2.19s2.68-.88,3.34-2.19c1.39.45,2.9.2,3.91-.81s1.27-2.52.81-3.91c1.31-.67,2.19-1.91,2.19-3.34Zm-11.71,4.2l-3.74-3.74,1.41-1.42,2.26,2.26,4.8-5.23,1.47,1.36s-6.2,6.77-6.2,6.77Z" style="fill: #1d9bf0;"/>
+                <path d="m8.79,14.45l-3.74-3.74,1.41-1.42,2.26,2.26,4.8-5.23,1.47,1.36s-6.2,6.77-6.2,6.77Z" style="fill: #fff;"/>
+              </svg>
             </h1>
             <p class="opacity-9">{{ userInfo.position }}</p>
 
@@ -110,14 +115,17 @@
             
             <ul class="list-group list-group-borderless">
               <li class="list-group-item px-0"><span class="h6 fw-light"><i
-                  class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span><a href="#">rotaru.dan@isa.utm.md</a>
+                  class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>Email:</span>
+                <a href="#">{{ userInfo.email }}</a>
               </li>
               <li class="list-group-item px-0"><span class="h6 fw-light"><i
-                  class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Phone number:</span><a href="#">(373)
-                69-020-119</a></li>
+                  class="fas fa-fw fa-headphones text-primary me-1 me-sm-3"></i>Phone number:</span>
+                <a href="#">{{ userInfo.phone ? userInfo.phone : 'none' }}</a>
+              </li>
               <li class="list-group-item px-0"><span class="h6 fw-light"><i
-                  class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Website:</span><a
-                  href="https://danrotaru.github.io/" target="_blank">https://danrotaru.github.io/</a></li>
+                  class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>Website:</span>
+                <a :href="userInfo.website ? userInfo.website : '#none'" target="_blank">{{ userInfo.website ? userInfo.website : 'none' }}</a>
+              </li>
             </ul>
             <div class="row mt-4 g-3">
               <div class="col-sm-6 col-lg-4">
@@ -241,6 +249,7 @@ import {onMounted, ref} from "vue";
 
 import {useRoute} from "vue-router";
 import axios from "axios";
+import * as data from "@/store/data";
 
 const route = useRoute();
 const id = route.params.id;
@@ -258,7 +267,7 @@ const userInfo = ref({
 
 // const id = '64579688899654c8cea1b4a3';
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = data.BACKEND_API;
 const api = axios.create({
   baseURL,
   withCredentials: true

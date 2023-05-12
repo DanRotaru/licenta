@@ -37,6 +37,11 @@ const schema = new Schema({
     trim: true,
     default: 'English'
   },
+  category: {
+    type: String,
+    trim: true,
+    default: 'None'
+  },
   description: {
     type: String,
     required: true

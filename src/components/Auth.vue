@@ -195,6 +195,7 @@ import {onMounted, ref, toRefs, watch} from "vue";
 import store from '@/store'
 import axios from 'axios'
 import {useRouter} from 'vue-router';
+import * as data from "@/store/data";
 
 const router = useRouter();
 
@@ -254,7 +255,7 @@ const reg = ref({
   password2: ''
 });
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = data.BACKEND_API;
 
 const api = axios.create({
   baseURL,

@@ -123,6 +123,38 @@ body:has(.dashboard) {
       margin-top: 8px;
     }
 
+    &-about {
+      padding: 20px 10px 10px;
+      font-size: 14px;
+      opacity: .6;
+      font-weight: 300;
+      text-align: center;
+    }
+  }
+
+  main {
+    width: calc(100% - $asideWidth);
+    margin-left: $asideWidth;
+    margin-top: 71px;
+  }
+
+  header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #E9ECEF;
+    width: 100%;
+    height: 71px;
+    font: 500 16px "Poppins", "Inter", sans-serif;
+    box-shadow: 0 2px 2px 0 rgba(27, 36, 44, 0.04);
+
+    .header-wrapper {
+      padding: 0 20px;
+      width: calc(100% - 270px);
+    }
+
     .user {
       position: relative;
       margin: 20px 5px 10px;
@@ -161,30 +193,6 @@ body:has(.dashboard) {
     }
   }
 
-  main {
-    width: calc(100% - $asideWidth);
-    margin-left: $asideWidth;
-    margin-top: 71px;
-  }
-
-  header {
-    position: fixed;
-    top: 0;
-    display: flex;
-    align-items: center;
-    background-color: #fff;
-    border-bottom: 1px solid #E9ECEF;
-    width: 100%;
-    height: 71px;
-    font: 500 16px "Poppins", "Inter", sans-serif;
-    box-shadow: 0 2px 2px 0 rgba(27, 36, 44, 0.04);
-
-    .header-wrapper {
-      padding: 0 20px;
-      width: calc(100% - 270px);
-    }
-  }
-
   .wrapper {
     padding: 20px;
   }
@@ -202,7 +210,7 @@ body:has(.dashboard) {
   }
 
   .form-check {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     display: flex;
     align-items: center;
     gap: 7px;
@@ -211,6 +219,7 @@ body:has(.dashboard) {
       .form-check-input {
         width: 16px;
         height: 16px;
+        margin-top: 0;
       }
     }
   }
@@ -218,6 +227,18 @@ body:has(.dashboard) {
   &-create {
     .ql-container {
       height: auto;
+    }
+  }
+
+  .filter-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+
+
+    .category {
+
     }
   }
 }

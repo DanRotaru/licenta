@@ -228,7 +228,7 @@
 
 <script setup>
 import {ref} from 'vue'
-import Card from '@/components/Card.vue'
+import Card from '@/components/cards/card-project.vue'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 

@@ -100,6 +100,29 @@ button {
     box-shadow: rgb(255, 255, 255) 0 0 0 1px, rgb(103, 146, 244) 0 0 0 3px;
     outline: none;
   }
+
+  &-check + .btn {
+    &:hover {
+      background-color: #fefefe;
+      border-color: rgb(158, 168, 179);
+      color: #3a424a;
+    }
+
+    &:active {
+      background-color: #F6F6F8;
+      border-color: rgb(126, 139, 153);
+      color: #272e35;
+
+      box-shadow: rgb(255, 255, 255) 0 0 0 1px, rgba(132, 66, 211, 0.48) 0 0 0 3px;
+      outline: none;
+    }
+  }
+
+  &-check:checked + .btn {
+    background: #e8d9ff;
+    border: 1px solid #865de157;
+    color: #6941C6;
+  }
 }
 
 .btn-tab-group {

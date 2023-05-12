@@ -7,7 +7,7 @@ import store from '@/store'
 import * as bootstrap from 'bootstrap';
 import Swal from 'sweetalert2'
 import Choices from "choices.js";
-import { QuillEditor } from '@vueup/vue-quill'
+import {QuillEditor} from '@vueup/vue-quill'
 import '@vueup/vue-quill/dist/vue-quill.snow.css';
 
 
@@ -17,12 +17,15 @@ window.Choices = Choices;
 
 // styles
 import './assets/scss/main.scss'
+import * as data from "@/store/data";
 
 const app = createApp(App)
+app.config.globalProperties.myGlobalVariable = 'Hello World!';
+
 
 app.component('QuillEditor', QuillEditor)
 
-app.use( router, store)
+app.use(router, store, data)
 
 store.commit('login')
 

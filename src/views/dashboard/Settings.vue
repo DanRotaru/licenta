@@ -512,7 +512,7 @@ import store from "@/store";
 import * as data from '@/store/data'
 import axios from "axios";
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = data.BACKEND_API;
 
 const api = axios.create({
   baseURL,
