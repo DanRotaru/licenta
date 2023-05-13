@@ -7,8 +7,6 @@
        marginLeft: isPercent(left) ? left : left + 'px' }"></div>
 </template>
 <script setup>
-import {defineProps} from 'vue';
-
 const props = defineProps({
   width: {
     type: [Number, String],
