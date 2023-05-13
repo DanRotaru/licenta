@@ -14,7 +14,7 @@
             <span class="badge bg-purple bg-opacity-10 text-purple text-capitalize">{{ level }}</span>
           </div>
 
-          <a href="#" class="h6 fw-light mb-0">
+          <a href="#" class="h6 fw-light mb-0" v-if="store.getters.isAuthenticated">
             <i class="far fa-heart"></i>
           </a>
         </div>
@@ -72,6 +72,7 @@
 import {ref} from "vue";
 import Rating from "@/components/Rating.vue";
 import Skeleton from "@/components/Skeleton.vue";
+import store from "@/store";
 
 const props = defineProps([
   'loading',

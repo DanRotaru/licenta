@@ -5,7 +5,10 @@
     <div class="container">
       <h3 class="block-subtitle mb-3">FAQ</h3>
       <h1 class="block-title">Frequently Asked Questions</h1>
-      <p class="block-text">A lot of people don't appreciate the moment until it’s passed. I'm not trying my hardest, and I'm not trying to do</p>
+      <p class="block-text">
+        A lot of people don't appreciate the moment until it’s passed. I'm not trying my hardest,
+        and I'm not trying to do
+      </p>
 
       <div class="row">
         <div class="col-lg-10 col-xl-8 mx-auto text-center position-relative">
@@ -47,7 +50,6 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -107,6 +109,10 @@ const faq = [
   {
     question: 'What happens if I violate your platform’s terms of service?',
     answer: 'If you violate our platform’s terms of service, we may suspend or terminate your account and remove your source code listings. We may also take legal action if necessary.'
+  },
+  {
+    question: 'Why Codeazone?',
+    answer: 'If you would like to know the meaning behind the name "Codeazone", it could be interpreted as a combination of "Code" and "Zone", suggesting a place or platform for developers to focus on coding and showcasing their projects.'
   }
 ];
 

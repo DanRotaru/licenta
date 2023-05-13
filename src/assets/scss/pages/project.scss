@@ -115,6 +115,22 @@
       }
     }
   }
+
+  &-wrapper {
+    &:before {
+      content: '';
+      pointer-events: none;
+      position: absolute;
+      right: -90px;
+      bottom: 20px;
+      width: 660px;
+      height: 430px;
+      background: url(/img/decoration.webp) no-repeat;
+      background-size: contain;
+      z-index: 0;
+      opacity: 0.8;
+    }
+  }
 }
 
 body:has(.project-create) {

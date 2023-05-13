@@ -129,9 +129,9 @@ router.get('/get', async (req, res) => {
 });
 
 router.get('/all', async (req, res) => {
-  if (typeof req.session.auth === 'undefined') {
-    return res.status(401).json({error: 'Unauthorized'});
-  }
+  // if (typeof req.session.auth === 'undefined') {
+  //   return res.status(401).json({error: 'Unauthorized'});
+  // }
 
   const projects = await Post.find({}).populate('createdBy', 'avatar first_name last_name userId');
 

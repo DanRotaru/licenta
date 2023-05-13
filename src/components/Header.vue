@@ -40,9 +40,7 @@ import Auth from "@/components/Auth.vue";
 
 const modalContent = ref('login');
 const headerFixed = ref(false);
-
 const authenticated = ref(store.getters.isAuthenticated);
-console.log(store.getters.isAuthenticated);
 
 watch(() => store.getters.isAuthenticated, (value) => authenticated.value = value);
 
