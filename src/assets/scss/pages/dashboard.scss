@@ -41,6 +41,22 @@ body:has(.dashboard) {
     height: 100%;
     font: 500 16px "Poppins", "Inter", sans-serif;
     box-shadow: 0 2px 2px -1px rgba(27, 36, 44, 0.04), 0px 2px 8px -1px rgba(27, 36, 44, 0.08);
+
+    &-close {
+      font-size: 24px;
+      position: absolute;
+      left: -20px;
+      background: #fff;
+      color: #5c5c5c;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.06);
+    }
   }
 
   .nav {
@@ -151,7 +167,7 @@ body:has(.dashboard) {
     box-shadow: 0 2px 2px 0 rgba(27, 36, 44, 0.04);
 
     .header-wrapper {
-      padding: 0 20px;
+      padding: 0 20px 0 30px;
       width: calc(100% - 270px);
     }
 

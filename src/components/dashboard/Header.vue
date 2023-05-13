@@ -1,5 +1,8 @@
 <template>
   <header>
+    <div class="aside-close">
+      <i class="bi bi-arrow-left-short"></i>
+    </div>
     <div class="header-wrapper">
       <div class="w-100 d-flex justify-content-between align-items-center">
         <nav aria-label="breadcrumb">

@@ -5,13 +5,6 @@
         <router-link to="/">
           <img class="nav-head__logo" src="/img/logo.svg" alt="logo">
         </router-link>
-
-        <div class="nav-head__close">
-          <svg class="icon">
-            <use xlink:href="#sprite-close-aside"></use>
-          </svg>
-
-        </div>
       </div>
 
       <div class="nav-menu">

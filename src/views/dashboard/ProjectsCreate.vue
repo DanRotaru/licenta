@@ -12,7 +12,6 @@
           Publish Project
         </button>
 
-
           <div class="project-create-steps">
             <div class="project-create-steps-progress nav" :data-group-item="pillsId">
               <button class="project-create-steps-progress__btn"
@@ -364,6 +363,20 @@
                   </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <div class="my-4">
+                <div class="d-flex justify-content-between align-items-center">
+                 <div>
+                   <h5>GitHub Integration</h5>
+                   <p class="small">Choose your GitHub repository to confirm your additional information.</p>
+                 </div>
+
+                  <button class="btn btn-github btn-lg" style="padding: 6px 15px;">
+                    <i class="bi bi-github"></i>
+                    Connect GitHub repository
+                  </button>
+                </div>
               </div>
 
               <div class="d-sm-flex justify-content-between align-items-center mt-2">
