@@ -44,6 +44,20 @@ button {
     --bs-btn-active-bg: #113997;
     --bs-btn-active-color: #fff;
     --bs-btn-active-border-color: transparent;
+
+    &-1 {
+      --bs-btn-bg: #2886FF !important;
+      --bs-btn-color: #fff !important;
+      --bs-btn-border-color: transparent !important;
+
+      --bs-btn-hover-bg: #1f6fd7 !important;
+      --bs-btn-hover-color: #fff !important;
+      --bs-btn-hover-border-color: transparent !important;
+
+      --bs-btn-active-bg: #1e7aee !important;
+      --bs-btn-active-color: #fff !important;
+      --bs-btn-active-border-color: transparent !important;
+    }
   }
 
   &-light {

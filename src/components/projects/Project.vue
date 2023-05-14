@@ -917,7 +917,10 @@ const route = useRoute();
 const id = route.params.id;
 
 onMounted(() => {
-  document.querySelector('a[href="/dashboard/projects"]').classList.add("router-link-active");
+  const link = document.querySelector('a[href="/dashboard/projects"]');
+  if (link) {
+    link.classList.add("router-link-active");
+  }
 });
 
 const buttons = [

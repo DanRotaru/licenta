@@ -1,9 +1,14 @@
 <template>
   <Header/>
 
-  <div class="container">
-    <User/>
-  </div>
+  <div class="user-banner"></div>
+  <section class="section-user">
+    <div class="container">
+      <div class="row g-0 g-lg-5">
+        <User/>
+      </div>
+    </div>
+  </section>
 
   <Footer/>
 </template>

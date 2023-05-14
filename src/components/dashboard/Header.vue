@@ -1,8 +1,8 @@
 <template>
   <header>
-    <div class="aside-close">
+    <router-link to="/"  class="aside-close">
       <i class="bi bi-arrow-left-short"></i>
-    </div>
+    </router-link>
     <div class="header-wrapper">
       <div class="w-100 d-flex justify-content-between align-items-center">
         <nav aria-label="breadcrumb">
@@ -28,24 +28,46 @@
         </nav>
 
 
-        <div>
+        <div class="right-menu">
+          <router-link to="/dashboard/projects/create" class="btn btn-primary-1 mb-0">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"></path>
+            </svg>
+            Create
+          </router-link>
+
+
+          <div class="dropdown">
+            <div class="right-menu__item" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
+<!--              <i class="bi bi-chat-right-text"></i>-->
+              <i class="bi bi-chat-text"></i>
+            </div>
+
+            <div class="dropdown-menu">
+              <div class="right-menu__empty">
+                No new messages...
+              </div>
+
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <div class="right-menu__item" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
+              <i class="bi bi-bell"></i>
+            </div>
+
+            <div class="dropdown-menu">
+              <div class="right-menu__empty">
+                No notifications...
+              </div>
+
+            </div>
+          </div>
+
           <div class="dropdown">
             <div class="user" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,20">
-              <div class="d-flex align-items-center">
-                <!-- Avatar -->
-                <div class="avatar me-3">
-                  <img class="avatar-img rounded-circle shadow" :src="userInfo.avatar" alt=""/>
-                </div>
-                <div>
-                  <a class="h6">
-                    {{ userInfo.first_name }} {{ userInfo.last_name }}
-                  </a>
-                  <p class="user__email">{{ userInfo.email }}</p>
-
-                  <svg>
-                    <use xlink:href="#sprite-chevron-up"></use>
-                  </svg>
-                </div>
+              <div class="avatar">
+                <img class="avatar-img rounded-circle shadow" :src="userInfo.avatar" alt=""/>
               </div>
             </div>
 
@@ -63,13 +85,6 @@
               <li><a class="dropdown-item bg-danger-soft-hover" @click="logout()"><i class="bi bi-power fa-fw me-2"></i>Sign Out</a></li>
             </ul>
           </div>
-
-          <router-link to="/dashboard/projects/create" type="button" class="btn btn-primary1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"></path>
-            </svg>
-            Add new project
-          </router-link>
         </div>
       </div>
 

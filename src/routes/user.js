@@ -3,6 +3,7 @@ const express = require('express');
 const axios = require('axios');
 const User = require('../models/User');
 const Post = require("../models/Post");
+const {Types} = require("mongoose");
 const router = express.Router();
 
 require('dotenv').config();
@@ -11,8 +12,6 @@ const BACKEND_PORT = process.env.BACKEND_PORT || 3000;
 const URL = process.env.URL;
 
 const FRONTEND_URL = URL + ':' + FRONTEND_PORT;
-const BACKEND_URL = URL + ':' + BACKEND_PORT;
-
 
 // If is true will encrypt passwords using bcrypt
 const securePasswords = false;
@@ -294,9 +293,9 @@ router.post('/update/:action', async (req, res) => {
 });
 
 router.get('/info/:id', async (req, res) => {
-  if (typeof req.session.auth === 'undefined') {
-    return res.status(401).json({error: 'Unauthorized'});
-  }
+  // if (typeof req.session.auth === 'undefined') {
+  //   return res.status(401).json({error: 'Unauthorized'});
+  // }
 
   const id = req.params.id;
   if (!id) {
@@ -309,7 +308,12 @@ router.get('/info/:id', async (req, res) => {
     const numericId = Number(id.replace(/\D/g, ''));
     user = await User.findOne({userId: numericId});
   } else {
-    user = await User.findById({_id: id}).limit(1);
+    if (Types.ObjectId.isValid(id)) {
+      user = await User.findById({_id: id}).limit(1);
+    } else {
+      return res.json({error: 'Invalid user id!'});
+    }
+
   }
 
   if (!user) {

@@ -131,6 +131,44 @@
       opacity: 0.8;
     }
   }
+
+  &-popular {
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      font-weight: 600;
+      color: #000;
+      border-bottom: 1px solid #EFF1F2;
+      padding-bottom: 15px;
+    }
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+
+      img {
+        height: 68px;
+        border-radius: 10px;
+      }
+
+      .badge {
+        font-size: 13px;
+      }
+    }
+  }
+
+  &__title {
+    margin: 10px 0 5px;
+  }
+
+  &__price {
+    margin: 10px 0 5px;
+    text-align: center;
+  }
 }
 
 body:has(.project-create) {

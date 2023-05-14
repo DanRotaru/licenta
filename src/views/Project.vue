@@ -1,7 +1,13 @@
 <template>
   <Header/>
 
-  <Project/>
+  <section class="bg-light pt-8 pb-5">
+    <div class="container">
+      <div class="row py-5">
+        <Project/>
+      </div>
+    </div>
+  </section>
 
   <Footer/>
 </template>

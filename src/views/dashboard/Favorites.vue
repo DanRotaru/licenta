@@ -10,6 +10,8 @@
           <h1>Favorites projects</h1>
           <h5>Browse your favorites projects</h5>
         </section>
+
+        <div class="none">None</div>
       </div>
 
     </main>

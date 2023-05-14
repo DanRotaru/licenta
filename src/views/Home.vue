@@ -26,65 +26,81 @@
     </div>
   </section>
 
-  <section>
+  <section class="pt-0 pb-5">
     <div class="container">
-      <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
-        <div class="col">
-          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-chat-dots"></i></div>
-          <h5 class="h5 mb-2">Chat with us</h5>
-          <p class=" mb-0">Chat live with one of our support specialists.</p>
-        </div>
-        <div class="col">
-          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-people"></i></div>
-          <h5 class="h5">Ask the community</h5>
-          <p class=" mb-0">Explore our community forums and communicate with other users.</p>
-        </div>
-        <div class="col">
-          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-question-circle"></i>
+      <div class="row justify-content-center">
+        <div class="col-md-12">
+          <!-- Slider START -->
+          <div class="tiny-slider">
+            <div class="tiny-slider-inner" data-arrow="false" data-dots="false" data-gutter="80" data-items-xl="6"
+                 data-items-lg="5" data-items-md="4" data-items-sm="3" data-items-xs="2" data-autoplay="2000">
+              <!-- Slide item START -->
+              <div class="item"><img class="grayscale" src="/img/clients/coca-cola.svg" alt="client-logo"></div>
+              <div class="item"><img class="grayscale" src="/img/clients/android.svg" alt="client-logo"></div>
+              <div class="item"><img class="grayscale" src="/img/clients/envato.svg" alt="client-logo"></div>
+              <div class="item"><img class="grayscale" src="/img/clients/microsoft.svg" alt="client-logo"></div>
+              <div class="item"><img class="grayscale" src="/img/clients/netflix.svg" alt="client-logo"></div>
+              <div class="item"><img class="grayscale" src="/img/clients/google.svg" alt="client-logo"></div>
+              <div class="item"><img class="grayscale" src="/img/clients/linkedin.svg" alt="client-logo"></div>
+              <!-- Slide item END -->
+            </div>
           </div>
-          <h5 class="h5">Support center</h5>
-          <p class=" mb-0">Browse FAQ's and support articles to find solutions.</p>
-        </div>
-        <div class="col">
-          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone"></i></div>
-          <h5 class="h5">Call us</h5>
-          <p class=" mb-0">Call us during normal business hours at (555) 892-9403.</p>
+          <!-- Slider END -->
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section-features py-5">
-    <div class="container my-5">
-      <div class="row gx-5">
-        <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">A better way to start building.</h2></div>
-        <div class="col-lg-8">
-          <div class="row gx-5 row-cols-1 row-cols-md-2">
-            <div class="col mb-5 h-100">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-collection"></i>
+  <section>
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <!-- Title -->
+          <h2 class="mb-4">A better way to <span class="text-warning">start</span> building.</h2>
+          <!-- Image -->
+          <img
+              src="https://images.unsplash.com/photo-1502945015378-0e284ca1a5be?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+              class="rounded-2" alt="">
+        </div>
+        <div class="col-lg-7">
+          <div class="row g-4">
+            <!-- Item -->
+            <div class="col-sm-6">
+              <div class="icon-lg bg-orange bg-opacity-10 text-orange rounded-2">
+                <i class="bi bi-collection fs-5"></i>
               </div>
-              <h2 class="h5">User-Friendly Platform</h2>
-              <p class="mb-0">The company’s platform should be designed to make it easy for developers to showcase and
+              <h5 class="my-3">User-Friendly Platform</h5>
+              <p class="mb-0">
+                The company’s platform should be designed to make it easy for developers to showcase and
                 sell their projects. This could include features such as a streamlined onboarding process, simple
-                project upload procedures, and intuitive navigation tools.</p>
+                project upload procedures, and intuitive navigation tools.
+              </p>
             </div>
-            <div class="col mb-5 h-100">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-building"></i></div>
-              <h2 class="h5">Developer Community</h2>
+
+            <div class="col-sm-6">
+              <div class="icon-lg bg-info bg-opacity-10 text-info rounded-2">
+                <i class="bi bi-building"></i>
+              </div>
+              <h5 class="my-3">Developer Community</h5>
               <p class="mb-0">A strong developer community can be a valuable asset for both buyers and sellers. The
                 platform could offer a space for developers to connect with each other, exchange ideas, and collaborate
-                on new projects. </p>
+                on new projects.</p>
             </div>
-            <div class="col mb-5 mb-md-0 h-100">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-              <h2 class="h5">Secure Transactions</h2>
+
+            <div class="col-sm-6">
+              <div class="icon-lg bg-success bg-opacity-10 text-success rounded-2">
+                <i class="bi bi-shield-lock"></i>
+              </div>
+              <h5 class="my-3">Secure Transactions</h5>
               <p class="mb-0">It is crucial that any transactions taking place on the platform are safe and secure. The
                 company should provide robust security measures such as SSL encryption, secure payment processing, and
                 multi-factor authentication to protect both the buyers and sellers.</p>
             </div>
-            <div class="col h-100">
-              <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-toggles2"></i></div>
-              <h2 class="h5">Comprehensive Project Listings</h2>
+            <!-- Item -->
+            <div class="col-sm-6">
+              <div class="icon-lg bg-purple bg-opacity-10 text-purple rounded-2"><i class="bi bi-toggles2"></i>
+              </div>
+              <h5 class="my-3">Comprehensive Project Listings</h5>
               <p class="mb-0">To attract potential buyers, the platform should offer detailed and informative project
                 listings that include key details such as project descriptions, technical specifications, screenshots,
                 and demo videos.</p>
@@ -145,7 +161,55 @@
     </div>
   </section>
 
-  <section class="bg-light">
+  <section>
+    <div class="container">
+      <div class="row gx-5 row-cols-2 row-cols-lg-4 py-5">
+        <div class="col">
+          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-chat-dots"></i></div>
+          <h5 class="h5 mb-2">Chat with us</h5>
+          <p class=" mb-0">Chat live with one of our support specialists.</p>
+        </div>
+        <div class="col">
+          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-people"></i></div>
+          <h5 class="h5">Ask the community</h5>
+          <p class=" mb-0">Explore our community forums and communicate with other users.</p>
+        </div>
+        <div class="col">
+          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-question-circle"></i>
+          </div>
+          <h5 class="h5">Support center</h5>
+          <p class=" mb-0">Browse FAQ's and support articles to find solutions.</p>
+        </div>
+        <div class="col">
+          <div class="feature bg-primary bg-gradient text-white rounded-3 mb-3"><i class="bi bi-telephone"></i></div>
+          <h5 class="h5">Call us</h5>
+          <p class=" mb-0">Call us during normal business hours at (555) 892-9403.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-5">
+    <div class="container mb-5">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <img
+              class="rounded-3"
+              src="/img/grow.webp"
+              alt="grow">
+        </div>
+        <div class="col-lg-6">
+          <h2>About Codeazone</h2>
+          <p class="mt-3">
+            Our platform is built on the latest technologies and follows industry best practices to ensure that your data is secure and your operations are efficient. We have a team of experienced professionals who are dedicated to delivering high-quality solutions and excellent customer service. Our platform is easy to use and flexible, allowing you to customize your solutions to meet your unique business needs.
+            Whether you are looking for a custom software solution or need help migrating to the cloud, our platform has got you covered. We offer a range of services, including web development, mobile app development, cloud hosting, and IT consulting. Our solutions are designed to be scalable, so you can start small and grow as your business expands.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-review p-0">
     <div class="container">
       <div class="row g-4 g-lg-5 align-items-center">
         <div class="col-xl-7 order-2 order-xl-1">
@@ -155,7 +219,8 @@
               <!-- SVG -->
               <figure class="fill-danger opacity-2 position-absolute top-0 start-0 translate-middle mb-3">
                 <svg width="211px" height="211px">
-                  <path d="M210.030,105.011 C210.030,163.014 163.010,210.029 105.012,210.029 C47.013,210.029 -0.005,163.014 -0.005,105.011 C-0.005,47.015 47.013,-0.004 105.012,-0.004 C163.010,-0.004 210.030,47.015 210.030,105.011 Z"></path>
+                  <path
+                      d="M210.030,105.011 C210.030,163.014 163.010,210.029 105.012,210.029 C47.013,210.029 -0.005,163.014 -0.005,105.011 C-0.005,47.015 47.013,-0.004 105.012,-0.004 C163.010,-0.004 210.030,47.015 210.030,105.011 Z"></path>
                 </svg>
               </figure>
 
@@ -168,7 +233,7 @@
                 <blockquote>
                   <p>
                     <span class="me-1 small"><i class="fas fa-quote-left"></i></span>
-                    Moonlight newspaper up its enjoyment agreeable depending. Timed voice share led him to widen noisy young. At weddings believed laughing
+                    I absolutely love this platform! It's so user-friendly and makes my life so much easier. The interface is intuitive and the features are exactly what I need to get my work done efficiently. Highly recommend!
                     <span class="ms-1 small"><i class="fas fa-quote-right"></i></span>
                   </p>
                 </blockquote>
@@ -193,7 +258,7 @@
                   <i class="bi bi-shield-fill-check text-dark"></i>
                 </div>
                 <!-- Title -->
-                <h6 class="mb-3">100+ Verified Mentors</h6>
+                <h6 class="mb-3">100+ Verified Sellers</h6>
                 <!-- Mentor Item -->
                 <div class="d-flex align-items-center mb-3">
                   <!-- Avatar -->
@@ -203,7 +268,7 @@
                   <!-- Info -->
                   <div class="ms-2">
                     <h6 class="mb-0">Lori Stevens</h6>
-                    <p class="mb-0 small">Tutor of physic</p>
+                    <p class="mb-0 small">HR & Recruitment</p>
                   </div>
                 </div>
 
@@ -216,7 +281,7 @@
                   <!-- Info -->
                   <div class="ms-2">
                     <h6 class="mb-0">Billy Vasquez</h6>
-                    <p class="mb-0 small">Tutor of chemistry</p>
+                    <p class="mb-0 small">Cyber-security</p>
                   </div>
                 </div>
 
@@ -229,7 +294,7 @@
                   <!-- Info -->
                   <div class="ms-2">
                     <h6 class="mb-0">Larry Lawson</h6>
-                    <p class="mb-0 small">Tutor of technology</p>
+                    <p class="mb-0 small">Marketing</p>
                   </div>
                 </div>
               </div>
@@ -316,9 +381,7 @@
                 <blockquote>
                   <p>
                     <span class="me-1 small"><i class="fas fa-quote-left"></i></span>
-                    At weddings believed laughing although the Moonlight newspaper up its enjoyment agreeable depending.
-                    <span class="ms-1 small"><i class="fas fa-quote-right"></i></span>
-                  </p>
+                    I've been using this platform for a few months now and it has completely transformed the way I work. The user interface is clean and intuitive, making it easy to navigate and find the tools I need.                  </p>
                 </blockquote>
                 <!-- Rating -->
                 <ul class="list-inline mb-2">
@@ -424,4 +487,102 @@
 import CTA from '@/components/CTA.vue'
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+
+import {tns} from "../../node_modules/tiny-slider/src/tiny-slider"
+import {onMounted} from "vue";
+
+onMounted(() => {
+  var slides = document.querySelectorAll('.tiny-slider-inner');
+  if (slides) {
+    slides.forEach(slider => {
+      var slider1 = slider;
+      var sliderMode = slider1.getAttribute('data-mode') ? slider1.getAttribute('data-mode') : 'carousel';
+      var sliderAxis = slider1.getAttribute('data-axis') ? slider1.getAttribute('data-axis') : 'horizontal';
+      var sliderSpace = slider1.getAttribute('data-gutter') ? slider1.getAttribute('data-gutter') : 30;
+      var sliderEdge = slider1.getAttribute('data-edge') ? slider1.getAttribute('data-edge') : 0;
+
+      var sliderItems = slider1.getAttribute('data-items') ? slider1.getAttribute('data-items') : 4; //option: number (items in all device)
+      var sliderItemsXl = slider1.getAttribute('data-items-xl') ? slider1.getAttribute('data-items-xl') : Number(sliderItems); //option: number (items in 1200 to end )
+      var sliderItemsLg = slider1.getAttribute('data-items-lg') ? slider1.getAttribute('data-items-lg') : Number(sliderItemsXl); //option: number (items in 992 to 1199 )
+      var sliderItemsMd = slider1.getAttribute('data-items-md') ? slider1.getAttribute('data-items-md') : Number(sliderItemsLg); //option: number (items in 768 to 991 )
+      var sliderItemsSm = slider1.getAttribute('data-items-sm') ? slider1.getAttribute('data-items-sm') : Number(sliderItemsMd); //option: number (items in 576 to 767 )
+      var sliderItemsXs = slider1.getAttribute('data-items-xs') ? slider1.getAttribute('data-items-xs') : Number(sliderItemsSm); //option: number (items in start to 575 )
+
+      var sliderSpeed = slider1.getAttribute('data-speed') ? slider1.getAttribute('data-speed') : 500;
+      var sliderautoWidth = slider1.getAttribute('data-autowidth') === 'true'; //option: true or false
+      var sliderArrow = slider1.getAttribute('data-arrow') !== 'false'; //option: true or false
+      var sliderDots = slider1.getAttribute('data-dots') !== 'false'; //option: true or false
+
+      var sliderAutoPlay = slider1.getAttribute('data-autoplay') !== 'false'; //option: true or false
+      var sliderAutoPlayTime = slider1.getAttribute('data-autoplaytime') ? slider1.getAttribute('data-autoplaytime') : 4000;
+      var sliderHoverPause = slider1.getAttribute('data-hoverpause') === 'true'; //option: true or false
+      if (document.querySelector('.custom-thumb')) {
+        var sliderNavContainer = document.querySelector('.custom-thumb');
+      }
+      var sliderLoop = slider1.getAttribute('data-loop') !== 'false'; //option: true or false
+      var sliderRewind = slider1.getAttribute('data-rewind') === 'true'; //option: true or false
+      var sliderAutoHeight = slider1.getAttribute('data-autoheight') === 'true'; //option: true or false
+      var sliderfixedWidth = slider1.getAttribute('data-fixedwidth') === 'true'; //option: true or false
+      var sliderTouch = slider1.getAttribute('data-touch') !== 'false'; //option: true or false
+      var sliderDrag = slider1.getAttribute('data-drag') !== 'false'; //option: true or false
+      // Check if document DIR is RTL
+      var ifRtl = document.getElementsByTagName("html")[0].getAttribute("dir");
+      var sliderDirection;
+      if (ifRtl === 'rtl') {
+        sliderDirection = 'rtl';
+      }
+
+      var tnsSlider = tns({
+        container: slider,
+        mode: sliderMode,
+        axis: sliderAxis,
+        gutter: sliderSpace,
+        edgePadding: sliderEdge,
+        speed: sliderSpeed,
+        autoWidth: sliderautoWidth,
+        controls: sliderArrow,
+        nav: sliderDots,
+        autoplay: sliderAutoPlay,
+        autoplayTimeout: sliderAutoPlayTime,
+        autoplayHoverPause: sliderHoverPause,
+        autoplayButton: false,
+        autoplayButtonOutput: false,
+        controlsPosition: top,
+        navContainer: sliderNavContainer,
+        navPosition: top,
+        autoplayPosition: top,
+        controlsText: [
+          '<i class="fas fa-chevron-left"></i>',
+          '<i class="fas fa-chevron-right"></i>'
+        ],
+        loop: sliderLoop,
+        rewind: sliderRewind,
+        autoHeight: sliderAutoHeight,
+        fixedWidth: sliderfixedWidth,
+        touch: sliderTouch,
+        mouseDrag: sliderDrag,
+        arrowKeys: true,
+        items: sliderItems,
+        textDirection: sliderDirection,
+        responsive: {
+          0: {
+            items: Number(sliderItemsXs)
+          },
+          576: {
+            items: Number(sliderItemsSm)
+          },
+          768: {
+            items: Number(sliderItemsMd)
+          },
+          992: {
+            items: Number(sliderItemsLg)
+          },
+          1200: {
+            items: Number(sliderItemsXl)
+          }
+        }
+      });
+    })
+  }
+})
 </script>
