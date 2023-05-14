@@ -196,6 +196,14 @@
           <div class="col-lg-6">
             <div class="row mb-4">
               <div class="col-lg-6">
+                <div class="card shadow h-100">
+                  <div class="card-body">
+                    <h6 class="mb-0">This month earning</h6>
+                    <h2 class="mb-2 mt-2">$15,356</h2>
+                    <p class="mb-0">Expected payout on 05/01/2023</p>
+                  </div>
+                </div>
+
 
               </div>
               <div class="col-lg-6">

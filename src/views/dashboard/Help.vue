@@ -6,75 +6,71 @@
       <Header page="Help"/>
 
       <div class="wrapper">
-        <div>help</div>
-
-        <div class="row g-4" style="width: 900px;">
-          <div class="col-6">
-            <div class="card shadow h-100 card-project">
-              <a href="/dashboard/projects/1" class="">
-                <img src="/img/webify.png" class="card-img-top" alt="project image"/>
-              </a>
-              <div class="card-body pb-0">
-                <div class="d-flex justify-content-between mb-2">
-                  <div class="d-flex gap-1">
-                    <a href="#" class="badge bg-purple bg-opacity-10 text-purple">All level</a>
-                  </div>
-                  <a href="#" class="h6 fw-light mb-0">
-                    <i class="far fa-heart"></i>
-                  </a>
-                </div>
-                <h5 class="card-title">
-                  <a href="/dashboard/projects/1" class="">
-                    Webify - professional-looking websites without any coding skills
-                  </a>
-                </h5>
-                <p class="mb-2 text-truncate-3">
-                  Webify is a website builder platform that allows anyone to create professional-looking websites
-                </p>
-              </div>
-              <div class="card-footer py-3">
-                <a href="/user/DanRotaru" class="user-avatar">
-                  <img src="https://avatars.githubusercontent.com/u/7759507" alt="avatar">
-                  <div>
-                    <span>DanRotaru</span>
-                    <div class="rating">
-                      <ul class="list-inline mb-0">
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                        <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                        <li class="list-inline-item ms-2 h6 fw-medium mb-0">4.5/5.0</li>
-                      </ul>
+        <div class="container">
+          <div class="row g-4 g-sm-5 align-items-center py-4">
+            <div class="col-lg-6 col-xl-5">
+              <h1>Access to Full Resources</h1>
+              <!-- Request search bar -->
+              <form class="row align-items-center justify-content-center my-4">
+                <div class="col-12">
+                  <p class="mb-2 h6 fw-light">Enter your email address to get access</p>
+                  <div class="bg-body shadow rounded-3 p-2">
+                    <div class="input-group">
+                      <input class="form-control border-0 me-1" type="email" placeholder="Enter your email">
+                      <button type="button" class="btn btn-blue mb-0 rounded-3">Request access!</button>
                     </div>
                   </div>
-                  <div class="user-avatar__price">10$</div>
-                </a>
+                </div>
+              </form>
+
+              <!-- Avatar group and rating -->
+              <div class="d-sm-flex justify-content-sm-between align-items-center">
+                <div>
+                  <!-- Avatar group -->
+                  <ul class="avatar-group mb-3 mb-sm-0">
+                    <li class="avatar avatar-sm">
+                      <img class="avatar-img rounded-circle" src="/img/me.webp" alt="avatar">
+                    </li>
+                    <li class="avatar avatar-sm">
+                      <img class="avatar-img rounded-circle" src="/img/me.webp" alt="avatar">
+                    </li>
+                    <li class="avatar avatar-sm">
+                      <img class="avatar-img rounded-circle" src="/img/me.webp" alt="avatar">
+                    </li>
+                    <li class="avatar avatar-sm">
+                      <img class="avatar-img rounded-circle" src="/img/me.webp" alt="avatar">
+                    </li>
+                    <li class="avatar avatar-sm">
+                      <img class="avatar-img rounded-circle" src="/img/me.webp" alt="avatar">
+                    </li>
+                    <li class="avatar avatar-sm">
+                      <div class="avatar-img rounded-circle bg-primary">
+                        <span class="text-white position-absolute top-50 start-50 translate-middle small">1K+</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <!-- Rating -->
+                <div class="d-flex align-items-center">
+                  <h5 class="mb-0 me-2">4.5/5.0</h5>
+                  <ul class="list-inline mb-1">
+                    <li class="list-inline-item me-0 mb-0"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item me-0 mb-0"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item me-0 mb-0"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item me-0 mb-0"><i class="fas fa-star text-warning"></i></li>
+                    <li class="list-inline-item me-0 mb-0"><i class="fas fa-star-half-alt text-warning"></i></li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="col-6" v-for="n in 9">
-            <CardLoading/>
-          </div>
-        </div>
-
-        <div class="cards">
-
-
-          <div class="card is-loading">
-            <div class="image"></div>
-            <div class="content">
-              <h2></h2>
-              <p></p>
+            <!-- Image -->
+            <div class="col-lg-6 col-xl-7 text-center">
+              <img src="/img/16.svg" alt="img">
             </div>
           </div>
-
         </div>
-
-
       </div>
-
     </main>
   </div>
 </template>
