@@ -40,7 +40,7 @@
                   <label class="form-label" for="title">Project Title</label>
                   <div class="input-group">
                     <input id="title" class="form-control" type="text" placeholder="What's the name of project?"
-                           required v-model.trim="projectInfo.title"/>
+                           required v-model="projectInfo.title"/>
                   </div>
                 </div>
 
@@ -407,18 +407,18 @@ const stepsMenu = ["Project Details", "Project Media", "Project FaQs", "Addition
 const pillsId = ref(0);
 
 const projectInfo = ref({
-  title: 'a',
-  category: 'b',
-  language: 'd',
-  summary: 'asdasd',
-  tags: 'aa|bb|cc',
-  level: 'aa',
-  price: 123,
+  title: '',
+  category: '',
+  language: '',
+  summary: '',
+  tags: '',
+  level: '',
+  price: null,
   discount: false,
   discount_amount: '',
   discount_amount_value: null,
   discount_end: '',
-  description: 'sadsadasd',
+  description: '',
   features: [''],
 
   picture: '',
@@ -506,6 +506,18 @@ async function create() {
       formData.append(field_name, projectInfo.value[field_name]);
     }
   }
+
+  const noRequiredData = (
+    !projectInfo.value.title ||
+    !projectInfo.value.category ||
+    !projectInfo.value.language ||
+    !projectInfo.value.summary ||
+    !projectInfo.value.tags ||
+    !projectInfo.value.level ||
+    !projectInfo.value.price ||
+    !projectInfo.value.description
+  );
+
 
   delete formData.picture;
 

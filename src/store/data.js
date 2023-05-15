@@ -2,7 +2,7 @@ const languages = ['English', 'Romanian', 'German', 'French', 'Italian', 'Spanis
 const categories = ['Web Development', 'Mobile Development', 'Desktop Apps', 'Game Dev', 'AI & ML', 'E-Commerce', 'Social Networking', 'Project Management', 'HR & Recruitment', 'Analytics & Data Viz', 'AR & VR', 'Cyber-security', 'E-Learning', 'IoT', 'CRM', 'Finance', 'Healthcare Apps', 'Marketing', 'Advertising', 'Productivity Tools', 'CM', 'CMS'];
 const programming_languages = ['JavaScript', 'Python', 'Java', 'TypeScript', 'PHP', 'HTML/CSS', 'C++', 'C#', 'Ruby', 'Swift', 'Kotlin', 'Go', 'Rust', 'SQL', 'MATLAB', 'Perl', 'Lua', 'R', 'Dart', 'Objective-C', 'Shell', 'Scala'];
 const project_types = ['Web App', 'Mobile App', 'HTML/CSS/JS Components', 'Finished project (ready for startup)', 'Code snippets', 'Plugins', 'Modules', 'Desktop App', 'Other'];
-const project_levels = ['Beginner', 'Intermediate', 'Advance']
+const project_levels = ['All levels', 'Beginner', 'Intermediate', 'Advance']
 
 const BACKEND_API = 'http://localhost:3000/api'
 

@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
-    <section class="dashboard-hero text-start py-4">
+    <section class="dashboard-hero text-start py-4" :class="{nones: browse}">
       <div class="container">
         <div class="row py-5">
-          <div class="col-lg-8">
+          <div class="col-lg-9">
 
-            <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">Web Dev</h6>
+            <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">Web Development</h6>
 
             <h1>Webify - professional-looking websites without any coding skills</h1>
             <p class="py-3">Webify is a website builder platform that allows anyone to create professional-looking
@@ -835,53 +835,8 @@
             </div>
 
             <div class="col-md-6 col-lg-12">
-
               <div class="card card-body shadow p-4 mb-4">
-
-                <h4 class="mb-3">Recently Viewed</h4>
-
-                <div class="row gx-3 mb-3">
-
-                  <div class="col-4">
-                    <img alt="webify" class="rounded" src="/img/webify.png">
-                  </div>
-
-                  <div class="col-8">
-                    <h6 class="mb-0 text-truncate-3"><a href="#">Webify - professional-looking websites without any
-                      coding skills</a></h6>
-                    <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
-                      <li class="list-group-item px-0 d-flex justify-content-between">
-                        <span class="text-success">$130</span>
-                        <span class="h6 fw-light">4.5<i class="fas fa-star text-warning ms-1"></i></span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-
-                <div class="row gx-3 mb-3">
-
-                  <div class="col-4">
-                    <img alt="webify" class="rounded" src="/img/webify.png">
-                  </div>
-
-                  <div class="col-8">
-                    <h6 class="mb-0 text-truncate-3"><a href="#">Webify - professional-looking websites without any
-                      coding skills</a></h6>
-                    <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
-                      <li class="list-group-item px-0 d-flex justify-content-between">
-                        <span class="text-success">$130</span>
-                        <span class="h6 fw-light">4.5<i class="fas fa-star text-warning ms-1"></i></span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-              </div>
-
-
-              <div class="card card-body shadow p-4">
-                <h4 class="mb-3">Popular Tags</h4>
+                <h4 class="mb-3">Project Tags</h4>
                 <ul class="list-inline mb-0">
                   <li class="list-inline-item"><a class="btn btn-sm" href="#">blog</a></li>
                   <li class="list-inline-item"><a class="btn btn-sm" href="#">business</a></li>
@@ -893,6 +848,45 @@
                   <li class="list-inline-item"><a class="btn btn-sm" href="#">machine learning</a>
                   </li>
                 </ul>
+              </div>
+
+              <div class="card card-body shadow p-4 mb-4">
+                <h4 class="mb-3">Recent Projects</h4>
+                <div class="row gx-3 mb-3">
+                  <div class="col-4">
+                    <img alt="webify" class="rounded" src="/img/webify.png">
+                  </div>
+
+                  <div class="col-8">
+                    <h6 class="mb-0 text-truncate-3"><a href="#">Webify - professional-looking websites without any
+                      coding skills</a></h6>
+                    <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
+                      <li class="list-group-item px-0 d-flex justify-content-between">
+                        <span class="text-success">$130</span>
+                        <span class="h6 fw-light">4.5<i class="fas fa-star text-warning ms-1"></i></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+
+                <div class="row gx-3">
+                  <div class="col-4">
+                    <img alt="webify" class="rounded" src="/img/webify.png">
+                  </div>
+
+                  <div class="col-8">
+                    <h6 class="mb-0 text-truncate-3"><a href="#">Webify - professional-looking websites without any
+                      coding skills</a></h6>
+                    <ul class="list-group list-group-borderless mt-1 d-flex justify-content-between">
+                      <li class="list-group-item px-0 d-flex justify-content-between">
+                        <span class="text-success">$130</span>
+                        <span class="h6 fw-light">4.5<i class="fas fa-star text-warning ms-1"></i></span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
               </div>
 
             </div>
@@ -910,18 +904,14 @@
 
 <script setup>
 import {onMounted, ref} from "vue";
-
 import {useRoute} from "vue-router";
+import axios from "axios";
+import * as data from "@/store/data";
+
+defineProps(['browse']);
 
 const route = useRoute();
 const id = route.params.id;
-
-onMounted(() => {
-  const link = document.querySelector('a[href="/dashboard/projects"]');
-  if (link) {
-    link.classList.add("router-link-active");
-  }
-});
 
 const buttons = [
   'Overview',
@@ -971,4 +961,70 @@ const pillsId = ref(0);
 const changePill = (id) => {
   pillsId.value = id;
 }
+
+const projectInfo = ref({
+  title: '',
+  category: '',
+  language: '',
+  summary: '',
+  tags: '',
+  level: '',
+  price: null,
+  discount: false,
+  discount_end: '',
+  description: '',
+  features: [''],
+
+  youtube: '',
+  video: '',
+
+  faqs: [],
+});
+
+// const id = '64579688899654c8cea1b4a3';
+
+const baseURL = data.BACKEND_API;
+const api = axios.create({
+  baseURL,
+  withCredentials: true
+});
+
+async function getProjectInfo(id) {
+  const res = await api.get('/post/get/' + id);
+
+  console.log(res.data);
+
+  if (res.data.success) {
+    projectInfo.value.title = res.data.info.title;
+    projectInfo.value.description = res.data.info.description;
+    projectInfo.value.category = res.data.info.category;
+    projectInfo.value.language = res.data.info.language;
+    projectInfo.value.summary = res.data.info.summary;
+    projectInfo.value.tags = res.data.info.tags;
+    projectInfo.value.level = res.data.info.level;
+    projectInfo.value.price = res.data.info.price;
+    projectInfo.value.discount = res.data.info.discount;
+    projectInfo.value.discount_end = res.data.info.discount_end;
+    projectInfo.value.features = res.data.info.features;
+    projectInfo.value.image = res.data.info.image;
+    projectInfo.value.youtube = res.data.info.youtube;
+    projectInfo.value.video = res.data.info.video;
+
+    projectInfo.value.founded = true;
+  } else {
+    projectInfo.value.not_found = true;
+  }
+
+  console.log(projectInfo.value);
+
+}
+
+getProjectInfo(id);
+
+onMounted(() => {
+  const link = document.querySelector('a[href="/dashboard/projects"]');
+  if (link) {
+    link.classList.add("router-link-active");
+  }
+});
 </script>

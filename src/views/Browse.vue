@@ -12,7 +12,7 @@
 
   <section class="projects">
     <div class="container">
-      <Projects/>
+      <Projects :browse="true"/>
     </div>
   </section>
 

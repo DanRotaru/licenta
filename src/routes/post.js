@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('../models/User');
 const Post = require('../models/Post');
+const {Types} = require("mongoose");
 const router = express.Router();
 
 router.post('/create', async (req, res) => {
@@ -114,26 +115,45 @@ router.post('/delete', async (req, res) => {
   return res.json({success: 1});
 });
 
-router.get('/get', async (req, res) => {
-  if (typeof req.session.auth === 'undefined') {
-    return res.status(401).json({error: 'Unauthorized'});
+router.get('/get/:id', async (req, res) => {
+  // if (typeof req.session.auth === 'undefined') {
+  //   return res.status(401).json({error: 'Unauthorized'});
+  // }
+
+  const id = req.params.id;
+  if (!id) {
+    return res.json({error: 'Not specified project id!'});
   }
 
-  const user = await User.findById(req.session.auth, {userId: 1});
-  if (!user) {
-    return res.status(401).json({error: 'Unauthorized'});
+  let project;
+
+  if (id.startsWith('id')) {
+    const numericId = Number(id.replace(/\D/g, ''));
+    project = await Post.findOne({postId: numericId});
+  } else {
+    if (Types.ObjectId.isValid(id)) {
+      project = await Post.findById({_id: id}).limit(1);
+    } else {
+      return res.json({error: 'Invalid user id!'});
+    }
+
   }
 
-  const posts = await Post.find({}, {postId: 1, data: 1, _id: 0}).populate('createdBy', {userId: 1, email: 1, _id: 0});
-  return res.json({success: 1, posts});
+  if (!project) {
+    return res.json({error: 'Project not found!'});
+  }
+
+  return res.json({success: 1, info: project});
+
 });
+
 
 router.get('/all', async (req, res) => {
   // if (typeof req.session.auth === 'undefined') {
   //   return res.status(401).json({error: 'Unauthorized'});
   // }
 
-  const projects = await Post.find({}).populate('createdBy', 'avatar first_name last_name userId');
+  const projects = await Post.find({}).sort({'_id': -1}).populate('createdBy', 'avatar first_name last_name userId');
 
   return res.json({success: 1, projects});
 

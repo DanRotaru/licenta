@@ -1,10 +1,10 @@
 <template>
   <Header/>
 
-  <section class="bg-light pt-8 pb-5">
+  <section class="bg-light pt-8 pb-5" data-test-hook="s">
     <div class="container">
       <div class="row py-5">
-        <Project/>
+        <Project :browse="true"/>
       </div>
     </div>
   </section>
