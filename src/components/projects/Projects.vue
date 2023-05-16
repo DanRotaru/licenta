@@ -47,7 +47,7 @@
         <!-- Search option END -->
 
         <!-- Course Grid START -->
-        <div class="row g-4">
+        <div id="projects-list" class="row g-4">
 
           <Project v-if="projectsLoading" v-for="i in 4" loading="true"/>
 
@@ -57,6 +57,8 @@
               :project-url="(dashboard ? 'dashboard/projects/id' : 'project/id')  + project.postId"
               :profile-url="(dashboard ? 'dashboard/users/id' : 'user/id') + project.createdBy.userId"
               :title="project.title"
+              :category="project.category"
+              :language="project.language"
               :image="project.image"
               :price="project.price"
               :author="project.createdBy.first_name + ' ' + project.createdBy.last_name"
@@ -94,7 +96,7 @@
                 <div class="row">
                   <div class="col-6" v-for="(item, index) in data.categories">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" :id="'categoryItem' + index">
+                      <input class="form-check-input" type="checkbox" :value="item" :id="'categoryItem' + index" @change="filterCategory($event)">
                       <label class="form-check-label" :for="'categoryItem' + index">{{ item }}</label>
                     </div>
                     <!-- <span class="small">(1256)</span>-->
@@ -210,8 +212,28 @@ async function getProjects() {
   }
 
 }
+
 getProjects();
 
+function filterCategory(e) {
+  if (e.target.checked) {
+    const value = e.target.value;
+    document.querySelectorAll('#projects-list .card-project').forEach(el => {
+      el.parentNode.classList.add("d-none");
+    })
+
+    document.querySelectorAll(`#projects-list .card-project[data-category="${value}"]`).forEach(el => {
+      el.parentNode.classList.remove('d-none');
+    })
+  } else {
+    document.querySelectorAll(`#projects-list .card-project`).forEach(el => {
+      el.parentNode.classList.remove('d-none');
+    })
+  }
+
+
+
+}
 
 onMounted(() => {
   const choices = document.querySelectorAll('.js-choice');

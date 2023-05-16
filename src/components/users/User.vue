@@ -150,80 +150,27 @@
             </div>
           </div>
         </div>
-        <div class="row g-4 mt-4"><h2>Project list</h2>
-          <div class="col-sm-6 cardTypeClass">
-            <div class="card shadow h-100 card-project"><a href="/project/1" class=""><img
-                src="/img/webify.png" class="card-img-top" alt="project image"></a>
-              <div class="card-body pb-0">
-                <div class="d-flex justify-content-between mb-2">
-                  <div class="d-flex gap-1"><a href="#" class="badge bg-purple bg-opacity-10 text-purple">All
-                    level</a></div>
-                  <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a></div><h5
-                  class="card-title"><a href="/project/1" class="">Webify - professional-looking websites without
-                any coding skills</a></h5>
-                <p class="mb-2 text-truncate-3">Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                  unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                  containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                  PageMaker including versions of Lorem Ipsum.</p></div>
-              <div class="card-footer py-3"><a aria-current="page" href="/user/DanRotaru"
-                                               class="router-link-active router-link-exact-active user-avatar"><img
-                  src="/img/me.webp" alt="avatar">
-                <div><span>DanRotaru</span>
-                  <div class="rating">
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                      <li class="list-inline-item ms-2 h6 fw-medium mb-0">4.5/5.0</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="user-avatar__price">10$</div>
-              </a></div>
-            </div>
-          </div>
-          <div class="col-sm-6 cardTypeClass">
-            <div class="card shadow h-100 card-project"><a href="/project/1" class=""><img
-                src="/img/webify.png" class="card-img-top" alt="project image"></a>
-              <div class="card-body pb-0">
-                <div class="d-flex justify-content-between mb-2">
-                  <div class="d-flex gap-1"><a href="#" class="badge bg-purple bg-opacity-10 text-purple">All
-                    level</a></div>
-                  <a href="#" class="h6 fw-light mb-0"><i class="far fa-heart"></i></a></div><h5
-                  class="card-title"><a href="/project/1" class="">Webify - professional-looking websites without
-                any coding skills</a></h5>
-                <p class="mb-2 text-truncate-3">Lorem Ipsum is simply dummy text of the printing and typesetting
-                  industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                  unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                  containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                  PageMaker including versions of Lorem Ipsum.</p></div>
-              <div class="card-footer py-3"><a aria-current="page" href="/user/DanRotaru"
-                                               class="router-link-active router-link-exact-active user-avatar"><img
-                  src="/img/me.webp" alt="avatar">
-                <div><span>DanRotaru</span>
-                  <div class="rating">
-                    <ul class="list-inline mb-0">
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
-                      <li class="list-inline-item me-0 small"><i class="fas fa-star-half-alt text-warning"></i></li>
-                      <li class="list-inline-item ms-2 h6 fw-medium mb-0">4.5/5.0</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="user-avatar__price">10$</div>
-              </a></div>
-            </div>
-          </div>
-        </div></div></div>
+        <div class="row g-4 mt-4">
+          <h2>Project list</h2>
+
+          <Project v-if="projectsLoading" v-for="i in 4" loading="true"/>
+
+          <Project
+              v-if="!projectsLoading"
+              v-for="project in userInfo.projects"
+              :project-url="'dashboard/projects/id'  + project.postId"
+              :profile-url="'dashboard/users/id' + project.createdBy.userId"
+              :title="project.title"
+              :image="project.image"
+              :price="project.price"
+              :author="project.createdBy.first_name + ' ' + project.createdBy.last_name"
+              :author-image="project.createdBy.avatar"
+              :description="project.summary"
+              :level="project.level"/>
+
+        </div>
+      </div>
+    </div>
 
     <div v-if="userInfo.not_found" class="row">
       <div class="text-center">
@@ -238,6 +185,13 @@ import {onMounted, ref} from "vue";
 import {useRoute} from "vue-router";
 import axios from "axios";
 import * as data from "@/store/data";
+import Project from "@/components/cards/card-project.vue";
+
+const projectsLoading = ref(true);
+
+setTimeout(() => {
+  projectsLoading.value = false;
+}, 1000);
 
 const props = defineProps({
   userId: {
@@ -259,6 +213,7 @@ const userInfo = ref({
   description: '',
   position: '',
   avatar: '',
+  projects: [],
   founded: false,
   not_found: false
 });
@@ -280,6 +235,8 @@ async function getUserInfo(id) {
     userInfo.value.description = res.data.userInfo.description;
     userInfo.value.position = res.data.userInfo.position;
     userInfo.value.avatar = res.data.userInfo.avatar;
+    userInfo.value.projects = res.data.userInfo.projects;
+
     userInfo.value.founded = true;
   } else {
     userInfo.value.not_found = true;

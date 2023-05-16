@@ -136,10 +136,10 @@ router.get('/get/:id', async (req, res) => {
 
   if (id.startsWith('id')) {
     const numericId = Number(id.replace(/\D/g, ''));
-    project = await Post.findOne({postId: numericId}).populate('createdBy', 'avatar first_name last_name userId position email');
+    project = await Post.findOne({postId: numericId}).populate('createdBy', 'avatar first_name last_name userId position email description');
   } else {
     if (Types.ObjectId.isValid(id)) {
-      project = await Post.findById({_id: id}).limit(1).populate('createdBy', 'avatar first_name last_name userId position email');
+      project = await Post.findById({_id: id}).limit(1).populate('createdBy', 'avatar first_name last_name userId position email description');
     } else {
       return res.json({error: 'Invalid user id!'});
     }

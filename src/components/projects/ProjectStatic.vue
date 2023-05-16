@@ -248,7 +248,7 @@
                 <div id="course-pills-3" aria-labelledby="course-pills-tab-3" class="tab-pane fade" role="tabpanel">
 
                   <div class="row mb-4">
-                    <h5 class="mb-4">Our Student Reviews</h5>
+                    <h5 class="mb-4">Project Reviews</h5>
 
 
                     <div class="col-md-4 mb-3 mb-md-0">

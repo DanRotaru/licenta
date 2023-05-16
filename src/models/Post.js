@@ -51,7 +51,8 @@ const schema = new Schema({
     required: true
   },
   image: {
-    type: String
+    type: String,
+    default: 'https://placehold.co/800x500/EEE/999'
   },
   features: {
     type: String,

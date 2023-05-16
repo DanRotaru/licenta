@@ -2,7 +2,7 @@
 
   <div class="col-lg-10 col-xl-6">
     <!-- DEFAULT STATE -->
-    <div v-if="!loading" class="card shadow h-100 card-project">
+    <div v-if="!loading" class="card shadow h-100 card-project" :data-category="category" :data-language="language">
       <!-- Image -->
       <router-link :to="'/' + projectUrl">
         <img :src="image || 'https://placehold.co/800x500/EEE/999'" class="card-img-top" alt="project image">
@@ -86,7 +86,9 @@ const props = defineProps([
   'projectUrl',
   'profileUrl',
   'cardType',
-  'level'
+  'level',
+  'category',
+  'language'
 ]);
 
 const cardTypeClass = ref('');

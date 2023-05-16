@@ -101,8 +101,9 @@
 
                         <div class="card-body">
 
-                          <h3 class="card-title mb-0">Dan Rotaru</h3>
-                          <p class="mb-2">FullStack Web Developer</p>
+                          <h3 class="card-title mb-0">{{ projectInfo.created.first_name }}
+                            {{ projectInfo.created.last_name }}</h3>
+                          <p class="mb-2">{{ projectInfo.created.position }}</p>
 
                           <ul class="list-inline mb-3">
                             <li class="list-inline-item me-3">
@@ -127,7 +128,7 @@
                               <div class="d-flex align-items-center me-3 mb-2">
                                 <span class="icon-md bg-orange bg-opacity-10 text-orange rounded-circle"><i
                                     class="fas fa-users"></i></span>
-                                <span class="h6 fw-light mb-0 ms-2">9.1k</span>
+                                <span class="h6 fw-light mb-0 ms-2">0</span>
                               </div>
                             </li>
                             <li class="list-inline-item">
@@ -141,12 +142,12 @@
                               <div class="d-flex align-items-center me-3 mb-2">
                                 <span class="icon-md bg-info bg-opacity-10 text-info rounded-circle"><i
                                     class="fas fa-comment-dots"></i></span>
-                                <span class="h6 fw-light mb-0 ms-2">205</span>
+                                <span class="h6 fw-light mb-0 ms-2">0</span>
                               </div>
                             </li>
                           </ul>
 
-                          <router-link class="btn" to="/user/DanRotaru">Go to profile</router-link>
+                          <router-link class="btn" :to="'/dashboard/users/id' + projectInfo.created.userId">Go to profile</router-link>
                         </div>
                       </div>
                     </div>
@@ -154,19 +155,26 @@
 
 
                   <h5 class="mb-3">About Author</h5>
-                  <p class="mb-3">Fulfilled direction use continual set him propriety continued. Saw met applauded
-                    favorite deficient engrossed concealed and her. Concluded boy perpetual old supposing. Farther
-                    related bed and passage comfort civilly. Dashboard see frankness objection abilities. As hastened oh
-                    produced prospect formerly up am. Placing forming nay looking old married few has. Margaret disposed
-                    of add screened rendered six say his striking confined. </p>
-                  <p class="mb-3">As it so contrasted oh estimating instrument. Size like body someone had. Are conduct
-                    viewing boy minutes warrant the expense? Tolerably behavior may admit daughters offending her ask
-                    own. Praise effect wishes change way and any wanted.</p>
+                  <div v-html="projectInfo.created.description"></div>
 
                   <div class="col-12">
-                    <ul class="list-group list-group-borderless mb-0">
-                      <li class="list-group-item pb-0">Mail ID:<a class="ms-2" href="#">hello@email.com</a></li>
-                      <li class="list-group-item pb-0">Web:<a class="ms-2" href="#">https://danrotaru.github.io/</a>
+
+                    <ul class="list-group list-group-borderless">
+                      <li class="list-group-item px-0">
+                        <span class="h6 fw-light">
+                          <i class="fas fa-fw fa-envelope text-primary me-1 me-sm-3"></i>
+                          Email:
+
+                        </span>
+                        <a href="#">{{ projectInfo.created.email }}</a>
+                      </li>
+
+                      <li class="list-group-item px-0">
+                        <span class="h6 fw-light">
+                          <i class="fas fa-fw fa-globe text-primary me-1 me-sm-3"></i>
+                          Website:
+                        </span>
+                        <a href="#none" target="_blank">none</a>
                       </li>
                     </ul>
                   </div>
@@ -175,7 +183,7 @@
 
                 <div id="course-pills-3" aria-labelledby="course-pills-tab-3" class="tab-pane fade" role="tabpanel">
                   <div class="row mb-4">
-                    <h5 class="mb-4">Our Student Reviews</h5>
+                    <h5 class="mb-4">Project Reviews</h5>
 
 
                     <div class="col-md-4 mb-3 mb-md-0">
@@ -650,7 +658,7 @@
 
               <div class="card shadow p-2 mb-4 z-index-9">
                 <div class="overflow-hidden rounded-3">
-                  <img alt="course image" class="card-img" src="/img/webify.png">
+                  <img alt="course image" class="card-img" :src="projectInfo.image">
 
                   <div class="bg-overlay bg-dark opacity-6"></div>
                   <div class="card-img-overlay d-flex align-items-start flex-column p-3">
@@ -878,6 +886,17 @@ const projectInfo = ref({
   discount_end: '',
   description: '',
   features: [''],
+  image: '',
+
+  created: {
+    userId: '',
+    first_name: '',
+    last_name: '',
+    avatar: '',
+    description: '',
+    email: '',
+    position: ''
+  },
 
   youtube: '',
   video: '',
@@ -910,9 +929,17 @@ async function getProjectInfo(id) {
     projectInfo.value.discount = res.data.info.discount;
     projectInfo.value.discount_end = res.data.info.discount_end;
     projectInfo.value.features = res.data.info.features;
-    projectInfo.value.image = res.data.info.image;
+    projectInfo.value.image = res.data.info.image || 'https://placehold.co/800x500/EEE/999';
     projectInfo.value.youtube = res.data.info.youtube;
     projectInfo.value.video = res.data.info.video;
+
+    projectInfo.value.created.first_name = res.data.info.createdBy.first_name;
+    projectInfo.value.created.last_name = res.data.info.createdBy.last_name;
+    projectInfo.value.created.avatar = res.data.info.createdBy.avatar;
+    projectInfo.value.created.description = res.data.info.createdBy.description;
+    projectInfo.value.created.email = res.data.info.createdBy.email;
+    projectInfo.value.created.position = res.data.info.createdBy.position;
+    projectInfo.value.created.userId = res.data.info.createdBy.userId;
 
     projectInfo.value.founded = true;
   } else {

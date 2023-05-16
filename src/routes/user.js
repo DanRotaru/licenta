@@ -320,13 +320,16 @@ router.get('/info/:id', async (req, res) => {
     return res.json({error: 'User not found!'});
   }
 
+  const projects = await Post.find({createdBy: user._id}).sort({'_id': -1}).populate('createdBy', 'avatar first_name last_name userId');
+
   const result = {
     first_name: user.first_name,
     last_name: user.last_name,
     email: user.email,
     description: user.description,
     position: user.position,
-    avatar: user.avatar
+    avatar: user.avatar,
+    projects
   }
 
   return res.json({success: 1, userInfo: result});
