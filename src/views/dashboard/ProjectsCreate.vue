@@ -7,10 +7,14 @@
 
       <div class="wrapper">
         <div class="dashboard-hero dashboard-hero_create">
-          <h1>Add new project</h1><button type="button" class="btn btn-success mb-3" @click="create()">
-          <i class="bi bi-plus-lg"></i>
-          Publish Project
-        </button>
+          <h1>Add new project</h1>
+
+          <button type="button" class="btn btn-success mb-3" @click="create()">
+            <i class="bi bi-plus-lg"></i>
+            Publish Project
+          </button>
+
+          <button class="btn btn-success" @click="go()">Test</button>
 
           <div class="project-create-steps">
             <div class="project-create-steps-progress nav" :data-group-item="pillsId">
@@ -47,7 +51,7 @@
                 <div class="col-md-6 mt-4">
                   <label class="form-label">Category</label>
                   <select class="form-select js-choice border-0 z-index-9 bg-transparent" aria-label=".form-select-sm"
-                          data-search-enabled="true" v-model="projectInfo.category" required>
+                          data-search-enabled="true" id="category" required>
                     <option value="">Select category</option>
                     <option v-for="category in data.categories" :key="category" :value="category">{{ category }}</option>
                   </select>
@@ -55,8 +59,8 @@
 
                 <div class="col-md-6 mt-4">
                   <label class="form-label">Language</label>
-                  <select class="form-select js-choice border-0 z-index-9 bg-transparent" multiple="multiple"
-                          aria-label=".form-select-sm" data-max-item-count="10" data-remove-item-button="true" required>
+                  <select class="form-select js-choice border-0 z-index-9 bg-transparent"
+                          aria-label=".form-select-sm" id="language" required>
                     <option value="">Select project language</option>
                     <option
                         v-for="lang in data.languages"
@@ -82,8 +86,7 @@
                 <div class="col-md-6 mt-4">
                   <label class="form-label" data-bs-toggle="tooltip" data-bs-placement="top"
                          data-bs-title="Specify project level">Project level</label>
-                  <select class="form-select js-choice border-0 z-index-9 bg-transparent" data-search-enabled="false"
-                          data-remove-item-button="true">
+                  <select class="form-select js-choice border-0 z-index-9 bg-transparent" id="level">
                     <option value="">Select project level</option>
                     <option v-for="level in data.project_levels" :key="level">{{ level }}</option>
                   </select>
@@ -118,13 +121,13 @@
                   <label class="form-label">Price after discount</label>
                   <div class="input-group">
                     <span class="input-group-text">$</span>
-                    <input type="number" class="form-control" placeholder="Price after discount" :value="projectInfo.discount_amount_value" readonly/>
+                    <input type="number" class="form-control" placeholder="Price after discount" :disabled="!projectInfo.discount" :value="projectInfo.discount_amount_value" readonly/>
                   </div>
                 </div>
 
                 <div class="col-md-3 mt-4">
                   <label class="form-label" for="discount_end">End discount</label>
-                  <input id="discount_end" type="datetime-local" class="form-control"  :disabled="!projectInfo.discount"
+                  <input id="discount_end" type="datetime-local" class="form-control" :disabled="!projectInfo.discount"
                          placeholder="End discount" v-model="projectInfo.discount_end">
                 </div>
 
@@ -143,7 +146,9 @@
                     <i class="fas fa-check-circle text-success me-2"></i>
                     <div class="form-floating w-100">
                       <input type="text" placeholder="Add new question" class="form-control faq__question"
-                             :id="'feature-' + index" v-model="projectInfo.features[index]">
+                             :id="'feature-' + index"
+                             v-on:keyup.enter="addNewFeature"
+                      >
                       <label :for="'feature-' + index">Feature</label>
                     </div>
                     <button type="button" class="btn btn-sm btn-danger w-100px mb-0" @click="removeFeature(feature)" :disabled="index < 1">
@@ -211,7 +216,7 @@
                   <!-- Input -->
                   <div class="col-12 mt-4 mb-5">
                     <label class="form-label">YouTube Video URL</label>
-                    <input class="form-control" type="text" placeholder="Enter video url">
+                    <input class="form-control" type="text" placeholder="Enter video url" v-model="projectInfo.youtube">
                   </div>
                   <div class="position-relative my-4">
                     <hr>
@@ -399,6 +404,8 @@
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
 import {onMounted, ref, watch} from "vue";
+import {useRouter} from 'vue-router';
+const router = useRouter();
 
 import * as data from '@/store/data'
 import axios from "axios";
@@ -518,6 +525,23 @@ async function create() {
     !projectInfo.value.description
   );
 
+  let featuresStr = '';
+
+  document.querySelectorAll('[id^="feature-"].form-control.faq__question').forEach((el) => {
+    featuresStr += el.value + '||';
+  });
+
+  formData.set('features', featuresStr);
+
+  const language = document.getElementById("language").value;
+  formData.set('language', language);
+
+  const category = document.getElementById("category").value;
+  formData.set('category', category);
+
+  const level = document.getElementById("level").value;
+  formData.set('level', level);
+
 
   delete formData.picture;
 
@@ -530,6 +554,7 @@ async function create() {
 
   if (res.data.success) {
     await Swal.fire('Success!', 'Project was successfully created!', 'success');
+    await router.push('/dashboard/projects/id' + res.data.postId);
   } else {
     await Swal.fire('Error!', res.data.error, 'error');
   }

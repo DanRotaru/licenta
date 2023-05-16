@@ -53,6 +53,9 @@ const schema = new Schema({
   image: {
     type: String
   },
+  features: {
+    type: String,
+  },
   discount: {
     type: Number,
     default: 0

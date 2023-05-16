@@ -5,35 +5,32 @@
         <div class="row py-5">
           <div class="col-lg-9">
 
-            <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">
-              {{ projectInfo.category }}
-            </h6>
+            <h6 class="mb-3 font-base bg-primary text-white py-2 px-4 rounded-2 d-inline-block">Web Development</h6>
 
-            <h1>{{ projectInfo.title }}</h1>
-
-            <div class="py-3" v-html="projectInfo.summary"></div>
+            <h1>Webify - professional-looking websites without any coding skills</h1>
+            <p class="py-3">Webify is a website builder platform that allows anyone to create professional-looking
+              websites without any
+              coding skills. With a simple drag-and-drop interface, users can choose from a variety of pre-built
+              templates
+              and customize them to their liking with images, text, and other content. Webify also includes features
+              such
+              as built-in SEO optimization, e-commerce functionality, and responsive design to ensure that the websites
+              created are optimized for search engines and display correctly on all devices.
+            </p>
 
             <ul class="list-inline mb-0">
-              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-                <i class="fas fa-star text-warning me-2"></i>
-                4.5/5.0
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-star text-warning me-2"></i>4.5/5.0
               </li>
-              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-                <i class="bi bi-people-fill text-orange me-1"></i>
-                0 users
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="bi bi-people-fill text-orange me-1"></i> 173
+                users
               </li>
-              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-                <i class="fas fa-signal text-success me-2"></i>
-                {{ projectInfo.level }}
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i class="fas fa-signal text-success me-2"></i>All
+                levels
               </li>
-              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
-                <i class="bi bi-patch-exclamation-fill text-danger me-2"></i>
-                Last updated 09/2021
+              <li class="list-inline-item h6 me-3 mb-1 mb-sm-0"><i
+                  class="bi bi-patch-exclamation-fill text-danger me-2"></i>Last updated 09/2021
               </li>
-              <li class="list-inline-item h6 mb-0">
-                <i class="fas fa-globe text-info me-2"></i>
-                {{ projectInfo.language }}
-              </li>
+              <li class="list-inline-item h6 mb-0"><i class="fas fa-globe text-info me-2"></i>English</li>
             </ul>
           </div>
         </div>
@@ -46,8 +43,10 @@
     Page content START -->
     <section class="pb-0 py-lg-2">
       <div class="row">
+
         <div class="col-lg-8">
           <div class="card shadow rounded-2 p-0">
+
             <div class="card-header border-bottom px-4 py-3">
               <ul :data-group-item="pillsId" class="nav nav-pills nav-tabs-line btn-tab-group" data-group="5">
                 <li v-for="(item, index) in buttons" class="nav-item" role="presentation">
@@ -64,33 +63,106 @@
                   </button>
                 </li>
               </ul>
+
             </div>
+
 
             <div class="card-body p-4">
               <div id="course-pills-tabContent" class="tab-content pt-2">
+
                 <div id="course-pills-1" aria-labelledby="course-pills-tab-1" class="tab-pane fade active show"
                      role="tabpanel">
 
                   <h5 class="mb-3">Project Description</h5>
-                  <div class="mb-3" v-html="projectInfo.description"></div>
+                  <p class="mb-3">
+                    Project Description: Webify is a website builder platform that allows anyone to create
+                    professional-looking websites without any coding skills. With a simple drag-and-drop interface,
+                    users can choose from a variety of pre-built templates and customize them to their liking with
+                    images, text, and other content. Webify also includes features such as built-in SEO optimization,
+                    e-commerce functionality, and responsive design to ensure that the websites created are optimized
+                    for search engines and display correctly on all devices.
+                  </p>
 
                   <h5 class="mb-2">Key Features</h5>
 
                   <ul class="list-group list-group-borderless mb-3">
-                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                      <i class="fas fa-check-circle text-success me-2"></i>
-
-                      Drag-and-drop interface for easy website building
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Drag-and-drop interface for easy website
+                      building
                     </li>
-                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                      <i class="fas fa-check-circle text-success me-2"></i>
-
-                      Pre-built templates for a variety of industries and purposes
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Pre-built templates for a variety of
+                      industries and purposes
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Customizable design elements, including
+                      images, text, and color schemes
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Built-in SEO optimization to improve website
+                      visibility
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>E-commerce functionality for selling products
+                      or services online
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Responsive design to ensure websites look
+                      great on all devices
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Target Audience: Small business owners,
+                      entrepreneurs, bloggers, and individuals who need a
+                      website but don’t have the time or technical skills to create one from scratch.
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Drag-and-drop interface for easy website
+                      building
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Pre-built templates for a variety of
+                      industries and purposes
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Customizable design elements, including
+                      images, text, and color schemes
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Built-in SEO optimization to improve website
+                      visibility
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>E-commerce functionality for selling products
+                      or services online
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Responsive design to ensure websites look
+                      great on all devices
+                    </li>
+                    <li class="list-group-item h6 fw-light d-flex mb-0"><i
+                        class="fas fa-check-circle text-success me-2"></i>Target Audience: Small business owners,
+                      entrepreneurs, bloggers, and individuals who need a
+                      website but don’t have the time or technical skills to create one from scratch.
                     </li>
                   </ul>
+
+                  <p class="mb-3">
+                    Business Model: Webify will offer a subscription-based model, with different tiers based on the
+                    number of websites and features needed. Customers can sign up for a free trial before committing to
+                    a paid subscription.
+                  </p>
+
+                  <p class="mb-0">
+                    Marketing Strategy: Webify will focus on content marketing and social media advertising to reach its
+                    target audience. The company will create blog posts, videos, and social media content that showcase
+                    the benefits of using Webify to create a website. They will also partner with influencers and
+                    industry experts to promote the platform and offer discounts or referral incentives to existing
+                    customers who bring in new users.
+                  </p>
                 </div>
 
                 <div id="course-pills-2" aria-labelledby="course-pills-tab-2" class="tab-pane fade" role="tabpanel">
+
                   <div class="card mb-0 mb-md-4">
                     <div class="row g-0 align-items-center">
                       <div class="col-md-5">
@@ -174,13 +246,16 @@
 
 
                 <div id="course-pills-3" aria-labelledby="course-pills-tab-3" class="tab-pane fade" role="tabpanel">
+
                   <div class="row mb-4">
                     <h5 class="mb-4">Our Student Reviews</h5>
 
 
                     <div class="col-md-4 mb-3 mb-md-0">
                       <div class="text-center">
+
                         <h2 class="mb-0">4.5</h2>
+
                         <ul class="list-inline mb-0">
                           <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
                           <li class="list-inline-item me-0"><i class="fas fa-star text-warning"></i></li>
@@ -195,7 +270,9 @@
 
                     <div class="col-md-8">
                       <div class="row align-items-center">
+
                         <div class="col-6 col-sm-8">
+
                           <div class="progress progress-sm bg-warning bg-opacity-15">
                             <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="100"
                                  class="progress-bar bg-warning" role="progressbar" style="width: 100%"></div>
@@ -203,6 +280,7 @@
                         </div>
 
                         <div class="col-6 col-sm-4">
+
                           <ul class="list-inline mb-0">
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -212,7 +290,9 @@
                           </ul>
                         </div>
 
+
                         <div class="col-6 col-sm-8">
+
                           <div class="progress progress-sm bg-warning bg-opacity-15">
                             <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="80"
                                  class="progress-bar bg-warning" role="progressbar" style="width: 80%"></div>
@@ -220,6 +300,7 @@
                         </div>
 
                         <div class="col-6 col-sm-4">
+
                           <ul class="list-inline mb-0">
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -231,6 +312,7 @@
 
 
                         <div class="col-6 col-sm-8">
+
                           <div class="progress progress-sm bg-warning bg-opacity-15">
                             <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="60"
                                  class="progress-bar bg-warning" role="progressbar" style="width: 60%"></div>
@@ -238,6 +320,7 @@
                         </div>
 
                         <div class="col-6 col-sm-4">
+
                           <ul class="list-inline mb-0">
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -249,6 +332,7 @@
 
 
                         <div class="col-6 col-sm-8">
+
                           <div class="progress progress-sm bg-warning bg-opacity-15">
                             <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40"
                                  class="progress-bar bg-warning" role="progressbar" style="width: 40%"></div>
@@ -256,6 +340,7 @@
                         </div>
 
                         <div class="col-6 col-sm-4">
+
                           <ul class="list-inline mb-0">
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -267,6 +352,7 @@
 
 
                         <div class="col-6 col-sm-8">
+
                           <div class="progress progress-sm bg-warning bg-opacity-15">
                             <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="20"
                                  class="progress-bar bg-warning" role="progressbar" style="width: 20%"></div>
@@ -274,6 +360,7 @@
                         </div>
 
                         <div class="col-6 col-sm-4">
+
                           <ul class="list-inline mb-0">
                             <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
                             <li class="list-inline-item me-0 small"><i class="far fa-star text-warning"></i></li>
@@ -288,7 +375,9 @@
 
 
                   <div class="row">
+
                     <div class="d-md-flex my-4">
+
                       <div class="avatar avatar-xl me-4 flex-shrink-0">
                         <img alt="avatar" class="avatar-img rounded-circle" src="/img/avatar/09.jpg">
                       </div>
@@ -327,6 +416,7 @@
 
 
                     <div class="d-md-flex mb-4 ps-4 ps-md-5">
+
                       <div class="avatar avatar-lg me-4 flex-shrink-0">
                         <img alt="avatar" class="avatar-img rounded-circle" src="/img/avatar/02.jpg">
                       </div>
@@ -343,9 +433,12 @@
                       </div>
                     </div>
 
+
                     <hr>
 
+
                     <div class="d-md-flex my-4">
+
                       <div class="avatar avatar-xl me-4 flex-shrink-0">
                         <img alt="avatar" class="avatar-img rounded-circle" src="/img/avatar/08.jpg">
                       </div>
@@ -379,6 +472,7 @@
                         </div>
                       </div>
                     </div>
+
 
                     <hr>
                   </div>
@@ -474,7 +568,9 @@
 
 
                 <div id="course-pills-4" aria-labelledby="course-pills-tab-4" class="tab-pane fade" role="tabpanel">
+
                   <h5 class="mb-3">Frequently Asked Questions</h5>
+
                   <div id="faqAccordion"
                        class="accordion accordion-icon accordion-bg-light mt-4 text-start position-relative">
 
@@ -672,7 +768,7 @@
 
                     <div>
                       <div class="d-flex align-items-center">
-                        <h3 class="fw-bold mb-0 me-2 f-inter">${{ projectInfo.price }}</h3>
+                        <h3 class="fw-bold mb-0 me-2 f-inter">$150</h3>
                         <span class="text-decoration-line-through mb-0 me-2 f-inter">$350</span>
                         <span class="badge text-bg-orange mb-0">60% off</span>
                       </div>
@@ -896,7 +992,7 @@ const api = axios.create({
 async function getProjectInfo(id) {
   const res = await api.get('/post/get/' + id);
 
-  console.log(res.data.info);
+  console.log(res.data);
 
   if (res.data.success) {
     projectInfo.value.title = res.data.info.title;
@@ -918,6 +1014,8 @@ async function getProjectInfo(id) {
   } else {
     projectInfo.value.not_found = true;
   }
+
+  console.log(projectInfo.value);
 
 }
 

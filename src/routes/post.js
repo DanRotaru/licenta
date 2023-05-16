@@ -27,36 +27,43 @@ router.post('/create', async (req, res) => {
     faqs
   } = req.body;
 
-  let pictureImage;
-
-  const noRequiredData = (!title || !category || !language || !summary || !tags || !level || !price || !description);
-
-  console.log({
-    title,
-    category,
-    language,
-    summary,
-    tags,
-    level,
-    price,
-    discount,
-    discount_amount,
-    discount_amount_value,
-    discount_end,
-    description,
-  })
-
-  if (noRequiredData) {
-    return res.json({error: 'All fields are required!'});
+  if (!title.length) {
+    return res.json({error: 'Project title field is required!'});
   }
 
-  const user = await User.findById(req.session.auth).limit(1);;
+  if (!category.length) {
+    return res.json({error: 'Project category field is required!'});
+  }
+
+  if (!language.length) {
+    return res.json({error: 'Project language field is required!'});
+  }
+
+  if (!summary.length) {
+    return res.json({error: 'Project summary field is required!'});
+  }
+
+  if (!level.length) {
+    return res.json({error: 'Project Level field is required!'});
+  }
+
+  if (!price.length) {
+    return res.json({error: 'Project price field is required!'});
+  }
+
+  if (!description.length) {
+    return res.json({error: 'Project description field is required!'});
+  }
+
+  const user = await User.findById(req.session.auth).limit(1);
   if (!user) {
     return res.status(401).json({error: 'Unauthorized'});
   }
+  let pictureImage;
 
   if (req.files) {
     const picture = req.files.pictureRaw;
+
 
     if (picture) {
       const uploadPath = __dirname + '../../../public/uploads/' + picture.name;
@@ -129,10 +136,10 @@ router.get('/get/:id', async (req, res) => {
 
   if (id.startsWith('id')) {
     const numericId = Number(id.replace(/\D/g, ''));
-    project = await Post.findOne({postId: numericId});
+    project = await Post.findOne({postId: numericId}).populate('createdBy', 'avatar first_name last_name userId position email');
   } else {
     if (Types.ObjectId.isValid(id)) {
-      project = await Post.findById({_id: id}).limit(1);
+      project = await Post.findById({_id: id}).limit(1).populate('createdBy', 'avatar first_name last_name userId position email');
     } else {
       return res.json({error: 'Invalid user id!'});
     }

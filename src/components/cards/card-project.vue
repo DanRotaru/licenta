@@ -22,7 +22,7 @@
         <h5 class="card-title">
           <router-link :to="'/' + projectUrl">{{ title }}</router-link>
         </h5>
-        <p class="mb-2 text-truncate-3" v-html="description"></p>
+        <p class="mb-2 text-truncate-3">{{description.replace(/<[^>]*>/g, '')}}</p>
       </div>
 
       <div class="card-footer py-3">
