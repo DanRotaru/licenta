@@ -77,15 +77,9 @@
                   <h5 class="mb-2">Key Features</h5>
 
                   <ul class="list-group list-group-borderless mb-3">
-                    <li class="list-group-item h6 fw-light d-flex mb-0">
+                    <li class="list-group-item h6 fw-light d-flex mb-0" v-for="feature in projectInfo.features">
                       <i class="fas fa-check-circle text-success me-2"></i>
-
-                      Drag-and-drop interface for easy website building
-                    </li>
-                    <li class="list-group-item h6 fw-light d-flex mb-0">
-                      <i class="fas fa-check-circle text-success me-2"></i>
-
-                      Pre-built templates for a variety of industries and purposes
+                      {{ feature }}
                     </li>
                   </ul>
                 </div>
@@ -885,7 +879,7 @@ const projectInfo = ref({
   discount: false,
   discount_end: '',
   description: '',
-  features: [''],
+  features: [],
   image: '',
 
   created: {
@@ -928,7 +922,7 @@ async function getProjectInfo(id) {
     projectInfo.value.price = res.data.info.price;
     projectInfo.value.discount = res.data.info.discount;
     projectInfo.value.discount_end = res.data.info.discount_end;
-    projectInfo.value.features = res.data.info.features;
+    projectInfo.value.features = res.data.info.features.split('||').filter(n => n);
     projectInfo.value.image = res.data.info.image || 'https://placehold.co/800x500/EEE/999';
     projectInfo.value.youtube = res.data.info.youtube;
     projectInfo.value.video = res.data.info.video;
