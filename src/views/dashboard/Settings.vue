@@ -202,7 +202,7 @@
                     </div>
                   </div>
 
-                  <button class="btn btn-sm float-end mt-3 mb-0">Update data</button>
+                  <button class="btn btn-sm float-end mt-3 mb-0" @click="updateInfo()">Update data</button>
 
                 </div>
               </div>
@@ -578,6 +578,28 @@ async function updateDescription() {
 
   if (res.data.success) {
     await Swal.fire('Success!', 'Data successfully saved!', 'success');
+    store.commit('setUserInfo', res.data.userInfo);
+
+  } else {
+    await Swal.fire('Error!', res.data.error, 'error');
+  }
+}
+
+async function updateInfo() {
+  const res = await api.post(baseURL + "/user/update/info", {
+    first_name: userData.value.first_name,
+    last_name: userData.value.last_name,
+  });
+  if (!res.data) {
+    await Swal.fire('Error!', 'Error while sending request!', 'error');
+    return false;
+  }
+
+  if (res.data.success) {
+    await Swal.fire('Success!', 'Data successfully saved!', 'success');
+    userData.value.first_name = res.data.userInfo.first_name;
+    userData.value.last_name = res.data.userInfo.last_name;
+
     store.commit('setUserInfo', res.data.userInfo);
 
   } else {

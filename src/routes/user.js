@@ -285,6 +285,18 @@ router.post('/update/:action', async (req, res) => {
     await user.save();
 
     return res.json({success: 1});
+  } else if (action === 'info') {
+    const { first_name, last_name } = req.body;
+
+    if (!first_name.length || !last_name.length) {
+      return res.json({error: 'Required fields are not empty!'});
+    }
+
+    user.first_name = first_name;
+    user.last_name = last_name;
+    await user.save();
+
+    return res.json({success: 1, userInfo: user});
   } else {
     return res.json({error: 'Not specified update action!'});
   }
