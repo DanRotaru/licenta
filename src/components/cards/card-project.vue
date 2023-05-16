@@ -11,7 +11,7 @@
       <div class="card-body pb-0">
         <div class="d-flex justify-content-between mb-2">
           <div class="d-flex gap-1">
-            <span class="badge bg-purple bg-opacity-10 text-purple text-capitalize">{{ level }}</span>
+            <span class="badge bg-purple bg-opacity-10 text-purple text-capitalize">{{ category }}</span>
           </div>
 
           <a href="#" class="h6 fw-light mb-0" v-if="store.getters.isAuthenticated">

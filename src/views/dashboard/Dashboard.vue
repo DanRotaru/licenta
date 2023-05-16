@@ -41,7 +41,7 @@
                     </div>
                     <div class="item__title">
                       <div class="description">Income</div>
-                      <div class="number">865 $</div>
+                      <div class="number">$865</div>
                     </div>
                     <div class="item__diff positive">
                       <i class="bi bi-arrow-up-short"></i>
@@ -86,7 +86,7 @@
                 <div class="card shadow h-100">
                   <div class="card-body">
                     <h6 class="mb-0">This month earning</h6>
-                    <h2 class="mb-2 mt-2 poppins">$15,356</h2>
+                    <h2 class="mb-2 mt-2 poppins">$865</h2>
                     <p class="mb-0">Expected payout on 05/06/2023</p>
                   </div>
                 </div>
@@ -106,24 +106,29 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr v-for="i in 5">
+                  <tr v-for="project in projects">
                     <td>1</td>
                     <td>
-                      <router-link to="/">
-                        Project title
+                      <router-link :to="'/dashboard/projects/id' + project.postId"
+                      style="display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 400px;
+    white-space: nowrap;">
+                        {{ project.title }}
                       </router-link>
                     </td>
                     <td>
-                      <span class="badge bg-purple bg-opacity-10 text-purple text-capitalize"> Web Development </span>
+                      <span class="badge bg-purple bg-opacity-10 text-purple text-capitalize">{{ project.category }}</span>
                     </td>
                     <td>
                       <div class="d-flex gap-2 align-items-center">
                         <div class="avatar">
-                          <img class="avatar-img rounded-circle" src="/img/me.webp" alt="avatar">
+                          <img class="avatar-img rounded-circle" :src="project.createdBy.avatar" alt="avatar">
                         </div>
                         <div>
-                          <div>Dan Rotaru</div>
-                          <div class="text-sm">Fullstack Web Developer</div>
+                          <div>{{ project.createdBy.first_name + ' ' + project.createdBy.last_name }}</div>
+                          <div class="text-sm">{{ project.createdBy.position }}</div>
                         </div>
                       </div>
                     </td>
@@ -166,24 +171,31 @@
                   <div>Project</div>
                   <div>Price</div>
                 </div>
+
                 <div class="project-popular">
-                  <div class="project-popular__item" v-for="i in 5">
+                  <div class="project-popular__item" v-for="project in projects">
                     <div class="d-flex gap-2">
-                      <img src="/uploads/chillout.webp" alt="project">
+                      <img :src="project.image" alt="project">
                       <div>
-                        <div class="project__title">Project title</div>
+                        <div class="project__title" style="    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 260px;
+    white-space: nowrap;">{{ project.title }}</div>
                         <span class="badge bg-purple bg-opacity-10 text-purple text-capitalize">
-                          Web Development
+                          {{ project.category }}
                         </span>
                       </div>
                     </div>
                     <div>
-                      <div class="project__price text-success">108 $</div>
+                      <div class="project__price text-success">{{ project.price }} $</div>
                       <span class="badge bg-success bg-opacity-10 text-success text-capitalize">
                           Active
                         </span>
                     </div>
                   </div>
+
+
                 </div>
                 <a href="#" class="btn w-100">All Projects</a>
               </div>
@@ -198,11 +210,13 @@
 <script setup>
 import Navigation from "@/components/dashboard/Navigation.vue";
 import Header from "@/components/dashboard/Header.vue";
-import {onMounted, watch} from "vue";
+import {onMounted, ref, watch} from "vue";
 import ApexCharts from 'apexcharts'
 
 import store from "@/store";
 import Calendar from "@/components/Calendar.vue";
+import * as data from "@/store/data";
+import axios from "axios";
 
 const viewsChart = {
   chart: {
@@ -465,4 +479,32 @@ const options9 = {
   }
 }
 
+const projects = ref([]);
+const baseURL = data.BACKEND_API;
+
+const api = axios.create({
+  baseURL: data.BACKEND_API,
+  withCredentials: true
+});
+
+async function getProjects() {
+  const res = await api.get(baseURL + "/post/all");
+
+  if (!res.data) {
+    console.log('none');
+    return false;
+    // await Swal.fire('Error!', 'Error while sending request!', 'error');
+  }
+
+  if (res.data.success) {
+    console.log(res.data);
+    projects.value = res.data.projects;
+  } else {
+    console.log('none...');
+    // await Swal.fire('Error!', res.data.error, 'error');
+  }
+
+}
+
+getProjects();
 </script>
