@@ -744,15 +744,7 @@
               <div class="card card-body shadow p-4 mb-4">
                 <h4 class="mb-3">Project Tags</h4>
                 <ul class="list-inline mb-0">
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">blog</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">business</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">theme</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">bootstrap</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">data science</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">web development</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">tips</a></li>
-                  <li class="list-inline-item"><a class="btn btn-sm" href="#">machine learning</a>
-                  </li>
+                  <li class="list-inline-item" v-for="tag in (projectInfo.tags.split('|'))"><a class="btn btn-sm" href="#">{{ tag }}</a></li>
                 </ul>
               </div>
 

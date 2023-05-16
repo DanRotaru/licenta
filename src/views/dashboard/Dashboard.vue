@@ -32,7 +32,7 @@
                     </div>
                     <div class="item__diff negative">
                       <i class="bi bi-arrow-down-short"></i>
-                      37.8%
+                      18.8%
                     </div>
                   </div>
                   <div class="item">
@@ -45,7 +45,7 @@
                     </div>
                     <div class="item__diff positive">
                       <i class="bi bi-arrow-up-short"></i>
-                      37.8%
+                      85.6%
                     </div>
                   </div>
                 </div>
