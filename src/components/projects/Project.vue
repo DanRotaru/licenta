@@ -28,7 +28,7 @@
               </li>
               <li class="list-inline-item h6 me-3 mb-1 mb-sm-0">
                 <i class="bi bi-patch-exclamation-fill text-danger me-2"></i>
-                Last updated 09/2021
+                Last updated 17.05.2022
               </li>
               <li class="list-inline-item h6 mb-0">
                 <i class="fas fa-globe text-info me-2"></i>
@@ -880,6 +880,7 @@ const projectInfo = ref({
   discount_end: '',
   description: '',
   features: [],
+  updated: '',
   image: '',
 
   created: {
