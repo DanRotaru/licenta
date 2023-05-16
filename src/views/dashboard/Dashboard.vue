@@ -69,7 +69,7 @@
               <div class="col-lg-4">
                 <div class="card shadow h-100">
                   <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
+                    <h5 class="card-title">Account Activity</h5>
                   </div>
                   <apexchart :options="options2" :series="options2.series"/>
                 </div>
@@ -77,7 +77,7 @@
               <div class="col-lg-4">
                 <div class="card shadow h-100">
                   <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
+                    <h5 class="card-title">Project selling</h5>
                   </div>
                   <apexchart :options="options5" :series="options5.series"/>
                 </div>
@@ -85,9 +85,10 @@
               <div class="col-lg-4">
                 <div class="card shadow h-100">
                   <div class="card-body">
-                    <h5 class="card-title">Weekly visitors</h5>
+                    <h6 class="mb-0">This month earning</h6>
+                    <h2 class="mb-2 mt-2 poppins">$15,356</h2>
+                    <p class="mb-0">Expected payout on 05/06/2023</p>
                   </div>
-                  <apexchart :options="visitorsChart" :series="visitorsChart.series"/>
                 </div>
               </div>
             </div>
@@ -157,7 +158,7 @@
               <apexchart :options="visitorsChart" :series="visitorsChart.series"/>
             </div>
 
-            <div class="card shadow">
+            <div class="card shadow mb-4">
               <div class="card-body">
                 <h5 class="card-title">Popular projects</h5>
 
@@ -184,82 +185,11 @@
                     </div>
                   </div>
                 </div>
-
                 <a href="#" class="btn w-100">All Projects</a>
               </div>
             </div>
           </div>
-
         </div>
-
-        <div class="row mb-4">
-          <div class="col-lg-6">
-            <div class="row mb-4">
-              <div class="col-lg-6">
-                <div class="card shadow h-100">
-                  <div class="card-body">
-                    <h6 class="mb-0">This month earning</h6>
-                    <h2 class="mb-2 mt-2">$15,356</h2>
-                    <p class="mb-0">Expected payout on 05/01/2023</p>
-                  </div>
-                </div>
-
-
-              </div>
-              <div class="col-lg-6">
-                <div class="card shadow h-100">
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-lg-6">
-                <div class="card shadow h-100">
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="card shadow h-100">
-                  <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <div class="card shadow h-100">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row mb-4">
-          <div class="col-lg-4">
-            <div class="card shadow h-100">
-              <div class="card-body">
-                <h5 class="card-title">Special title treatment</h5>
-                <apexchart :options="options1" :series="options1.series"/>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </main>
   </div>
