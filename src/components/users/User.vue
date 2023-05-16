@@ -10,7 +10,6 @@
               </div>
 
               <div class="card-body px-3">
-                <div>User 1 - {{ id }}</div>
                 <div class="rating mb-3">
                   <ul class="list-inline mb-0">
                     <li class="list-inline-item me-0 small"><i class="fas fa-star text-warning"></i></li>
@@ -80,7 +79,7 @@
                   <div class="progress-bar bg-success aos aos-init aos-animate" role="progressbar"
                        data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000"
                        data-aos-easing="ease-in-out" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
-                       style="width: 70%;"><span class="progress-percent-simple h6 mb-0">70%</span></div>
+                       style="width: 78%;"><span class="progress-percent-simple h6 mb-0">78%</span></div>
                 </div>
               </div>
               <div class="overflow-hidden mb-4"><h6 class="uppercase">UI/UX</h6>
@@ -88,7 +87,31 @@
                   <div class="progress-bar bg-danger aos aos-init aos-animate" role="progressbar"
                        data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000"
                        data-aos-easing="ease-in-out" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
-                       style="width: 50%;"><span class="progress-percent-simple h6 mb-0">50%</span></div>
+                       style="width: 75%;"><span class="progress-percent-simple h6 mb-0">75%</span></div>
+                </div>
+              </div>
+              <div class="overflow-hidden mb-4"><h6 class="uppercase">Vue.JS</h6>
+                <div class="progress progress-sm bg-info bg-opacity-10">
+                  <div class="progress-bar bg-info aos aos-init aos-animate" role="progressbar"
+                       data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000"
+                       data-aos-easing="ease-in-out" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                       style="width: 70%;"><span class="progress-percent-simple h6 mb-0">70%</span></div>
+                </div>
+              </div>
+              <div class="overflow-hidden mb-4"><h6 class="uppercase">MongoDB</h6>
+                <div class="progress progress-sm bg-purple bg-opacity-10">
+                  <div class="progress-bar bg-purple aos aos-init aos-animate" role="progressbar"
+                       data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000"
+                       data-aos-easing="ease-in-out" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                       style="width: 65%;"><span class="progress-percent-simple h6 mb-0">65%</span></div>
+                </div>
+              </div>
+              <div class="overflow-hidden mb-4"><h6 class="uppercase">SQL</h6>
+                <div class="progress progress-sm bg-blue bg-opacity-10">
+                  <div class="progress-bar bg-blue aos aos-init aos-animate" role="progressbar"
+                       data-aos="slide-right" data-aos-delay="200" data-aos-duration="1000"
+                       data-aos-easing="ease-in-out" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                       style="width: 60%;"><span class="progress-percent-simple h6 mb-0">60%</span></div>
                 </div>
               </div>
             </div>
@@ -127,7 +150,7 @@
                 class="icon-lg text-success mb-0 bg-success bg-opacity-10 rounded-3"><i
                 class="fas fa-play"></i></span>
               <div class="ms-3">
-                <div class="d-flex"><h5 class="mb-0 fw-bold f-inter">15</h5><span class="mb-0 h5">+</span></div>
+                <div class="d-flex"><h5 class="mb-0 fw-bold f-inter">{{ userInfo.projects.length }}</h5><span class="mb-0 h5">+</span></div>
                 <p class="mb-0 h6 fw-light">Total Projects</p></div>
             </div>
           </div>
