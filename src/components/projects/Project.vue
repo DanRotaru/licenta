@@ -704,7 +704,7 @@
 
                   <div class="mt-3 d-sm-flex justify-content-sm-between">
                     <a class="btn btn-outline-primary mb-0" href="#">Contact seller</a>
-                    <a class="btn btn-success mb-0" href="#">Buy project</a>
+                    <button class="btn btn-success mb-0" data-bs-toggle="modal" data-bs-target="#buyModal">Buy project</button>
                   </div>
                 </div>
               </div>
@@ -797,6 +797,78 @@
     <!-- =======================
     Page content END -->
 
+    <!-- Buy Modal -->
+    <div class="modal fade" id="buyModal" tabindex="-1" aria-labelledby="buyModalLabel" aria-hidden="true">
+      <div class="modal-dialog checkout-modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="buyModalLabel">Checkout</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="order">
+              <div class="order-payment">
+                <div class="order-payment__title">Payment system</div>
+
+                <div class="order-payment__type">CASHLESS</div>
+
+                <div class="order-payment-wrapper">
+                  <div class="order-payment-item" v-for="item in paymentSystem.cashless" @click="setActivePayment">
+                    <img :src="`/img/payment/${item}.svg`" alt="payment">
+                  </div>
+                </div>
+
+                <div class="order-payment__type">CRYPTOCURRENCY</div>
+
+                <div class="order-payment-wrapper">
+                  <div class="order-payment-item" v-for="item in paymentSystem.crypto" @click="setActivePayment">
+                    <img :src="`/img/payment/${item}.svg`" alt="payment">
+                  </div>
+                </div>
+
+                <label for="contact-developer" class="order-payment__type">Contact developer</label>
+                <textarea class="form-control" id="contact-developer" rows="3" placeholder="Write something to developer here..."></textarea>
+                <div class="form-text">Contact developer for more additional information or questions.</div>
+
+
+                <div class="form-check mt-2 mb-0 text-sm d-flex justify-content-end">
+                  <input class="form-check-input" type="checkbox" id="email-send" checked>
+                  <label class="form-check-label" for="email-send">Share personal email with developer</label>
+                </div>
+
+              </div>
+              <div class="order-info">
+                <div class="order-payment__title mb-4">Project Details</div>
+
+                <div class="order-info__subtitle">Project Title</div>
+                <div class="order-info__title">Webify - professional-looking websites without any coding skills</div>
+
+                <div class="order-info__subtitle">Download as</div>
+                <div class="order-info__title">Archive (.zip)</div>
+
+                <div class="order-info__subtitle mt-auto">Project price</div>
+                <div class="order-info__title order-info__title_md">200 USD</div>
+
+                <div class="order-info__subtitle">Fee</div>
+                <div class="order-info__title order-info__title_md">2.4%</div>
+
+                <div class="order-info__subtitle">Final price</div>
+                <div class="order-info__title order-info__price">204.8 USD</div>
+              </div>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-primary btn-lg">
+              Checkout
+
+              <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -943,4 +1015,33 @@ onMounted(() => {
     link.classList.add("router-link-active");
   }
 });
+
+const paymentSystem = {
+  cashless: [
+    'visa_color',
+    'mastercard_color',
+    'googlepay_color',
+    'applepay_color',
+  ],
+  crypto: [
+    'bitcoin_color',
+    'bitcoincash_color',
+    'ripple_color',
+    'ethereum_color',
+    'zcash_color',
+    'tether_color',
+    'litecoin_color',
+    'dash_color',
+    'dogecoin_color',
+    'binance_color',
+  ]
+};
+
+const setActivePayment = () => {
+  document.querySelectorAll('.order-payment-item').forEach(el => {
+    el.classList.remove('active');
+  });
+
+  event.target.classList.add('active');
+}
 </script>
